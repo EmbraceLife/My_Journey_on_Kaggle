@@ -22,4 +22,5 @@
 
 <mark style="background: #FFB86CA6;">Modeling</mark> 
 - why do modeling, instead of doing statistical analysis to find interesting things? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115390387&cellId=19)
-- 
+- what are all the libraries and funcions needed for the modeling? cell
+- what are the features and target? cell
