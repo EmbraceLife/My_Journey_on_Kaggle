@@ -63,9 +63,13 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 
 - How to print `head` and `tail` together with `suffix` [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=30)
 - check `width`, `height`, `shape[0]` of a df, [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115390387&cellId=18)
-- 
+- how to do `argsort` for Series? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=34)
 
 <mark style="background: #FFB86CA6;">How to create dataframe or series</mark> 
+- how to add a series/column to a df with `hstack`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.hstack.html)
+- how to add two dfs vertically with `vstack`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.vstack.html), [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115436833&cellId=30) 
+- how to stack two series horizontally with `append`, `from_numpy` and `to_series`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115436833&cellId=30)
+- how to `concat` the features (numpy.array and list of col_names) and target (numpy.array and list of col_names) from the dict with `from_numpy`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115427577&cellId=30)
 - how to convert a dict of dicts into a list of dicts? [cell](https://www.kaggle.com/code/danielliao/evaluate-otto-organizer-script?scriptVersionId=115365367&cellId=17)
 - How to create a dataframe with a list of dicts with `pl.DataFrame`? [cell](https://www.kaggle.com/code/danielliao/evaluate-otto-organizer-script?scriptVersionId=115365367&cellId=18)
 - How to create a dataframe from a dict of lists? [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.from_dict.html#polars-from-dict)
@@ -75,6 +79,17 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - how to scan parquet file with super speed? [cell](https://www.kaggle.com/code/danielliao/recreate-otto-full-optimized-memory-footprint?scriptVersionId=114185126&cellId=5)
 - how to just read a 100 rows of data from a huge json file with `pl.scan_ndjson`? [cell](https://www.kaggle.com/code/danielliao/recreate-otto-full-optimized-memory-footprint?scriptVersionId=114180650&cellId=26)
 	- why do we need it given `fetch`, because if the large is too large, `fetch` can blow out 30GB RAM
+
+
+<mark style="background: #FFB86CA6;">How to do merge, join, concat dfs</mark> 
+- melt in polars [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.melt.html)
+- how to `join` with `left_on` and `right_on`? [video](https://youtu.be/VHqn7ufiilE?t=554) 
+- how to `join` two dataframes which share a single column? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.join.html#polars.DataFrame.join), [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115090928&cellId=30)
+- how to `concat` two dfs? [video](https://youtu.be/VHqn7ufiilE?t=577)
+- how to `join` 2 dfs `on` two columns `on=['session', 'type']` and by `how='outer'` look like? [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115343714&cellId=20)
+- how to `join` 3 dfs like this `click_hits.join(cart_hits, on='session').join(order_hits, on='session').sort('session')`? [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115355042&cellId=40)
+
+
 
 <mark style="background: #FFB86CA6;">How to deal with `None` or `null`</mark> 
 - How to create 3 `null` and `append` to a column? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.Expr.rechunk.html#polars.Expr.rechunk)
@@ -100,19 +115,21 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 <mark style="background: #FFB86CA6;">How to read or split a huge dataframe into chunks</mark> 
 - How to split a large dataframe into multiples dataframes based on groups with `partition_by`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.partition_by.html)
 
-<mark style="background: #FFB86CA6;">How to do merge, join, concat in polars</mark> 
-- melt in polars [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.melt.html)
-- how to `join` with `left_on` and `right_on`? [video](https://youtu.be/VHqn7ufiilE?t=554) 
-- how to `join` two dataframes which share a single column? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.join.html#polars.DataFrame.join), [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115090928&cellId=30)
-- how to `concat` two dfs? [video](https://youtu.be/VHqn7ufiilE?t=577)
-- how to `join` 2 dfs `on` two columns `on=['session', 'type']` and by `how='outer'` look like? [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115343714&cellId=20)
-- how to `join` 3 dfs like this `click_hits.join(cart_hits, on='session').join(order_hits, on='session').sort('session')`? [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115355042&cellId=40)
+
 
 <mark style="background: #FFB86CA6;">How two dataframes work together</mark> 
 - How to do ops on two cols from two different dataframes? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115141923&cellId=76)
 - Are their differences between two sum columns all zero? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115141923&cellId=76) 
 
+
+<mark style="background: #FFB86CA6;">How to select and deselect columns</mark> 
+- how to `exclude` column(s) by name, wildcard and dtypes? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.exclude.html)
+- how to select all columns with `pl.all`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.all.html#polars.all)
+- how to check bool values of a column to be True or not with `exp.all`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.Expr.all.html#polars.Expr.all) and [api](https://pola-rs.github.io/polars/py-polars/html/reference/series/api/polars.Series.all.html#polars.Series.all)
+
+
 <mark style="background: #FFB86CA6;">How to select or filter rows</mark> 
+- how to select a subset of df with a list of features/columns and a list of idx with `[][]`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115432650&cellId=36) 
 - How to use `slice`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.slice.html)
 - How to use `shift` to remove the last event of each session? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115098705&cellId=25)
 - How to select the unique rows when a column has lists instead of scalar value (`unique`, `is_unique`, `is_duplicated` can't be applied) ? `groupby`, `pl.all().first()` can work. [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115131052&cellId=49) 
@@ -146,11 +163,6 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - check `n_unique` of each columns [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=27)
 - check the total rows with `count` [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=27)
 - check the `first`, `last`, `min`, `max` datetime [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=26)
-
-<mark style="background: #FFB86CA6;">How to select and deselect columns</mark> 
-- how to `exclude` column(s) by name, wildcard and dtypes? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.exclude.html)
-- how to select all columns with `pl.all`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.all.html#polars.all)
-- how to check bool values of a column to be True or not with `exp.all`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.Expr.all.html#polars.Expr.all) and [api](https://pola-rs.github.io/polars/py-polars/html/reference/series/api/polars.Series.all.html#polars.Series.all)
 
 <mark style="background: #FFB86CA6;">How to work with `struct`</mark> 
 - how to generate a `struct` by `value_counts`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115387944&cellId=12)
@@ -200,6 +212,7 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 
 <mark style="background: #FFB86CA6;">doing statistics</mark> 
 - how to do `describe` to df and series: [api-df](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.describe.html#polars.DataFrame.describe), [api-series](https://pola-rs.github.io/polars/py-polars/html/reference/series/api/polars.Series.describe.html#polars.Series.describe), describe a series to see this [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115288870&cellId=14)
+- how to take the mean of a list with `pl.Series(list).mean`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=32)
 
 <mark style="background: #FFB86CA6;">map vs apply in polars</mark> 
 - `map` (or `pl.duration` alike) vs `apply` (with `timedelta`) on speed and RAM usage [notebook](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113894779)
