@@ -106,16 +106,11 @@ earlier exploration prior to #otto_radek_optimized_polars
 	- now I can use polars to load and transform the otto `train.jsonl` to `train.parquet` [notebook](https://www.kaggle.com/code/danielliao/kaggle-otto-process-data?scriptVersionId=114116322)
 
 ---
-<mark style="background: #FFB8EBA6;">2023 Todos</mark> 
-- to finish my journey on OTTO competition (starting from knowing almost nothing on recsys)
-- to replicate Radek's [journey](https://www.kaggle.com/code/radek1/fast-ai-starter-pack-train-inference) on RSNA competition 
-- to replicate DienhoaT's [journey](https://twitter.com/DienhoaT/status/1518805343425503232) on PogChamp Series competition
-
-Lesson 1
-- Classifying Cats and Dogs [note](https://walkwithfastai.com/revisited/pets.html), notebook on [github](https://github.com/muellerzr/Walk-with-fastai-revisited/blob/main/01_pets.ipynb), on kaggle
 
 ---
+<mark style="background: #FFB8EBA6;">Q&A </mark> 
 
+- what the `density` stats on otto dataset is about? answered [here](https://github.com/otto-de/recsys-dataset/issues/2) <mark style="background: #ADCCFFA6;">answered</mark> 
 
 ---
 <mark style="background: #FFB8EBA6;">MY PIPELINES </mark> 
