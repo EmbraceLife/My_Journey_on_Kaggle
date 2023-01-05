@@ -81,6 +81,24 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 	- why do we need it given `fetch`, because if the large is too large, `fetch` can blow out 30GB RAM
 
 
+<mark style="background: #FFB86CA6;">How to check whether two dataframes are the same?</mark> 
+- Two dataframes <mark style="background: #FF5582A6;">must have the columns sorted in the same way</mark>  with `sort`, before run `frame_equal` or `assert_frame_equal` [cell](https://www.kaggle.com/code/danielliao/compare-train-test-full-ms-with-cdeotte?scriptVersionId=115192421&cellId=12)
+- when two dfs have a column with lists inside, <mark style="background: #FF5582A6;">the list needs to be sorted</mark> with `arr.sort` before `assert_frame_equal` [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115144772&cellId=80)
+- How to compare series using `series_equal`? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115140482&cellId=64)
+- use `testing.assert_frame_equal`, [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.testing.assert_frame_equal.html) and dataframes must be <mark style="background: #FF5582A6;">same type</mark> (lazy or not) [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-full-validation?scriptVersionId=115004300&cellId=49)
+- use `testing.assert_series_equal`, [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.testing.assert_series_equal.html), more [examples](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=33) on frame and series compare
+- use `frame_equal` to compare two dataframe [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980731&cellId=32)
+- compare two <mark style="background: #BBFABBA6;">arrays</mark> with `np.array_equiv` and `np.array_equal`, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=34)
+
+
+
+<mark style="background: #FFB86CA6;">How two dataframes work together</mark> 
+- How to do ops on two cols from two different dataframes? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115141923&cellId=76)
+- Are their differences between two sum columns all zero? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115141923&cellId=76) 
+- how to convert pandas df or <mark style="background: #BBFABBA6;">pandas</mark> series into arrays with `to_numpy`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=39)
+
+
+
 <mark style="background: #FFB86CA6;">How to do merge, join, concat dfs</mark> 
 - melt in polars [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.melt.html)
 - how to `join` with `left_on` and `right_on`? [video](https://youtu.be/VHqn7ufiilE?t=554) 
@@ -110,16 +128,13 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 
 
 <mark style="background: #FFB86CA6;">How to change dtypes in polars</mark> 
+- how to change entire df's dtypes with `.select(pl.all().cast(pl.Float32))`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=37)
+- how to change entire df's dtypes for <mark style="background: #BBFABBA6;">pandas</mark> `.astype('float32')`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=39)
 - `pl.Uint8` vs `pl.Int8` [cell](https://www.kaggle.com/code/danielliao/compare-train-test-full-with-radek?scriptVersionId=115164243&cellId=5), and convert from `Int8` to `UInt8` in [cell2](https://www.kaggle.com/code/danielliao/compare-train-test-full-with-radek?scriptVersionId=115164243&cellId=7)
+
 
 <mark style="background: #FFB86CA6;">How to read or split a huge dataframe into chunks</mark> 
 - How to split a large dataframe into multiples dataframes based on groups with `partition_by`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.partition_by.html)
-
-
-
-<mark style="background: #FFB86CA6;">How two dataframes work together</mark> 
-- How to do ops on two cols from two different dataframes? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115141923&cellId=76)
-- Are their differences between two sum columns all zero? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115141923&cellId=76) 
 
 
 <mark style="background: #FFB86CA6;">How to select and deselect columns</mark> 
@@ -129,7 +144,7 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 
 
 <mark style="background: #FFB86CA6;">How to select or filter rows</mark> 
-- how to select a subset of df with a list of features/columns and a list of idx with `[][]`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115432650&cellId=36) 
+- how to select a subset of df with a list of features/columns and a list of idx like `train_joined_pl[features][train_index]`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115432650&cellId=36) [cell2](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=31)
 - How to use `slice`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.slice.html)
 - How to use `shift` to remove the last event of each session? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115098705&cellId=25)
 - How to select the unique rows when a column has lists instead of scalar value (`unique`, `is_unique`, `is_duplicated` can't be applied) ? `groupby`, `pl.all().first()` can work. [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115131052&cellId=49) 
@@ -153,16 +168,6 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - reset the config to default? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115068991&cellId=24)
 - how to set num of rows, cols, and colwidth in pandas? [guide](https://github.com/pola-rs/polars/issues/4547#issue-1348041739)
 
-<mark style="background: #FFB86CA6;">How to check whether two dataframes are the same?</mark> 
-- Two dataframes <mark style="background: #FF5582A6;">must have the columns sorted in the same way</mark>  with `sort`, before run `frame_equal` or `assert_frame_equal` [cell](https://www.kaggle.com/code/danielliao/compare-train-test-full-ms-with-cdeotte?scriptVersionId=115192421&cellId=12)
-- when two dfs have a column with lists inside, <mark style="background: #FF5582A6;">the list needs to be sorted</mark> with `arr.sort` before `assert_frame_equal` [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115144772&cellId=80)
-- How to compare series using `series_equal`? [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation?scriptVersionId=115140482&cellId=64)
-- use `testing.assert_frame_equal`, [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.testing.assert_frame_equal.html) and dataframes must be <mark style="background: #FF5582A6;">same type</mark> (lazy or not) [cell](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-full-validation?scriptVersionId=115004300&cellId=49)
-- use `testing.assert_series_equal`, [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.testing.assert_series_equal.html)
-- use `frame_equal` to compare two dataframe [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980731&cellId=32)
-- check `n_unique` of each columns [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=27)
-- check the total rows with `count` [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=27)
-- check the `first`, `last`, `min`, `max` datetime [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=26)
 
 <mark style="background: #FFB86CA6;">How to work with `struct`</mark> 
 - how to generate a `struct` by `value_counts`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115387944&cellId=12)
@@ -213,6 +218,11 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 <mark style="background: #FFB86CA6;">doing statistics</mark> 
 - how to do `describe` to df and series: [api-df](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.describe.html#polars.DataFrame.describe), [api-series](https://pola-rs.github.io/polars/py-polars/html/reference/series/api/polars.Series.describe.html#polars.Series.describe), describe a series to see this [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115288870&cellId=14)
 - how to take the mean of a list with `pl.Series(list).mean`? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=32)
+- check `n_unique` of each columns [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=27)
+- check the total rows with `count` [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=27)
+- check the `first`, `last`, `min`, `max` datetime [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=26)
+
+
 
 <mark style="background: #FFB86CA6;">map vs apply in polars</mark> 
 - `map` (or `pl.duration` alike) vs `apply` (with `timedelta`) on speed and RAM usage [notebook](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113894779)
