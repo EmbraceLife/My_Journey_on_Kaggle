@@ -42,13 +42,13 @@
 
 <mark style="background: #FFB8EBA6;">Feed your DL models up to 400x faster with the Merlin Dataloader! Fewer lines of code + better perf!</mark>  [video](https://youtu.be/Xyoa0r2QraI)
 
-- what does Merlin DataLoader library do and why Radek loves it? start [here](https://youtu.be/Xyoa0r2QraI?t=0)
+- 🛠️ what does Merlin DataLoader library do and why Radek loves it? start [here](https://youtu.be/Xyoa0r2QraI?t=0)
 	- feed DL models with datasets much fasters with much less code
-- what other people say about Merlin DataLoader library? start [here](https://youtu.be/Xyoa0r2QraI?t=31)
+- ⚡what other people say about Merlin DataLoader library? start [here](https://youtu.be/Xyoa0r2QraI?t=31)
 	- 400 times faster than pytorch DataLoader 
 	- An experienced user shared a kaggle [notebook](https://www.kaggle.com/code/cpmpml/matrix-factorization-with-gpu) (Matrix Factorization on GPU) demo on how much faster Merlin DataLoader is
-	- more [examples](https://github.com/NVIDIA-Merlin/dataloader/tree/main/examples) Merlin DataLoader
-- Radek walks us through a simpler notebook on how Merlin DataLoader work and stand out
+	- more [notebooks](https://github.com/NVIDIA-Merlin/dataloader/tree/main/examples) to learn Merlin DataLoader
+- 🦮 Radek walks us through a simpler notebook on how Merlin DataLoader work and stand out
 	- what is `cudf` and why Radek likes it? start [here](https://youtu.be/Xyoa0r2QraI?t=119)
 		- pandas on gpu with competent api, and works great with tabular dataset
 	- what is the dataset used, start [here](https://youtu.be/Xyoa0r2QraI?t=159)
@@ -71,6 +71,17 @@
 			- 2413 batches, 65536 rows for each batch
 		- how to access the two tensors `aid1` and `aid2` of each batch?
 		- how low is the GPU utilization?
-	- start [here](https://youtu.be/Xyoa0r2QraI?t=489)
-	- start here
+	- why not writing faster code yourself? start [here](https://youtu.be/Xyoa0r2QraI?t=489)
+		- not when there is a better, faster choice
+- 😂 🚀 Radek walks with us on how to use Merlin DataLoader to feed the simple dataset, start [here](https://youtu.be/Xyoa0r2QraI?t=562)
+	- does Merlin DataLoader require us to create `ClicksDataset` like in pytorch? No, nothing
+	- how much faster is Merlin vs pytorch? 200 x faster
+	- please see the code from the video [screen](https://youtu.be/Xyoa0r2QraI?t=644)
+- What does Merlin DataLoaders mean to real-world, larger models, start [here](https://youtu.be/Xyoa0r2QraI?t=654)
+	- better performance, optimization and shorter time
+- 🎉 Why Radek is extremely excited about Merlin DataLoader, start [here](https://youtu.be/Xyoa0r2QraI?t=713)
+	- it can scale up to more complex problems like data preprocessing using [NvTabular](https://github.com/NVIDIA-Merlin/NVTabular) library
+- Why Merlin DataLoader is so much faster, start [here](https://youtu.be/Xyoa0r2QraI?t=876)
+	- not use numpy, nor pytorch's Dataset, DataLoader
+- More resources to learn Merlin DataLoader library, start [here](https://youtu.be/Xyoa0r2QraI?t=907)
 

@@ -4,7 +4,7 @@
 
 divefastai : [kaggle otto a beginner's map](https://github.com/EmbraceLife/myfastaivault/blob/main/divefastai/00fastainbs/kaggle_otto_a_beginner's_map.md)
 
-[LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#)  [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes)  [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) Radek's [notebooks](https://www.kaggle.com/radek1/code) cdeotte's [notebooks](https://www.kaggle.com/cdeotte/code) OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true), [chatgpt](https://chat.openai.com/chat)
+ [chatgpt](https://chat.openai.com/chat)
 
 [pandas](https://wesmckinney.com/book/pandas-basics.html#pandas_dataframe), [cuDF](https://docs.rapids.ai/api/cudf/stable/), [polars](https://pola-rs.github.io/polars-book/user-guide/quickstart/intro.html), [covisitation and candidate dataset](https://www.kaggle.com/datasets/danielliao/co-visiation-matrices-with-candidates-v1), fastai [streamlit](https://fmussari-fts-fastai-youtube-playlists-app-eohwrp.streamlit.app/), GPU for python [video](https://www.youtube.com/watch?v=5s8PljqLdkA)
 

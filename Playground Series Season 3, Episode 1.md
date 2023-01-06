@@ -6,9 +6,18 @@
 
 <mark style="background: #FFB8EBA6;">My plan for this comp</mark> 
 - Implement everything Radek is sharing in this comp
-- recording my [journey](https://forums.fast.ai/t/a-beginners-journey-to-playground-series-season-3-episode-1/103056) in fastai forum
+- recording my journey in github [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle)
 
 <mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission 🚀</mark> 
+
+<mark style="background: #FFB86CA6;">Pipelines</mark> 
+
+- EDA
+	- numerical vs categorical
+	- nulls, NAs
+	- etc
+- KF + training
+
 
 <mark style="background: #FFB86CA6;">Milestone notebooks</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
 - train  LGBMRegressor model with official dataset alone:
@@ -22,12 +31,13 @@
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115563958&cellId=24) (random_state as 19, f64 pandas: metric score: 0.52017, public score: 0.55846; f64 polars: metric: 0.52017, public: 0.55864; f32 polars: metric: 0.52003, public: 0.55858) <mark style="background: #FF5582A6;">polars f32 is worse than pandas f64 this time</mark> 
 - train LGBMRegressor with given parameters and KF 10 times + catboost regressor KF 10 times without simple = 20 models ensemble
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24) : catboost mean metric score: 0.520077, public score: 0.55755, 
-	- Daniel: 
+	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115626126) : clfs_f32pl_clfs_f32pl_cat, clfs_f64pd_cat, clfs_f64pd_clfs_f64pd_cat, clfs_f64pl_clfs_f64pl_cat
 - my contribution by float32 notebook <mark style="background: #ADCCFFA6;">todo</mark>  <mark style="background: #BBFABBA6;">waiting for more evdience</mark> 
 - to implement Radek's two things learnt today on Kaggle [tweet](https://twitter.com/radekosmulski/status/1610880953882406914) notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - feature interactions notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - hyperparameter search notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - notebook to understand LGBMRegressor model <mark style="background: #ADCCFFA6;">todo</mark> 
+- explore [catboost](https://catboost.ai/) library (maybe better than XGBoost and LightGBM and H2O) <mark style="background: #ADCCFFA6;">todos</mark> 
 
 ---
 
@@ -114,14 +124,14 @@
 - what's new in this version 8? (adding a new model `catboost` to mix), see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=23)
 - how to build and train a catboost model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24)
 - what interesting came out of this new model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=25) 
-
+- I have implemented catboost model built a few ensembles, [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission/notebook?scriptVersionId=115647583), and the submission files generated on this [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115626126) 
 
 
 <mark style="background: #FF5582A6;">Q&A</mark> 
 
-- what does `squared=False` in `mean_squared_error(y_val, preds, squared=False)` do? 
-- Why Radek consider catboost is doing amazingly even when its score is slightly worse than LGBMregressor? my hypothesis proposed and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2088071)
-
+- what does `squared=False` in `mean_squared_error(y_val, preds, squared=False)` do? see answer [here](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115649311&cellId=11)
+- 💥 ⭐ Why Radek consider catboost is doing amazingly even when its score is slightly worse than LGBMregressor? my hypothesis proposed and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2088071)
+- why catboost can perform well equally as LGBMregressor with specific params after hyperparameter search? checkout [catboost.ai](https://catboost.ai/) 😍
 
 
 <mark style="background: #FF5582A6;">Todos</mark> 
