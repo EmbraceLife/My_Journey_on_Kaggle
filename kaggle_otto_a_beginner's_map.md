@@ -119,7 +119,8 @@ earlier exploration prior to #otto_radek_optimized_polars
 - **A basic pipeline** introduced by #otto_edward  with [my corrected version](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113569269&cellId=115) it can score 0.483 in BL and my polars implmentation on full dataset is [here](https://www.kaggle.com/code/danielliao/kaggle-otto-pipeline-collections?scriptVersionId=114464575) with 0.484 BL score
 
 ---
-<mark style="background: #FFB8EBA6;">MY OTTO NOTEBOOKS</mark> 
+
+<mark style="background: #FFB8EBA6;">Milestone OTTO NOTEBOOKS</mark> 
 
 - Explore otto full dataset (original in jsonl format) [notebook](https://www.kaggle.com/code/danielliao/peek-at-otto-jsonl-dataset/notebook)
 - 😱 😂 🚀 Convert otto full dataset from jsonl to parquet and optimized in polars <mark style="background: #ABF7F7A6;">using kaggle's 30GB RAM</mark> [notebook](https://www.kaggle.com/code/danielliao/recreate-otto-full-optimized-memory-footprint)
@@ -169,10 +170,17 @@ Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_ses
 - otto-validation-split-7-days (generated purely on Kaggle): [validation-4th-optimized-parquet](https://www.kaggle.com/datasets/danielliao/validation-4th-optimized-parquet)
 ---
 
+<mark style="background: #FFB8EBA6;">Radek teaching Merlin DataLoader</mark> 
+
+- prepare the data for making a dataset [start here](https://youtu.be/Xyoa0r2QraI?t=119)
+- How to construct a pytorch dataset [start here](https://youtu.be/Xyoa0r2QraI?t=316)
+
+---
+
+
 <mark style="background: #FFB8EBA6;">ChatGPT helps coding</mark> 
 
 - help make comments to codes I don't fully understand [video](https://youtu.be/NcCNw_UXnOc?t=66)
-- 
 
 ---
 

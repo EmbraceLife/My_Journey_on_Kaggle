@@ -10,14 +10,26 @@
 
 <mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission 🚀</mark> 
 
-<mark style="background: #FFB86CA6;">Milestone notebooks</mark> 
-- train  LGBMRegressor model with official dataset alone: [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115369488&cellId=19) (metric score: 0.56099, public score: 0.56237), [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115556350) (float64 score: 0.56497, float32 score: 0.56506, public score: 0.56824)
-- train and validate  LGBMRegressor model with combined dataset between official and additional: [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115448636) (metric score: 0.52590225), [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115558134) (pandas score: 0.52590225, public score: 0.56097; polars float64: 0.525977, public score: 0.56064; polars float32: 0.525936, public: 0.56014) <mark style="background: #FF5582A6;">polars float32 outperform all</mark> 
-- train LGBMRegressor with given parameters from this [notebook](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline) : [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19) (with random_state as 0, metric score: 0.519450),  [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115563958&cellId=24) (random_state as 19, f64 pandas: metric score: 0.52017, public score; f64 polars: metric: 0.52017, public; f32 polars: metric: 0.52003, public: 0.55858)
-- feature interactions notebook
-- hyperparameter search notebook
-- notebook to understand LGBMRegressor model
+<mark style="background: #FFB86CA6;">Milestone notebooks</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
+- train  LGBMRegressor model with official dataset alone:
+	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115369488&cellId=19) (metric score: 0.56099, public score: 0.56237), 
+	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115556350) (float64 score: 0.56497, float32 score: 0.56506, public score: 0.56824)
+- train and validate  LGBMRegressor model with combined dataset between official and additional:
+	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115448636) (metric score: 0.52590225),
+	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115558134) (pandas score: 0.52590225, public score: 0.56097; polars float64: 0.525977, public score: 0.56064; polars float32: 0.525936, public: 0.56014) <mark style="background: #FF5582A6;">polars float32 outperform all</mark> 
+- train LGBMRegressor with given parameters and KF 10 times from this [notebook](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline) by @soupmonster:
+	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19) (with random_state as 0, metric score: 0.519450), 
+	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115563958&cellId=24) (random_state as 19, f64 pandas: metric score: 0.52017, public score: 0.55846; f64 polars: metric: 0.52017, public: 0.55864; f32 polars: metric: 0.52003, public: 0.55858) <mark style="background: #FF5582A6;">polars f32 is worse than pandas f64 this time</mark> 
+- train LGBMRegressor with given parameters and KF 10 times + catboost regressor KF 10 times without simple = 20 models ensemble
+	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24) : catboost mean metric score: 0.520077, public score: 0.55755, 
+	- Daniel: 
+- my contribution by float32 notebook <mark style="background: #ADCCFFA6;">todo</mark>  <mark style="background: #BBFABBA6;">waiting for more evdience</mark> 
+- to implement Radek's two things learnt today on Kaggle [tweet](https://twitter.com/radekosmulski/status/1610880953882406914) notebook <mark style="background: #ADCCFFA6;">todo</mark> 
+- feature interactions notebook <mark style="background: #ADCCFFA6;">todo</mark> 
+- hyperparameter search notebook <mark style="background: #ADCCFFA6;">todo</mark> 
+- notebook to understand LGBMRegressor model <mark style="background: #ADCCFFA6;">todo</mark> 
 
+---
 
 <mark style="background: #FFB86CA6;">Data checking version 5</mark>   [version 5](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115370967)
 
@@ -64,6 +76,7 @@
 - why scores produced by pandas and polars are different? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115440584&cellId=31) asked and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2085777) <mark style="background: #BBFABBA6;">explored but solved</mark> 
 - Will Radek dig into the interactions between features? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=36) asked and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2085794) <mark style="background: #BBFABBA6;">direction provided</mark> 
 
+---
 
 <mark style="background: #FFB86CA6;">Modeling version 6</mark>  version [6](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828) : 
 
@@ -83,6 +96,7 @@
 - why scores produced by pandas and polars are different? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115440584&cellId=31) asked and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2085777) and solved in this notebook [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=36) <mark style="background: #BBFABBA6;">solved</mark>
 - why is the falling scores from Radek's version 5 to version 6? my guess is that after joining the additional dataset, the problem gets harder due to more data. [asked](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2086984) here <mark style="background: #BBFABBA6;">hypothesis proposed</mark> 
 
+--- 
 
 <mark style="background: #FFB86CA6;">Modeling Radek version 7</mark>  [version 7](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19)
 
@@ -94,9 +108,24 @@
 - How did SoupMonster come up with the specified parameters for the model? asked and answered [here](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline/comments#2087173), must give a try to Optuna <mark style="background: #BBFABBA6;">answered</mark> 
 
 ---
+
+<mark style="background: #FFB86CA6;">Modeling Radek version 8</mark>  [version 8](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015)
+
+- what's new in this version 8? (adding a new model `catboost` to mix), see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=23)
+- how to build and train a catboost model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24)
+- what interesting came out of this new model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=25) 
+	- Radek consider catboost model gives `amazing performance` when its mean RMSE across all folds is 0.520077 which is worse than LGBMRegressor's 0.51945. Why is it? is it because <mark style="background: #ADCCFFA6;">catboost is a very different model</mark> so when mixing together during ensemble may produce better result than catboost or LGBMregressor alone? as Radek achieves public score: 0.55755 with this mixing models, which is quite <mark style="background: #ADCCFFA6;">better</mark> than previous scores from previous submissions
+
+
+
+<mark style="background: #FF5582A6;">Q&A</mark> 
+
+- what does `squared=False` in `mean_squared_error(y_val, preds, squared=False)` do? 
+- Radek consider catboost model gives `amazing performance` when its mean RMSE across all folds is 0.520077 which is worse than LGBMRegressor's 0.51945. Why is it? is it because <mark style="background: #ADCCFFA6;">catboost is a very different model</mark> so when mixing together during ensemble may produce better result than catboost or LGBMregressor alone? as Radek achieves public score: 0.55755 with this mixing models, which is quite <mark style="background: #ADCCFFA6;">better</mark> than previous scores from previous submissions. asked here
+
+
+
 <mark style="background: #FF5582A6;">Todos</mark> 
-- What if I enforce dataset's dtype as float64 or int 32 to see the differences in scores? 
-- what if the additional dataset is not added? why adding it is more interesting?
 - update with Radek's new versions
 - watch Radek's new videos
 
