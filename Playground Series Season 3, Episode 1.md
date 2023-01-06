@@ -114,14 +114,13 @@
 - what's new in this version 8? (adding a new model `catboost` to mix), see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=23)
 - how to build and train a catboost model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24)
 - what interesting came out of this new model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=25) 
-	- Radek consider catboost model gives `amazing performance` when its mean RMSE across all folds is 0.520077 which is worse than LGBMRegressor's 0.51945. Why is it? is it because <mark style="background: #ADCCFFA6;">catboost is a very different model</mark> so when mixing together during ensemble may produce better result than catboost or LGBMregressor alone? as Radek achieves public score: 0.55755 with this mixing models, which is quite <mark style="background: #ADCCFFA6;">better</mark> than previous scores from previous submissions
 
 
 
 <mark style="background: #FF5582A6;">Q&A</mark> 
 
 - what does `squared=False` in `mean_squared_error(y_val, preds, squared=False)` do? 
-- Radek consider catboost model gives `amazing performance` when its mean RMSE across all folds is 0.520077 which is worse than LGBMRegressor's 0.51945. Why is it? is it because <mark style="background: #ADCCFFA6;">catboost is a very different model</mark> so when mixing together during ensemble may produce better result than catboost or LGBMregressor alone? as Radek achieves public score: 0.55755 with this mixing models, which is quite <mark style="background: #ADCCFFA6;">better</mark> than previous scores from previous submissions. asked here
+- Why Radek consider catboost is doing amazingly even when its score is slightly worse than LGBMregressor? my hypothesis proposed and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2088071)
 
 
 
