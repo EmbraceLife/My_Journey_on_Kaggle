@@ -26,17 +26,11 @@
 
 
 
-
-
----
----
-
-
 <mark style="background: #FFB86CA6;">Pipline with Milestones</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
-- EDA
+- EDA [[Playground Series Season 3, Episode 1#^15326e| details]]
 	- numerical vs categorical
 	- nulls, NAs
-	- etc
+	- features colmns vs target column
 - LGBMRegressor model + official dataset alone + KF 5:
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115369488&cellId=19) (metric score: 0.56099, public score: 0.56237), 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115556350) (float64 score: 0.56497, float32 score: 0.56506, public score: 0.56824)
@@ -78,7 +72,7 @@
 <mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission by @radek1 🚀</mark>  🔥 🧨 
 
 
-<mark style="background: #FFB86CA6;">Data checking version 5</mark>   [version 5](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115370967)
+<mark style="background: #FFB86CA6;">Data checking version 5</mark>   [version 5](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115370967) ^15326e
 
 - more [info](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html) on the dataset from sklearn
 - what to predict? (*the the median house value for California districts*) [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115369488&cellId=1) 

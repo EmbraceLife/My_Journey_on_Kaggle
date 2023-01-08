@@ -41,4 +41,6 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - In Playground Series, Season 3 comp 🔥
 	- I , for the first time, understand what Jeremy and Radek meant by 'iterate fast'
 	- I changed my views on toy dataset and comps, and realized they can be powerful tools for learning new and important techniques fast
-- 
+	- I have finished the goals I set when I joined the comp
+- Walk with fastai course 
+	- My goal is to dive deep into this course guided by Radek's [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^1a922c|constraint]] principles
