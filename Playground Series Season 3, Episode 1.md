@@ -1,14 +1,29 @@
 <mark style="background: #FFB8EBA6;">How and Why shoud I get started</mark> 
-- Introduced to me by Radek's [tweet](https://twitter.com/shendusuipian/status/1610269663262568448) 
+- Introduced to me by Radek's [tweet](https://twitter.com/shendusuipian/status/1610269663262568448) and this kaggle [post](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/375714)
 - Radek's comp intro [video](https://www.youtube.com/watch?v=cIFRuaQy2Ow&loop=0) gets very interested in it
-- Reasons not to do it: dataset is not real, therefore the problem is not serious
-- Reasons to do it: time and energy will be focused on techniques and models, and learning will be more efficient (whereas in otto comp I have spent a month just to implement scripts before touching real complex models)
+- 😱 😱 Reasons not to do it: 
+	- dataset is not real, therefore the problem is not serious
+- 😱 😂 🚀 ⭐ Reasons to do it: 
+	- small and generated dataset which can be processed fast
+	- iterate your pipelines fast
+	- experimenting and learning new tricks fast
+	- all large and complex datasets and comps can be first shrinked and then those benefits above can be applied
 
 <mark style="background: #FFB8EBA6;">My plan for this comp</mark> 
 - Implement everything Radek is sharing in this comp
 - recording my journey in github [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle)
 
-<mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission 🚀</mark> 
+---
+---
+
+<mark style="background: #FFB8EBA6;">Interesting discussions</mark> 
+
+- why 10 KF is not too many, see [discussion](https://www.kaggle.com/code/phongnguyen1/distance-to-cities-features-clustering/comments#2085057)
+
+
+---
+---
+
 
 <mark style="background: #FFB86CA6;">Pipelines</mark> 
 
@@ -17,6 +32,10 @@
 	- nulls, NAs
 	- etc
 - KF + training
+
+
+---
+---
 
 
 <mark style="background: #FFB86CA6;">Milestone notebooks</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
@@ -29,10 +48,18 @@
 - train LGBMRegressor with given parameters and KF 10 times from this [notebook](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline) by @soupmonster:
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19) (with random_state as 0, metric score: 0.519450), 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115563958&cellId=24) (random_state as 19, f64 pandas: metric score: 0.52017, public score: 0.55846; f64 polars: metric: 0.52017, public: 0.55864; f32 polars: metric: 0.52003, public: 0.55858) <mark style="background: #FF5582A6;">polars f32 is worse than pandas f64 this time</mark> 
-- train LGBMRegressor with given parameters and KF 10 times + catboost regressor KF 10 times without simple = 20 models ensemble
+- train LGBMRegressor with specific tuning and KF 10 times + catboost regressor KF 10 times without tuning + two models have different random_state
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24) : catboost mean metric score: 0.520077, public score: 0.55755, 
-	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115626126) : clfs_f32pl_clfs_f32pl_cat, clfs_f64pd_cat, clfs_f64pd_clfs_f64pd_cat, clfs_f64pl_clfs_f64pl_cat
-- my contribution by float32 notebook <mark style="background: #ADCCFFA6;">todo</mark>  <mark style="background: #BBFABBA6;">waiting for more evdience</mark> 
+	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115647583) : this round of submission shows <mark style="background: #FF5582A6;">float64 is better than float 32</mark> , and float 64 pandas and polars are the same. [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115626126) with submission files
+		- clfs_f32pl_clfs_f32pl_cat: public: 0.55758, 
+		- clfs_f64pd_cat
+		- clfs_f64pd_clfs_f64pd_cat:  public: 0.55755 
+		- clfs_f64pl_clfs_f64pl_cat:  public: 0.55755
+- add `is_generated` column to the model above to distinguish external data source during training and inference [[Playground Series Season 3, Episode 1#^35e6ac|dive in]]
+	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115702196)
+		- LGBMRegressor model metric score: 0.516229
+		- Catboost metric score: 0.51463
+		- ensemble public score: 0.55731 (increased 0.0002)
 - to implement Radek's two things learnt today on Kaggle [tweet](https://twitter.com/radekosmulski/status/1610880953882406914) notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - feature interactions notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - hyperparameter search notebook <mark style="background: #ADCCFFA6;">todo</mark> 
@@ -40,6 +67,10 @@
 - explore [catboost](https://catboost.ai/) library (maybe better than XGBoost and LightGBM and H2O) <mark style="background: #ADCCFFA6;">todos</mark> 
 
 ---
+---
+
+<mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission by @radek1 🚀</mark>  🔥 🧨 
+
 
 <mark style="background: #FFB86CA6;">Data checking version 5</mark>   [version 5](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115370967)
 
@@ -132,6 +163,48 @@
 - what does `squared=False` in `mean_squared_error(y_val, preds, squared=False)` do? see answer [here](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115649311&cellId=11)
 - 💥 ⭐ Why Radek consider catboost is doing amazingly even when its score is slightly worse than LGBMregressor? my hypothesis proposed and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2088071)
 - why catboost can perform well equally as LGBMregressor with specific params after hyperparameter search? checkout [catboost.ai](https://catboost.ai/) 😍
+
+---
+---
+
+<mark style="background: #FFB8EBA6;">Simple feature that boost your score +0.002 by @snnclsr</mark> 🔥
+
+
+<mark style="background: #FFB86CA6;">Modeling Daniel version 37</mark>  [version 37](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115698631) ^35e6ac
+
+- <mark style="background: #ADCCFFA6;">key idea</mark> : labeling the external datasource in a column
+	- Radek shared the idea in a [video](https://youtu.be/S7pv_aU_ER8), detailed discussion about [this](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/376043) 
+- I implemented `is_generated` in this [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115702196) of notebook myself
+
+---
+---
+
+
+<mark style="background: #FFB8EBA6;">S03E01: EDA for Modelling by @soupmonster</mark>  🔥 🔥 🔥 <mark style="background: #BBFABBA6;">not yet explored</mark> 
+
+- <mark style="background: #ADCCFFA6;">key idea</mark>: Add distance from landmark feature, introduced to me by Radek in this [tweet](https://twitter.com/radekosmulski/status/1610880953882406914)
+	- 🗺️ Add distance from landmark feature [here](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/376078) explains why Longitude/Latitude are the most important Features
+	- 🧨 Awesome notebook on Geospatial Feature Engineering and Visualization [here](https://www.kaggle.com/code/camnugent/geospatial-feature-engineering-and-visualization)
+	- 💥 Lat / Long Feature Engineering tricks from previous competitions [here](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/376210)
+
+
+---
+---
+
+
+<mark style="background: #FFB8EBA6;">Distance to key locations by @phongnguyen1 version 26</mark> 🔥🔥🔥  [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations),his [dataset](https://www.kaggle.com/datasets/phongnguyen1/s03e01-california) including many geo info
+
+- 😂 🧨 I reimplemented it in polars, see [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827)
+	- what is the `haversine_distances` used to calculate distance between two locations, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=15)
+	- what are the 5 big cities used to calculate distances, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=17)
+	- how to create the distance columns, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=18)
+	- adding more distances columns to see whether it improves the results or not, see cell1, see result
+- 😱😱😱 [More](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations?scriptVersionId=115730400&cellId=2) to explore in @phongnguyen1's notebook <mark style="background: #BBFABBA6;">todo</mark> 
+	- reverse geo can give us more specified/useful locations to calc distance
+	- also I would like to make more plotting to illustrate the locations
+
+---
+---
 
 
 <mark style="background: #FF5582A6;">Todos</mark> 
