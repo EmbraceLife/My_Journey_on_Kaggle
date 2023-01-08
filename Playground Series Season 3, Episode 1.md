@@ -25,42 +25,48 @@
 ---
 
 
-<mark style="background: #FFB86CA6;">Pipelines</mark> 
 
+
+
+---
+---
+
+
+<mark style="background: #FFB86CA6;">Pipline with Milestones</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
 - EDA
 	- numerical vs categorical
 	- nulls, NAs
 	- etc
-- KF + training
-
-
----
----
-
-
-<mark style="background: #FFB86CA6;">Milestone notebooks</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
-- train  LGBMRegressor model with official dataset alone:
+- LGBMRegressor model + official dataset alone + KF 5:
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115369488&cellId=19) (metric score: 0.56099, public score: 0.56237), 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115556350) (float64 score: 0.56497, float32 score: 0.56506, public score: 0.56824)
-- train and validate  LGBMRegressor model with combined dataset between official and additional:
+- LGBMRegressor model + combined dataset + KF 5:
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115448636) (metric score: 0.52590225),
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115558134) (pandas score: 0.52590225, public score: 0.56097; polars float64: 0.525977, public score: 0.56064; polars float32: 0.525936, public: 0.56014) <mark style="background: #FF5582A6;">polars float32 outperform all</mark> 
-- train LGBMRegressor with given parameters and KF 10 times from this [notebook](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline) by @soupmonster:
+- LGBMRegressor tuned + KF 10 + combined dataset,  [the params are from](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline) @soupmonster:
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19) (with random_state as 0, metric score: 0.519450), 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115563958&cellId=24) (random_state as 19, f64 pandas: metric score: 0.52017, public score: 0.55846; f64 polars: metric: 0.52017, public: 0.55864; f32 polars: metric: 0.52003, public: 0.55858) <mark style="background: #FF5582A6;">polars f32 is worse than pandas f64 this time</mark> 
-- train LGBMRegressor with specific tuning and KF 10 times + catboost regressor KF 10 times without tuning + two models have different random_state
+- LGBMRegressor tuned + catboost regressor + KF 10  + different random_state 
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24) : catboost mean metric score: 0.520077, public score: 0.55755, 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115647583) : this round of submission shows <mark style="background: #FF5582A6;">float64 is better than float 32</mark> , and float 64 pandas and polars are the same. [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115626126) with submission files
 		- clfs_f32pl_clfs_f32pl_cat: public: 0.55758, 
 		- clfs_f64pd_cat
 		- clfs_f64pd_clfs_f64pd_cat:  public: 0.55755 
 		- clfs_f64pl_clfs_f64pl_cat:  public: 0.55755
-- add `is_generated` column to the model above to distinguish external data source during training and inference [[Playground Series Season 3, Episode 1#^35e6ac|dive in]]
+- LGBMRegressor tuned + catboost regressor + KF 10  + different random_state  + `is_generated` feature:
+	- add `is_generated` column to the model above to distinguish external data source during training and inference [[Playground Series Season 3, Episode 1#^35e6ac|dive in]]
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115702196)
 		- LGBMRegressor model metric score: 0.516229
 		- Catboost metric score: 0.51463
 		- ensemble public score: 0.55731 (increased 0.0002)
-- to implement Radek's two things learnt today on Kaggle [tweet](https://twitter.com/radekosmulski/status/1610880953882406914) notebook <mark style="background: #ADCCFFA6;">todo</mark> 
+- LGBMRegressor tuned + catboost regressor + KF 10  + different random_state  + `is_generated` feature + distance features:
+	- with 4 cities distance features, see [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827)
+		- metric scores: LGBMRegressor 0.5129699, Catboost 0.512060
+		- public score: 0.55575
+	- with additional 3 distance features, see [cell1](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115738156&cellId=18), 
+		- metric scores: LGBMRegressor 0.5122948, Catboost: 0.511606
+		- public score: 0.55436, so the additional 3 distance features make <mark style="background: #FF5582A6;">a huge jump in score</mark>
+
 - feature interactions notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - hyperparameter search notebook <mark style="background: #ADCCFFA6;">todo</mark> 
 - notebook to understand LGBMRegressor model <mark style="background: #ADCCFFA6;">todo</mark> 
@@ -198,10 +204,19 @@
 	- what is the `haversine_distances` used to calculate distance between two locations, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=15)
 	- what are the 5 big cities used to calculate distances, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=17)
 	- how to create the distance columns, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=18)
-	- adding more distances columns to see whether it improves the results or not, see cell1, see result
+	- metric scores: LGBMRegressor 0.5129699, Catboost 0.512060
+	- public score: 0.55575
+- adding more distances columns to see whether it improves the results or not, see [cell1](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115738156&cellId=18), 
+	- metric scores: LGBMRegressor 0.5122948, Catboost: 0.511606
+	- public score: 0.55436, so the additional 3 distance features make <mark style="background: #FF5582A6;">a huge jump in score</mark> 
+
+ 
+<mark style="background: #FFB8EBA6;">Distance to key locations by @phongnguyen1 version 30</mark> 🔥🔥🔥  [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations?scriptVersionId=115759694),his [dataset](https://www.kaggle.com/datasets/phongnguyen1/s03e01-california) including many geo info
+
 - 😱😱😱 [More](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations?scriptVersionId=115730400&cellId=2) to explore in @phongnguyen1's notebook <mark style="background: #BBFABBA6;">todo</mark> 
-	- reverse geo can give us more specified/useful locations to calc distance
-	- also I would like to make more plotting to illustrate the locations
+	- how to do reverse geo and add the geoinfo to the dataset
+	- plot heatmap for the locations 
+	- implement other geo features
 
 ---
 ---

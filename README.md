@@ -41,3 +41,4 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - In Playground Series, Season 3 comp 🔥
 	- I , for the first time, understand what Jeremy and Radek meant by 'iterate fast'
 	- I changed my views on toy dataset and comps, and realized they can be powerful tools for learning new and important techniques fast
+- 
