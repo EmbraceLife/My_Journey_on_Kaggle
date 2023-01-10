@@ -53,3 +53,4 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 		- on fastai part1, part2, wwf, I know what's ahead is systematic and promising to build me up as a proper practitioner, but the tasks are overwhemingly massive. 
 		- My plan is to turn course notebooks and kaggle comps into building and iterating pipelines in which I will learn all the techniques of fastai in time.
 - The secret to ML practitioner is Perseverance not intensity 🔥🔥🔥🔥🔥🔥🔥🔥🔥 [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^893aa2|details]]
+- keep constraint on WWF:  to dissolve WWF course notebooks into pipeline with different set of components 😂 🔥 🚀
