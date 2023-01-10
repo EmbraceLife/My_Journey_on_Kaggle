@@ -39,8 +39,17 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- I learnt to running and tweaking notebooks by Radek and Chris Deotte, and my previous experience in debugging help me to understand every line of their code without fear 🎉 ⭐
 	- I learnt to not give up when stuck but find easier tasks to build up my skills and come back later
 - In Playground Series, Season 3 comp 🔥
-	- I , for the first time, understand what Jeremy and Radek meant by 'iterate fast'
+	- I , for the first time, experienced and understood what Jeremy and Radek meant by 'iterate fast'
 	- I changed my views on toy dataset and comps, and realized they can be powerful tools for learning new and important techniques fast
 	- I have finished the goals I set when I joined the comp
 - Walk with fastai course 
 	- My goal is to dive deep into this course guided by Radek's [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^1a922c|constraint]] principles
+- 2023.1.10 Radek's newsletter helps me to identify and tack my bottleneck 🔥🔥🔥
+	- - What's the one thing, the bottleneck for me? 
+		- not build pipelines enough, not iterate pipelines enough
+	- How will I tackle this bottleneck?
+		- on Kaggle, it's more like learning to build and iterate in the wild, I don't know what I will learn each day, if lucky I can find guides along the way, but in general it's more of keep exploring not knowing what is ahead
+		- I learnt how to build and iterate fast from Kaggle comp like Playground Series, and I am super excited about it because I feel this is what I am missing.
+		- on fastai part1, part2, wwf, I know what's ahead is systematic and promising to build me up as a proper practitioner, but the tasks are overwhemingly massive. 
+		- My plan is to turn course notebooks and kaggle comps into building and iterating pipelines in which I will learn all the techniques of fastai in time.
+- The secret to ML practitioner is Perseverance not intensity 🔥🔥🔥🔥🔥🔥🔥🔥🔥 [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^893aa2|details]]
