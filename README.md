@@ -10,6 +10,7 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 		- to replicate Radek's [journey](https://www.kaggle.com/code/radek1/fast-ai-starter-pack-train-inference) on RSNA competition 
 		- to replicate DienhoaT's [journey](https://twitter.com/DienhoaT/status/1518805343425503232) on PogChamp Series competition
 - diving into Zach Mueller's  [course](https://walkwithfastai.com/revisited/pets.html) and [discord](https://discord.com/channels/1033175368519131146/1041088088136495174),  [repo](https://github.com/muellerzr/Walk-with-fastai-revisited/blob/main/01_pets.ipynb)
+- diving into fastai [part 1](https://github.com/fastai/course22), and part 2
 
 <mark style="background: #FFB8EBA6;">Interesting courses and notebooks to check out</mark> 
 - Distance to Cities features & Clustering🔥 [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-cities-features-clustering?scriptVersionId=115694922)
@@ -34,7 +35,7 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- to avoid rabbit holes like diving deep into learning pandas or polars 🦮
 	- writing down my goals or todos before action to stay focused and to finish fast 🚀
 	- not to give in to discouraging thoughts, but to recognize and celebrate every little progress along the way 💗
-- In OTTO comp 🔥
+- In OTTO comp 🔥 [[OTTO Recsys Comp (New)]]
 	- I learnt to read and follow discussions to learn small tricks to improve my public scores
 	- I learnt to running and tweaking notebooks by Radek and Chris Deotte, and my previous experience in debugging help me to understand every line of their code without fear 🎉 ⭐
 	- I learnt to not give up when stuck but find easier tasks to build up my skills and come back later
@@ -46,11 +47,18 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- My goal is to dive deep into this course guided by Radek's [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^1a922c|constraint]] principles
 - 2023.1.10 Radek's newsletter helps me to identify and tack my bottleneck 🔥🔥🔥
 	- - What's the one thing, the bottleneck for me? 
-		- not build pipelines enough, not iterate pipelines enough
+		- <mark style="background: #FF5582A6;">not build pipelines enough, not iterate pipelines enough</mark> 
 	- How will I tackle this bottleneck?
 		- on Kaggle, it's more like learning to build and iterate in the wild, I don't know what I will learn each day, if lucky I can find guides along the way, but in general it's more of keep exploring not knowing what is ahead
-		- I learnt how to build and iterate fast from Kaggle comp like Playground Series, and I am super excited about it because I feel this is what I am missing.
+		- I learnt how to build and iterate fast from Kaggle comp like [[Playground Series Season 3, Episode 1]], and I am super excited about it because I feel this is what I am missing.
 		- on fastai part1, part2, wwf, I know what's ahead is systematic and promising to build me up as a proper practitioner, but the tasks are overwhemingly massive. 
-		- My plan is to turn course notebooks and kaggle comps into building and iterating pipelines in which I will learn all the techniques of fastai in time.
+		- My plan is to <mark style="background: #BBFABBA6;">turn course notebooks and kaggle comps into building and iterating pipelines</mark> in which I will learn all the techniques of fastai in time.
 - The secret to ML practitioner is Perseverance not intensity 🔥🔥🔥🔥🔥🔥🔥🔥🔥 [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^893aa2|details]]
-- keep constraint on WWF:  to dissolve WWF course notebooks into pipeline with different set of components 😂 🔥 🚀
+- keep constraint on WWF:  to dissolve WWF <mark style="background: #BBFABBA6;">course notebooks into pipeline</mark> with different set of components 😂 🔥 🚀  2023.1.10
+- 2023.1.11, I spent a whole day learning `lineapy` hoping it can speed up iterations. However, so far I have not really got chance to use it in practice. So it is not the right time to do it and it is actually wasted me a day 😢😢😢. (It could be helpful in <mark style="background: #BBFABBA6;">reusing the code</mark> , but I have not in the place to use it yet) [[Learn from Hamel#^5b7b1c|details]]
+- 2023.1.12 I wasted much time dig into `Categorize` `CropPad` which are not the central learning point of the lesson 2 of WWF. I should focus on the most important thing which is the pipeline and its components, and the detailed usage of those techniques can be learnt later when they are truly needed in practice. 😱😱😱
+- Radek's AMA is amazing, many great insights, in particular ideas on <mark style="background: #BBFABBA6;">how to subset properly, fast iteration, training on full dataset</mark> are what I needed the most at the moment. [[Learn from Radek#^73faa3|details]] 💡⚡🔥 
+- After 3 days on a course, I realized that the strategy of learning which works for me is through <mark style="background: #BBFABBA6;">a ML project like kaggle comp</mark> , a course without focusing on a real-world project or competition can't keep my attention for long 😅  🔍🔍🔍 (why? from a part of the conversation I had with Wasim)
+	> Why is that? first of all, everything I learnt is what I earned by implementing and verifying the code myself, so every bit of the learning is a reward; secondly, every bit of the learning is applied in a real dataset with a real world problem, it ensures me the technique I learnt is useful in real world; thirdly, by focusing on a project/comp, a pipeline can be finished with a handful of techniques learnt, there is a nice feeling of completion (of course, there will more a lot more iterations), but with a course it could take months to absorb everything inside and still not feeling capable of doing things in the real world;
+	
+	

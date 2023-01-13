@@ -18,8 +18,8 @@
 
 <mark style="background: #FFB8EBA6;">Notebooks to Reimplement Organizer's script</mark> 
  
-- 😂 🚀 reimplement organizer's script in polars to create `train_sessions` or `train_valid` in otto validation set and verify its validity in this [notebook](https://www.kaggle.com/danielliao/reimplement-otto-train-validation-in-polars)
-- 😱 😂 🚀 ⭐ reimplement organizer's script in polars to create `test_valid_full` or `test_sessions_full` and verify its validaty in this [notebook](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-full-validation?scriptVersionId=115004300) [story](https://forums.fast.ai/t/a-beginners-attempt-at-otto-with-a-focus-on-polars/102803/7?u=daniel)
+- 😂 🚀 reimplement organizer's script in polars to create `train_sessions` or `train_valid` in otto validation set and verify its validity in this [notebook](https://www.kaggle.com/danielliao/reimplement-otto-train-validation-in-polars), [[OTTO Recsys Comp (New)#^b8c496|codes]] 
+- 😱 😂 🚀 ⭐ reimplement organizer's script in polars to create `test_valid_full` or `test_sessions_full` and verify its validaty in this [notebook](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-full-validation?scriptVersionId=115004300), [[OTTO Recsys Comp (New)#^2676d6|codes]],  [story](https://forums.fast.ai/t/a-beginners-attempt-at-otto-with-a-focus-on-polars/102803/7?u=daniel)
 - 😱 😂 🚀 reimplement `test_sessions` and `test_labels` and verify its validaty [script](https://github.com/otto-de/recsys-dataset/blob/main/src/testset.py#L34) , [notebook](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-labels-validation), [story](https://forums.fast.ai/t/a-beginners-attempt-at-otto-with-a-focus-on-polars/102803/9?u=daniel),  [story-continued-2](https://forums.fast.ai/t/a-beginners-attempt-at-otto-with-a-focus-on-polars/102803/10?u=daniel)
 - 😱 😂 🚀 reimplement organizer's `evaluate.py` script on kaggle: [notebook](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto)
 	- run organizer's `evaluate.py` [script](https://github.com/otto-de/recsys-dataset/blob/0aa8346e0caec260ebd1cb47f556147cda5f770d/src/evaluate.py) on kaggle, using the evaluate [code](https://www.kaggle.com/danielliao/evaluate-otto-organizer-script/) in a pipeline [notebook](https://www.kaggle.com/danielliao/simple-pipeline-otto-1/) <mark style="background: #ADCCFFA6;">Done!</mark> 
@@ -54,3 +54,93 @@ Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_ses
 - otto-train-set-test-set-optimized (both seconds and milliseconds, generated purely on Kaggle): [otto-radek-style-polars](https://www.kaggle.com/datasets/danielliao/otto-radek-style-polars)
 - otto-validation-split-7-days (generated purely on Kaggle): [validation-4th-optimized-parquet](https://www.kaggle.com/datasets/danielliao/validation-4th-optimized-parquet)
 ---
+---
+
+## <mark style="background: #FFB86CA6;">My codes</mark> 
+
+
+```python
+!pip install polars
+
+import polars as pl
+import pandas as pd
+import random
+from polars.testing import assert_frame_equal, assert_series_equal
+
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+pd.set_option('display.max_colwidth', None)
+```
+
+
+```python
+# Radek's validation set is using the older version of organizer's script (there is a little cold start problem on aid)
+train_v = pl.scan_parquet('/kaggle/input/otto-train-and-test-data-for-local-validation/train.parquet')
+test_v = pl.scan_parquet('/kaggle/input/otto-train-and-test-data-for-local-validation/test.parquet')
+
+# I created this validation set on paperspace and optimized on Kaggle
+train_v7 = pl.scan_parquet('/kaggle/input/ottovalidation7days/train_sessions.parquet')
+test_v7 = pl.scan_parquet('/kaggle/input/ottovalidation7days/test_sessions.parquet')
+test_v7_full = pl.scan_parquet('/kaggle/input/ottovalidation7days/test_sessions_full.parquet')
+
+# I created this validation set on paperspace and optimized on Kaggle too
+train_v7_2nd = pl.scan_parquet('/kaggle/input/ottovalidation7days2nd/train_sessions.parquet')
+test_v7_2nd = pl.scan_parquet('/kaggle/input/ottovalidation7days2nd/test_sessions.parquet')
+test_v7_full_2nd = pl.scan_parquet('/kaggle/input/ottovalidation7days2nd/test_sessions_full.parquet')
+
+# I created this validation set on Kaggle and optimized on Kaggle too
+train_v7_3rd = pl.scan_parquet('/kaggle/input/otto-validation-optimized-parquet/train_sessions.parquet')
+test_v7_3rd = pl.scan_parquet('/kaggle/input/otto-validation-optimized-parquet/test_sessions.parquet')
+test_v7_full_3rd = pl.scan_parquet('/kaggle/input/otto-validation-optimized-parquet/test_sessions_full.parquet')
+```
+
+
+
+```python
+train_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/train_ms.parquet')
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+
+split_ts_ms = train_ms.select([
+    (pl.col('ts').max() - 7*24*60*60*1000).alias('split_ts')
+]).collect().to_series().to_list()[0]
+
+train_sessions = (
+    train_ms
+    .filter(~(pl.col('ts').first() > split_ts_ms).over('session'))
+    .filter(pl.col('ts') < split_ts_ms)
+    .filter((pl.col('aid').count()>=2).over('session'))
+    .collect()
+)    
+```
+
+^b8c496
+
+```python
+train_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/train_ms.parquet')
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+
+split_ts_ms = train_ms.select([
+    (pl.col('ts').max() - 7*24*60*60*1000).alias('split_ts')
+]).collect().to_series().to_list()[0]
+
+# building `train_items` as it is in organizer's script https://github.com/otto-de/recsys-dataset/blob/main/src/testset.py#L100
+unique_aids_train_valid = (
+    train_ms
+    .filter(~(pl.col('ts').first() > split_ts_ms).over('session'))
+    .filter(pl.col('ts') < split_ts_ms)
+    .filter((pl.col('aid').count()>=2).over('session'))
+    .select([
+        pl.col('aid').unique().alias('unique_aids')
+    ]).collect().to_series().to_list()
+)
+len(unique_aids_train_valid) # 1825325
+
+test_sessions_full = (
+    train_ms
+    .filter((pl.col('ts').first() > split_ts_ms).over('session')).collect() # stop being lazy early can avoid error and wrong answers
+    .filter(pl.col('aid').is_in(unique_aids_train_valid)) # step 2-2: https://github.com/otto-de/recsys-dataset/blob/main/src/testset.py#L75
+    .filter((pl.col('aid').count()>=2).over('session')) # step 3: https://github.com/otto-de/recsys-dataset/blob/main/src/testset.py#L76
+)
+```
+
+^2676d6

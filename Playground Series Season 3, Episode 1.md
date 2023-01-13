@@ -26,7 +26,7 @@
 
 
 
-<mark style="background: #FFB86CA6;">Pipline with Milestones</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
+<mark style="background: #FFB86CA6;">Pipline iterations with Milestones</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark> 
 - EDA [[Playground Series Season 3, Episode 1#^15326e| details]]
 	- numerical vs categorical
 	- nulls, NAs
