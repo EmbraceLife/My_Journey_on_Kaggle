@@ -3,18 +3,19 @@
 Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.com/radekosmulski), [kaggle](https://www.kaggle.com/radek1/code)  @cdeotte on [kaggle](https://www.kaggle.com/cdeotte/code), and a lot more I hope.
  
 <mark style="background: #FFB8EBA6;">2023 Todos</mark> 
-- follow @radek1 on Kaggle Playground Series, starting with Season 3, hopefully more
-	- make otto comp small and iterate it fast like Playground Series
-	- Kaggle competitions to explore
-		- otto comp:  OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) , [LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#)  [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes)  [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true),
-		- to replicate Radek's [journey](https://www.kaggle.com/code/radek1/fast-ai-starter-pack-train-inference) on RSNA competition 
-		- to replicate DienhoaT's [journey](https://twitter.com/DienhoaT/status/1518805343425503232) on PogChamp Series competition
+- implement every notebook introduced by Radek, eg. [[Playground Series Season 3, Episode 1#^6f2913|housing price comp]], [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^52405f|2 things learnt on housing price comp]] 
+- follow @radek1 on [[Playground Series Season 3, Episode 1#^6f2913|Playground Series Season 3, Episode 1]],, starting with Season 3, hopefully more
+- make otto comp small and iterate it fast like Playground Series
+- to replicate Radek's [journey](https://www.kaggle.com/code/radek1/fast-ai-starter-pack-train-inference) on RSNA competition 
+- to replicate DienhoaT's [journey](https://twitter.com/DienhoaT/status/1518805343425503232) on PogChamp Series competition
+
+<mark style="background: #FFB8EBA6;">Archived for future</mark> 
 - diving into Zach Mueller's  [course](https://walkwithfastai.com/revisited/pets.html) and [discord](https://discord.com/channels/1033175368519131146/1041088088136495174),  [repo](https://github.com/muellerzr/Walk-with-fastai-revisited/blob/main/01_pets.ipynb)
 - diving into fastai [part 1](https://github.com/fastai/course22), and part 2
+- Effective MLOps: Model Development by W&B [course](https://www.wandb.courses/courses/take/effective-mlops-model-development/lessons/40025747-welcome-to-the-course)
 
 <mark style="background: #FFB8EBA6;">Interesting courses and notebooks to check out</mark> 
 - Distance to Cities features & Clustering🔥 [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-cities-features-clustering?scriptVersionId=115694922)
-- Effective MLOps: Model Development by W&B [course](https://www.wandb.courses/courses/take/effective-mlops-model-development/lessons/40025747-welcome-to-the-course)
 
 
 <mark style="background: #FF5582A6;">Highlights of inspirations on my journey</mark> 
@@ -60,5 +61,7 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - Radek's AMA is amazing, many great insights, in particular ideas on <mark style="background: #BBFABBA6;">how to subset properly, fast iteration, training on full dataset</mark> are what I needed the most at the moment. [[Learn from Radek#^73faa3|details]] 💡⚡🔥 
 - After 3 days on a course, I realized that the strategy of learning which works for me is through <mark style="background: #BBFABBA6;">a ML project like kaggle comp</mark> , a course without focusing on a real-world project or competition can't keep my attention for long 😅  🔍🔍🔍 (why? from a part of the conversation I had with Wasim)
 	> Why is that? first of all, everything I learnt is what I earned by implementing and verifying the code myself, so every bit of the learning is a reward; secondly, every bit of the learning is applied in a real dataset with a real world problem, it ensures me the technique I learnt is useful in real world; thirdly, by focusing on a project/comp, a pipeline can be finished with a handful of techniques learnt, there is a nice feeling of completion (of course, there will more a lot more iterations), but with a course it could take months to absorb everything inside and still not feeling capable of doing things in the real world;
+	
+- 
 	
 	

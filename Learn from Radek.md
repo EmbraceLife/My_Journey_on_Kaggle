@@ -72,6 +72,9 @@
 ---
 
 #### <mark style="background: #FFB8EBA6;">2 Things I Learned on Kaggle Today</mark>  [video](https://youtu.be/S7pv_aU_ER8)
+
+^52405f
+
 - 🚀 2 things for what? 
 	- simple but effective techniques to improve your public scores on Kaggle comp
 - 🎉 The 1st Thing, start [here](https://youtu.be/S7pv_aU_ER8?t=0)

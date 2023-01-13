@@ -56,14 +56,37 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - what does `def weighted_recalls(recalls: dict, weights: dict):` do? see [cell](https://www.kaggle.com/code/danielliao/evaluate-otto-organizer-script?scriptVersionId=115275248&cellId=7)
 
 
+---
+
+
+<mark style="background: #FFB8EBA6;">Exploratory Data Analysis</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/)
+
+- What are the imports and settings for otto comp? [[OTTO Recsys Comp (New)#^0769ee|codes]]
+- What are the most used dataset to be loaded? [[OTTO Recsys Comp (New)#^0f6921|codes]] 
+- How to `cast` the `first`, `last`, `max`, `min` value of `pl.col('ts')` into `pl.Datetime(time_unit='ms')` ? [[OTTO Recsys Comp (New)#^00fed4|codes]] 🔥🔥🔥🔥
+- How to change `pl.Datetime` default value (`time_unit` from 'us' to 'ms') with `with_time_unit('ms')` ? [[OTTO Recsys Comp (New)#^3a334e|codes]] [nb-ver-1](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116229932)🔥🔥🔥🔥
+- How to split the output of `pl.Datetime(time_unit='ms')` into separete columns `dt.year()`, `dt.month()`, `dt.day()`, `dt.hour()`, `dt.minute()`, `dt.second()`? [[OTTO Recsys Comp (New)#^7f5465|codes]] 🔥🔥🔥🔥
+- How to calc the `pl.Duration(time_unit='ms')` of each event since the beginning of each session in terms of `dt.days()`, `dt.hours()`, `dt.minutes()`, `dt.seconds()`? [[OTTO Recsys Comp (New)#^4aec22|codes]] 🔥🔥🔥🔥
+- How to get the first few rows of each session with `groupby('session').head()`? `groupby` [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/groupby.html), [[OTTO Recsys Comp (New)#^fa70d5|codes]] 🔥🔥🔥🔥
+- How to produce a `datetime(2023, 1, 10)` with `pl.lit`? [[OTTO Recsys Comp (New)#^5ac544|codes]], [nb-ver-2](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116240207)
+- How to `cast` `pl.col('ts')` from `pl.Int32` to `pl.Datetime(time_unit='ms')` and `filter` with `is_between(datetime(2023,1,13), datetime(2023,1,14))`? [[OTTO Recsys Comp (New)#^9a15dc|codes]] 🔥🔥🔥🔥
+- How to tell whether `pl.col('ts')` has milliseconds as unit not seconds nor microseconds with `pl.duration(microseconds=(pl.col('ts').last() - pl.col('ts').first()))`?  [[OTTO Recsys Comp (New)#^69336f|codes]] 🔥
+- How to find out `duration` or `Duration` in 'us', 'ms', 'hr', 'day' for each session with `groupby('session')` and `(pl.col('ts').last() - pl.col('ts').first()).cast(pl.Datetime(time_unit='ms')).dt.hour()`  [[OTTO Recsys Comp (New)#^d51937|codes]] [ver-3](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116250048&cellId=10) 🔥🔥🔥
 
 
 ---
 **<mark style="background: #FFB8EBA6;">POLARS</mark>** 
 
+
+
 - How to print `head` and `tail` together with `suffix` [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=30)
 - check `width`, `height`, `shape[0]` of a df, [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115390387&cellId=18)
 - how to do `argsort` for Series? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=34)
+
+<mark style="background: #FFB86CA6;">How to deal with datetime</mark> 
+
+- how to use `pl.duration`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.duration.html#polars-duration)
+
 
 <mark style="background: #FFB86CA6;">How to create dataframe or series</mark> 
 - how to add a series/column to a df with `hstack`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/api/polars.DataFrame.hstack.html)
