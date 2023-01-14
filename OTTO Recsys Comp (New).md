@@ -15,7 +15,7 @@ Are there identical users in the train and test data?
 -   No, **train and test users are completely disjunct**.
 
 Are all test `aids` included in the train set?
--   Yes, all test items are also included in the train set.
+-   Yes, **all test items are also included in the train set**.
 
 How can a session **start with an order or a cart**?
 -   This can happen if the ordered item was already in the customer's cart before the data extraction period started. Similarly, a wishlist in our shop can lead to cart additions without a previous click.
@@ -59,6 +59,9 @@ Where can I find item and user metadata?
 
 <mark style="background: #FFB8EBA6;">Important Notebooks to Study</mark>  ^4a8749
 
+- check out my new dataset [subset1](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) for validity, [notebook](https://www.kaggle.com/code/danielliao/verify-1week-otto-train-valid-test?scriptVersionId=116345295) <mark style="background: #ADCCFFA6;">done</mark>  2023.1.14
+	- There should be no aids of `test_sessions` or `test_labels` unknown to `train_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
+	- no overlap sessions between `train_sessions` and `test_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
 - How to <mark style="background: #BBFABBA6;">ensemble</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/2-methods-how-to-ensemble-predictions) 🔥🔥🔥
 	- 🚀🚀🚀 The template of ensemble is brilliant and ready to use. 
 		- ⚗️I can make multiple subsets and make predictions on each and ensemble them
@@ -67,7 +70,7 @@ Where can I find item and user metadata?
 		- ⚗️⚗️⚗️ keep the order of list generation?  <mark style="background: #FF5582A6;">to test with the baseline</mark> 
 - Create a <mark style="background: #BBFABBA6;">baseline</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/last-20-aids) with his intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=400s) 🔥🔥🔥 
 	- 🚀🚀🚀 - *use the <mark style="background: #ABF7F7A6;">last 20 aids</mark> for predictions*
-	- 🏗️🏗️🏗️ Let me implement it in polars, notebook
+	- 🏗️🏗️🏗️ Let me implement it in polars, notebook  <mark style="background: #D2B3FFA6;">todo</mark> 
 - <mark style="background: #BBFABBA6;">Co-visitation Matrix</mark> [notebook](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix) by @vslaykovsky and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=534s) 🔥🔥🔥 
 	-  [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
 	- 🚀🚀🚀 - if the last 20 aids are not 20 in total, then fill in the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> to the last aid of each test session
@@ -124,14 +127,14 @@ Where can I find item and user metadata?
 			- join them together, [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115355042&cellId=40) <mark style="background: #ADCCFFA6;">Done!</mark> 
 			- to confirm my implementation result is the same to the organizer's result, [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115377521&cellId=41) <mark style="background: #ADCCFFA6;">Done!</mark> 
 		- implement `recall_by_event_type` and `weighted_recalls`, check script in [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115378747&cellId=46) , and implemented [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115380231&cellId=49), confirmed [cell](https://www.kaggle.com/code/danielliao/evaluate-otto-organizer-script?scriptVersionId=115301417&cellId=8) <mark style="background: #ADCCFFA6;">Done!</mark> 
-- 😱 😂 🎉🎉 using reimplementation notebooks above to split any subset of `train` into `train_sessions`, `test_sessions` and `test_labels` for fast experimentation on training and evaluating <mark style="background: #BBFABBA6;">Todo</mark> 
+- 😱 😂 🎉🎉 using reimplementation notebooks above to split any subset of `train` into `train_sessions`, `test_sessions` and `test_labels` for fast experimentation on training and evaluating
 	- integrate my implementations together for `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels` <mark style="background: #ADCCFFA6;">start late on 2023.1.12, done 2023.1.13 morning</mark>
 	- make a proper subset (or more) from training set (4 weeks) for last iteration <mark style="background: #ADCCFFA6;">start early on 2023.1.13</mark> 
 		- When the training set start and end and how the data is extracted according to time, [[OTTO Recsys Comp (New)#^8fbdee|codes]] 🎉
 		- How to select 7 days from the first day's 22:00 to the last day's 22:00, [[OTTO Recsys Comp (New)#^a94741|codes]] 🎉
 		- Let's get `train_sessions_full`, `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels`  out of it by spliting from the last 2 days, [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook) [dataset](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) <mark style="background: #ADCCFFA6;">done end of 2023.1.13</mark>  🎉
 		- also figured out how to deal with `datetime` and `duration` in polars [[OTTO Recsys Comp (New)#^54ebe4|details]] 🔥🎉🎉
-	- integrate my implementations on evaluation 
+	- integrate my implementations on evaluation   <mark style="background: #BBFABBA6;">Todo</mark> 
 	- 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go, let me reimplement it in polars
 
 <mark style="background: #FFB8EBA6;">Notebooks to Verify My Dataset</mark> 
@@ -615,3 +618,38 @@ p.show()
 ```
 
 ^ec82df
+
+```python
+train_sessions_full = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/train_sessions_full.parquet')
+train_sessions = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/train_sessions.parquet')
+test_sessions_full = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test_sessions_full.parquet')
+test_sessions = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test_sessions.parquet')
+test_labels = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test_labels.parquet')
+
+# There should be no aids of `test_sessions` unknown to `train_sessions`
+(
+    test_sessions
+    .select([
+        pl.col('aid').is_in(train_sessions.select('aid').unique().collect().to_series().to_list()).alias('known_aid_to_train?')
+    ])
+    .select([
+        (~pl.col('known_aid_to_train?')).alias('new_aid_to_train?')
+    ])
+    .select([
+        pl.col('new_aid_to_train?').sum().alias('num_aids_unknown_to_train')
+    ])
+    .collect()
+)
+
+# There should be no overlap sessions between `train_sessions` and `test_sessions`
+(
+    test_sessions
+    .select([
+        pl.col('session').unique().is_in(train_sessions.select('session').unique().collect().to_series().to_list()).alias('known_sess_to_train?')
+    ])
+    .select([
+        pl.col('known_sess_to_train?').sum().alias('num_sess_known_to_train')
+    ])
+    .collect()
+)
+```
