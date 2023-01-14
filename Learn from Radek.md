@@ -177,3 +177,36 @@
 - able to squeeze time more after a few more iterations
 [39:30](https://www.youtube.com/watch?v=qjWZvdo7PYA&t=2370s) Can I become an ML engineer in 6 months?
 [44:05](https://www.youtube.com/watch?v=qjWZvdo7PYA&t=2645s) Are you using GPT-3 to help write your newsletter?
+
+
+---
+#### <mark style="background: #FFB8EBA6;">Radek introduce OTTO comp</mark>  [Thread](https://twitter.com/radekosmulski/status/1613138626304708609)
+
+^c32318
+
+In this video, we meet several very powerful RecSys concepts that can be extended to real-life scenarios! 
+- [0:00](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=0s) Competition intro 
+- [1:09](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=69s) Data overview 
+- [6:40](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=400s) Baseline: last 20 aids as prediction
+- [8:54](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=534s) Co-visitation matrix: how to improve upon the baseline?
+- [12:53](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=773s) Candidate reranking using static rules
+- [20:25](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1225s) Second-stage Ranker 
+- [22:15](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1335s) Word2vec 
+- [28:39](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1719s) Matrix Factorization
+- [32:05](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1925s) What's next The presented concepts build on one another. 
+- Furthermore, the OTTO dataset is a very interesting and elegant one, as many features can be created from essentially 4 columns! 
+
+- Competition overview: [https://www.kaggle.com/competitions/o...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0J6U1FIZ3ZhWk0wWEJucUtLRFhydV9KNDZ6d3xBQ3Jtc0ttZmxZZ1VZY2ZWN2xEWTFXdmEzY2gyNHpFTTVwUGVhdHk2SmtUbGFNRFNBb0VnZFZwcWRPaXdfMC1WRHJoYmdKNTFOSFRUQUtBZjBfWnZoN0FuUWRDQ3Uzc0dTSHpvY3NVYURmQWk4cmFFMUVWcDNPbw&q=https%3A%2F%2Fwww.kaggle.com%2Fcompetitions%2Fotto-recommender-system&v=gtPEX_eRAVo) 
+- And here are the notebooks mentioned in the video: 
+- 📈 [EDA] A look at the data + training splits: [https://www.kaggle.com/code/radek1/ed...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbno4YzM4bUxJb0EtdGFqbWdFSENYeWgxWjdEZ3xBQ3Jtc0ttdGZ5YUxYNkRuNktsVmVFRFlMTmZpNEVpZXNHSGVXLW5kakUzMkV2TXJaWE9hWEZwVDVYVU1LTUtrMmFxYjl3NEhRTmVSQU43QW42ZmtfMEdjbkpIZGhCdUJITDAwaHdYWkstQXBGS1VXRnJqRU9YWQ&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fradek1%2Feda-a-look-at-the-data-training-splits&v=gtPEX_eRAVo) 
+- Baseline ([https://www.kaggle.com/code/radek1/la...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbGp2dENwc1loZWZiaWpiY2ppakJuYUhWbXhVZ3xBQ3Jtc0tsQ2Z3bnd3NExVR2t2a0dlTThGZVA0dnNNaWRNVHFwc09qOVVKOFpabzhPdEFvUTBHNW9fTVlBOEVsYlZIRlB3MGlSSVlubDlMbV9nQUdiMjhuakp4NDNkWEFyX0xyYVVwMTVnTUxkM01IbkppSDA0RQ&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fradek1%2Flast-20-aids%29%3A&v=gtPEX_eRAVo) [https://www.kaggle.com/code/radek1/la...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbm5pMTR1VHl1UnhKVUlreFNLLV9BRGNxS2lad3xBQ3Jtc0tsSDRMYjhLMzdGN1pvcFNXWjl6RG9NVDg4TWRJMS02TlhoUG1Jc1JEQWk4U0ZrUkdRZE5IYUJCMFk1ZTNhZk1PenZUaEp1MVBBdGdBa2R3TDBBa3EtbVNUXzNDdXhtdnFXXzBNa3pqS1kyalNKNTlNZw&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fradek1%2Flast-20-aids&v=gtPEX_eRAVo) 
+- Co-visitation Matrix: [https://www.kaggle.com/code/vslaykovs...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbWRkQV9aa1lrSUp4Y0xPNzRPdWE4Nmd4SU41QXxBQ3Jtc0traFpLbms1SDBkWTNiQ1FuWFN0dC1ZSlRRQVZFRjI2UzdEMnM5SEU5dnBkTHNoSG5fdWVtMWl5Smc5a1daVHpYSEZEM0g2Z0p0amFfM29XWkZkS0VCUkFzMkxVeldMZkxHcV9zMFBlU2RIMVNZUEN5aw&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fvslaykovsky%2Fco-visitation-matrix&v=gtPEX_eRAVo) 
+- Candidate ReRank Model - [LB 0.575]: [https://www.kaggle.com/code/cdeotte/c...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbmFMbklITlNDYktBUURVVlhINEQ4QlFrbFNmUXxBQ3Jtc0ttcW03cjJqclZnTkxqSzFIb1hQQ2NBTGxycDI0RHhxMURmTE5meXNUVjZSZHNWY1RZb3ZObWhDMGZoWE5aU0ZuUk1uTUI1X1FWUFo1Zno4aWZGMzd5emRacmNjYy1VT0lONDdNNE4tYjhZLTB0OEw3cw&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fcdeotte%2Fcandidate-rerank-model-lb-0-575&v=gtPEX_eRAVo) 
+- 💡 [polars] Proof of concept: LGBM Ranker🧪🧪🧪: [https://www.kaggle.com/code/radek1/po...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3RCNEIxUEZua0lYcFZWamExNkF0S2FxMFRJd3xBQ3Jtc0tucTRwaElnN212bUd0N0ljQ1RtbVhhUzE1NUpkOHlVWDNLS0RtRnFfQ1JGWjVLYnUtX083VEh0SHJHMUVTVHF2WWlTQmhPZDhkai1iR29TUHpBY1JSNlJnVVp2TFNMa3N4MzZJeWFqU3J0T25GS0Fadw&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fradek1%2Fpolars-proof-of-concept-lgbm-ranker&v=gtPEX_eRAVo) 
+- 💡 Word2Vec How-to [training and submission]🚀🚀🚀: [https://www.kaggle.com/code/radek1/wo...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbUFuT0Z2OWUzRWpEdzE5a1ZWSnFnVUNkRXA4Z3xBQ3Jtc0tuOFUzUEFaZDRZQXRYNWtDVmR5TDlnNGs4bTNDaDdFZEhfSnEycjQwT0V0cFBLeEVYTzBaUVVzMjhiUmh6TXZwRUZsMkk1Vk1DbEFVRTZkVjJFcjJBNWFtRXNPSF9OTjItV1l3a3ZwMmpGRTYzd244cw&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fradek1%2Fword2vec-how-to-training-and-submission&v=gtPEX_eRAVo) 
+- 💡Matrix Factorization [PyTorch+Merlin Dataloader]: [https://www.kaggle.com/code/radek1/ma...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqblFtQ21SSW40RjBZVGM0Y1EyRC1NTFBvdFd0UXxBQ3Jtc0tuRTVCbnVPVFduVjNZVjktZHFzZW1yNzB2dzNSb0g3TS1uSG13ZUNPcHd5LXdGVFVwZTF1VWprdkEySkhURWt6THBXdjN5dWRmUkRSckVmNHp5UGNEVHVVUDlUcl9Ncm9nRWpnc3oxQkNoSTVWd2JURQ&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Fradek1%2Fmatrix-factorization-pytorch-merlin-dataloader&v=gtPEX_eRAVo) 
+
+- 🎥 Subscribe to my YouTube channel to learn more: [https://www.youtube.com/channel/UCgdd...](https://www.youtube.com/channel/UCgddGFFOLmhHSq_zhoa5SUQ) 
+- 📗 My book on learning Machine Learning: [https://rosmulski.gumroad.com/l/learn...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbl9JanlJOFB4OXBmb3ZnQUo1RXhubG5YMEU1QXxBQ3Jtc0ttX0tVSUNHRWFRNmtUOXNlcGYyMklsWllhd1FGaUlGUW94Rkxfb2Y3dFFSVGNxWEd0Q0o3QnZ3NDlaQ0JrVUNCV3FrSXZBUGo4cERHUHJ5NTMxcDdzQTBoRVluaGFtV0V6amJtb2EzOGRFdFhpaFY4bw&q=https%3A%2F%2Frosmulski.gumroad.com%2Fl%2Flearn_machine_learning%2Fyoutube&v=gtPEX_eRAVo) 
+- 📬 My newsletter: [https://newsletter.radekosmulski.com/](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3BiZzhKMVpfQk92UW9ZcWVyd1RxTExxX2JiUXxBQ3Jtc0trYnludmo5S3UyYno5ZW9mN3k1VC1Zb2dyQXViYnV4eWRsdDFyVGg0cUdRYVdrNEJMQUtub1pGVUgtRzBHT3hGNVR6WmZLenhHY3MtNjZpaTIwRlN3dHpRSjRGY2xDVDU4c0d6SE9NMmNrcHpPVnVEMA&q=https%3A%2F%2Fnewsletter.radekosmulski.com%2F&v=gtPEX_eRAVo) 
+- 📒 My blog: [https://radekosmulski.com/](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2NoaGl0M2hKOV9HWldpbUxJdVNpSDc1ZGdxZ3xBQ3Jtc0tudG54dzlaNGc0UXFja1VUOTFyN29SZk1DN2pFRllCNEo1MVNQWE5YRFFVcVBZN0dNS0JXMURfVkswZGY2M0kwUXlTMFUxMHMtM2poenhSaTEybUpVLXRSWDRIWXJjQ2JLTHhSdHN4aW1qaEN0RWkzYw&q=https%3A%2F%2Fradekosmulski.com%2F&v=gtPEX_eRAVo)

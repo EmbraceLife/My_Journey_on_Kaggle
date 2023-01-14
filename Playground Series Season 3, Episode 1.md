@@ -40,7 +40,7 @@
 - LGBMRegressor tuned + KF 10 + combined dataset,  [the params are from](https://www.kaggle.com/code/soupmonster/simple-lightgbm-baseline) @soupmonster:
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19) (with random_state as 0, metric score: 0.519450), 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115563958&cellId=24) (random_state as 19, f64 pandas: metric score: 0.52017, public score: 0.55846; f64 polars: metric: 0.52017, public: 0.55864; f32 polars: metric: 0.52003, public: 0.55858) <mark style="background: #FF5582A6;">polars f32 is worse than pandas f64 this time</mark> 
-- LGBMRegressor tuned + catboost regressor + KF 10  + different random_state 
+- LGBMRegressor tuned + catboost regressor + KF 10  + different random_state  ^e3004d
 	- [Radek](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24) : catboost mean metric score: 0.520077, public score: 0.55755, 
 	- [Daniel](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115647583) : this round of submission shows <mark style="background: #FF5582A6;">float64 is better than float 32</mark> , and float 64 pandas and polars are the same. [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115626126) with submission files
 		- clfs_f32pl_clfs_f32pl_cat: public: 0.55758, 

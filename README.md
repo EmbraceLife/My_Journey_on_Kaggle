@@ -61,7 +61,6 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - Radek's AMA is amazing, many great insights, in particular ideas on <mark style="background: #BBFABBA6;">how to subset properly, fast iteration, training on full dataset</mark> are what I needed the most at the moment. [[Learn from Radek#^73faa3|details]] 💡⚡🔥 
 - After 3 days on a course, I realized that the strategy of learning which works for me is through <mark style="background: #BBFABBA6;">a ML project like kaggle comp</mark> , a course without focusing on a real-world project or competition can't keep my attention for long 😅  🔍🔍🔍 (why? from a part of the conversation I had with Wasim)
 	> Why is that? first of all, everything I learnt is what I earned by implementing and verifying the code myself, so every bit of the learning is a reward; secondly, every bit of the learning is applied in a real dataset with a real world problem, it ensures me the technique I learnt is useful in real world; thirdly, by focusing on a project/comp, a pipeline can be finished with a handful of techniques learnt, there is a nice feeling of completion (of course, there will more a lot more iterations), but with a course it could take months to absorb everything inside and still not feeling capable of doing things in the real world;
-	
-- 
+- 2023.1.14 I watched [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^c32318|Radek's intro to otto comp]], it's amazing how many  [[OTTO Recsys Comp (New)#^4a8749|new insights and ideas (todos)]] can come out from the notebooks (which I thought I knew) when listening to a great guide (Radek) talking about them
 	
 	
