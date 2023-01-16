@@ -72,7 +72,25 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - How to `cast` `pl.col('ts')` from `pl.Int32` to `pl.Datetime(time_unit='ms')` and `filter` with `is_between(datetime(2023,1,13), datetime(2023,1,14))`? [[OTTO Recsys Comp (New)#^9a15dc|codes]] 🔥🔥🔥🔥
 - How to tell whether `pl.col('ts')` has milliseconds as unit not seconds nor microseconds with `pl.duration(microseconds=(pl.col('ts').last() - pl.col('ts').first()))`?  [[OTTO Recsys Comp (New)#^69336f|codes]] 🔥
 - How to find out `duration` or `Duration` in 'us', 'ms', 'hr', 'day' for each session with `groupby('session')` and `(pl.col('ts').last() - pl.col('ts').first()).cast(pl.Datetime(time_unit='ms')).dt.hour()`  [[OTTO Recsys Comp (New)#^d51937|codes]] [ver-3](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116250048&cellId=10) 🔥🔥🔥
-
+- how to `sort` `session` ascending but `ts` descending at the same time (using `over('session')` cause error) [[Polars-Utils-Kaggle#^8b13bf|codes]] 🔥
+- how to `count` and `cumcount` for each subgroup with `over('session')` under `with_columns`, [[Polars-Utils-Kaggle#^280089|codes]] 
+- how to get the last 20 `aids` for each test session and verify with `count` and `cumcount` in each session, [[Polars-Utils-Kaggle#^686c25|codes]] 🔥🔥🔥
+- how to put all `aid` of each test session into a list with `groupby` and `agg`, [[Polars-Utils-Kaggle#^fef520|codes]] 🔥
+- how to `arr.eval(pl.element().cast()` a list of `pl.Int32` to a list of `pl.Utf8` and `arr.join` the list with ' ' into a long string? [[Polars-Utils-Kaggle#^45fecf|codes]]
+- how to `pl.exclude` multiple columns from a dataframe? [[Polars-Utils-Kaggle#^690ef6|codes]] 
+- how to split a column into 2 columns with `str.split_exact('_', 1).struct.rename_fields(['sess', 'id']).alias('fields')` and `unnest('fields')`? [[Polars-Utils-Kaggle#^efec46|codes]] 🔥🔥🔥🔥
+- how to split a column into at most 2 columns with `str.splitn('_', 2)`? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.Expr.str.splitn.html) 
+- how to concat more columns into a single column with `pl.concat_list` and `arr.join` ? [[Polars-Utils-Kaggle#^529f6e|codes]] 🔥🔥🔥🔥🔥🔥
+- how to deal with df in chunks and how to select `is_between` two closed values? [[Polars-Utils-Kaggle#^32b0bc|codes]] 🔥🔥🔥
+- how to show all the duplicates with  `is_duplicated` and how to do `drop_duplicates` in polars with `unique()` ? [[Polars-Utils-Kaggle#^fda60c|codes]] 🔥🔥🔥
+- how to do `pd.merge` on df itself in polars and how to `sort` on 3 columns? [[Polars-Utils-Kaggle#^7b2147|codes]] 🔥🔥🔥
+- `()` is a must between each bool expr for using `filter`, otherwise error? [[Polars-Utils-Kaggle#^36f744|codes]] 🔍🔍🔍
+- put two columns into a single column of a list, and do `value_counts` on the occurrences of the lists; how to split a column of list into many columns, how to `join` `on` two columns and keep everything with `how='outer'`, and add suffix to added columns' names? [[Polars-Utils-Kaggle#^9ffa05|codes]] 🔥🔥🔥🔥🔥
+- how np.ufunc work in polars? [[Polars-Utils-Kaggle#^02a8c6|codes]]  
+- how to count the number of duplicates with `is_duplicated` and remove them with `unique()`? [[Polars-Utils-Kaggle#^9c01d0|codes]] 🔥🔥🔥
+- how to store pairs of aids into `defaultdict` and keep counting the pairs with `Counter`? [[Polars-Utils-Kaggle#^10f42e|codes]] 🔥🔥🔥
+- how to `reverse` a series rather than `sort` the values of a series in reverse order? [[Polars-Utils-Kaggle#^a41c08|codes]]
+- how to do mirror in obsidian? <mark style="background: #BBFABBA6;">todo</mark> 
 
 ---
 **<mark style="background: #FFB8EBA6;">POLARS</mark>** 
@@ -340,4 +358,314 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 	- how to draw distributions? [cell](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113457614&cellId=78)
 	- how to draw a vertical line as mean for the distribution? [cell](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113457614&cellId=78)
 
+---
+---
 
+```python
+!pip install polars
+
+import numpy as np
+import polars as pl
+import pandas as pd
+import random
+from polars.testing import assert_frame_equal, assert_series_equal
+from datetime import datetime
+
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+pd.set_option('display.max_colwidth', None)
+cfg = pl.Config.restore_defaults()  
+pl.Config.set_tbl_rows(50)  
+pl.Config.set_fmt_str_lengths(1000)
+```
+
+
+```python
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+# how to sort session ascending but ts descending at the same time
+(
+    test_ms
+    .sort(['session', 'ts'], reverse=[False, True])
+    .fetch()
+)
+```
+
+^8b13bf
+
+```python
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+
+# how to `count` and `cumcount` for each subgroup with `over('session')` under `with_columns`
+(
+    test_ms
+    .with_columns([
+        pl.col('aid').cumcount().over('session').alias('idx_inside_each_sess'),
+        pl.col('aid').count().over('session').alias('tot_rows_each_sess')
+    ])
+    .collect()
+)
+```
+
+^280089
+
+```python
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+# how to get the last 20 aids for each test session and verify with count and cumcount in each session
+(
+    test_ms
+    .with_columns([
+        pl.col('aid').cumcount().over('session').alias('idx_inside_each_sess'),
+        pl.col('aid').count().over('session').alias('tot_rows_each_sess')
+    ])
+    .sort(['session', 'ts'], reverse=[False, True])
+    .groupby('session')
+    .tail(20)
+    .collect()
+)
+```
+
+^686c25
+
+```python
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+# how to put all `aid` of each test session into a list with `groupby` and `agg`
+(
+    test_ms
+    .groupby('session')
+    .agg([
+        pl.col('aid'),
+        pl.col('type'),
+        pl.col('ts')
+    ])
+    .collect()
+```
+
+^fef520
+
+```python
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+# how to cast a list of pl.Int32 to a list of pl.Utf8 and join the list with ' ' into a long string
+(
+    test_ms
+    .groupby('session')
+    .agg([
+        pl.col('aid'),
+    ])
+    .with_columns([
+        pl.col('aid').arr.eval(pl.element().cast(pl.Utf8)).arr.join(' ').alias('labels')
+    .collect()    
+    ])
+```
+
+^45fecf
+
+```python
+    
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+# how to `pl.exclude` multiple columns from a dataframe
+(
+    test_ms
+    .with_columns([
+        pl.col('aid').cumcount().over('session').alias('idx_inside_each_sess'),
+        pl.col('aid').count().over('session').alias('tot_rows_each_sess')
+    ])    
+    .select(pl.exclude(['idx_inside_each_sess', 'tot_rows_each_sess']))
+    .collect()
+)
+```
+
+^690ef6
+
+```python
+# how to split a column into more columns with `str.split_exact('_', 1).struct.rename_fields(['sess', 'id']).alias('fields')` and `unnest('fields')`
+(
+    pl.DataFrame({
+    'sess_id': ['sess_1','sess_2','sess_3','sess_4','sess_5','sess_6'],
+    'aid': [12,13,14,15,16,17]
+    })
+    .with_columns([
+        pl.col('sess_id').str.split_exact('_', 1).struct.rename_fields(["sess", "id"]).alias("fields")
+    ])
+    .unnest("fields")
+)
+```
+
+^efec46
+
+```python
+# how to concat more columns into a single column with `pl.concat_list` and `arr.join` 
+(
+    pl.DataFrame({
+    'sess_id': ['sess_1','sess_2','sess_3','sess_4','sess_5','sess_6'],
+    'aid': [12,13,14,15,16,17]
+    })
+    .with_columns([
+        pl.col('sess_id').str.split_exact('_', 1).struct.rename_fields(["sess", "id"]).alias("fields")
+    ])
+    .unnest("fields")
+    .select([
+        pl.concat_list(['sess', 'id']).alias('joined_again'),
+        'sess_id',
+        'aid'
+    ])
+    .with_columns([
+        pl.col('joined_again').arr.join("_")
+    ])
+
+)
+```
+
+^529f6e
+
+```python
+# how to deal with df in chunks and how to select `is_between` two closed values
+for i in range(0, sessions.shape[0], chunk_size):
+    current_chunk = (
+        subsets
+        .filter(pl.col('session').is_between(sessions[i], sessions[i+chunk_size-1], closed='both'))
+        .groupby('session').tail(30)
+    )
+    current_chunk.sort('session').collect()
+    break
+```
+
+^32b0bc
+
+
+```python
+# how to find out the total num of duplicates, if there is no duplicates, this sum will be 0
+(
+    subsets
+    .is_duplicated().sum()
+)
+
+
+subsets.is_duplicated().shape
+subsets.shape
+
+(
+    subsets
+    .filter(subsets.is_duplicated())
+    .head(10)
+)
+
+# drop_duplicated() in pandas is actually the same to unique() in polars
+subsets = (
+    subsets
+    .unique()
+)
+```
+
+^fda60c
+
+```python
+# how to do `pd.merge` on df itself in polars and how to `sort` on 3 columns
+
+
+consecutive_AIDs = (
+	current_chunk
+	.join(current_chunk, on='session', suffix='_right')
+	.sort(['session', 'aid', 'aid_right']) # nice view
+	.filter(pl.col('aid') != pl.col('aid_right')) # no need for pairs of themselves
+	.with_columns([
+		((pl.col('ts_right') - pl.col('ts'))/(24*60*60*1000)).alias('days_elapsed') # differentiate aid_right is after or before aid in days
+	])
+)
+```
+
+^7b2147
+
+```python
+# `()` is a must between each bool expr for using `filter`, otherwise error
+(
+	df
+	.filter((pl.col('days_elapsed')>=0) & (pl.col('days_elapsed') <=1)) 
+)
+```
+
+^36f744
+
+```python
+# put two columns into a single column of a list, and do `value_counts` on the occurrences of the lists; how to split a column of list into many columns
+import gc
+import numpy as np
+count_all_pairs = pl.DataFrame()
+for i in range(0, sessions.shape[0], chunk_size):
+    current_chunk = (
+        subsets
+        .filter(pl.col('session').is_between(sessions[i], sessions[i+chunk_size-1], closed='both'))
+        .groupby('session').tail(30)
+    )
+    count_pairs_current_chunk = (
+        current_chunk
+        .join(current_chunk, on='session', suffix='_right')
+        .sort(['session', 'aid', 'aid_right']) # nice view
+        .filter(pl.col('aid') != pl.col('aid_right')) # no need for pairs of themselves
+        .with_columns([
+            ((pl.col('ts_right') - pl.col('ts'))/(24*60*60*1000)).alias('days_elapsed') # differentiate aid_right is after or before aid in days
+        ])
+        .filter((pl.col('days_elapsed')>=0) & (pl.col('days_elapsed') <=1)) # only pairs whose aid_rights are after aid within 24 hrs
+        .with_columns([
+            pl.concat_list(['aid', 'aid_right']).alias('pairs') # put pairs together into a list
+        ])
+        .select([
+            pl.col('pairs').value_counts(sort=True).struct.rename_fields(['aids', 'count']).alias('fields') # count pairs
+        ])
+        .unnest('fields')
+        .with_columns([
+            pl.col('aids').arr.eval(pl.element().cast(pl.Utf8)).arr.join(' '), # make pairs from list to string
+            pl.col('aids').arr.first().alias('aid'),     # split the pair list into two columns
+            pl.col('aids').arr.last().alias('aid_right'),            
+        ])
+    )
+    if i == 0: 
+        count_all_pairs = count_pairs_current_chunk
+    else: # how to `join` `on` two columns and keep everything with `how='outer'`, and add suffix to added columns' names
+        count_all_pairs.join(count_pairs_current_chunk, on=['aid', 'aid_right'], how='outer', suffix=f'_{int(np.ceil(i/chunk_size))}')
+        break
+
+del count_all_pairs, count_pairs_current_chunk
+gc.collect()
+    
+```
+
+^9ffa05
+
+```python
+import polars as pl 
+import numpy as np 
+df = pl.DataFrame({"a": [1, 2, 3], "b": [4, 5, 6]}) 
+out = df.select( [ 
+				  np.log(pl.all()).suffix("_log"), # how np.ufunc work in polars
+				  ] ) 
+print(out)
+```
+
+^02a8c6
+
+```python
+# how to count the number of duplicates and remove them
+test_ms.collect().is_duplicated().sum() # there are many duplications
+test_ms.collect().unique().is_duplicated().sum() # remove the duplicated
+```
+
+^9c01d0
+
+```python
+# how to store pairs of aids into `defaultdict` and keep counting the pairs with `Counter`
+from collections import defaultdict, Counter
+next_AIDs = defaultdict(Counter)
+
+for aid_x, aid_y in zip(current_chunk.select('aid').to_series().to_list(), current_chunk.select('aid_right').to_series().to_list()):
+	next_AIDs[aid_x][aid_y] += 1
+```
+
+^10f42e
+
+```python
+# how to `reverse` a series rather than `sort` the values of a series in reverse order
+        AIDs1 = pl.Series('aid', AIDs).sort(reverse=True).to_list()  
+        AIDs1 = pl.Series('aid', AIDs).reverse().to_list()
+```
+
+^a41c08

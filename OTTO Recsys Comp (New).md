@@ -69,12 +69,13 @@ Where can I find item and user metadata?
 	- 🤔🤔🤔 but what if the predictions from different trees are more different than similar, how to pick the remaining different aids? 
 		- ⚗️⚗️⚗️ keep the order of list generation?  <mark style="background: #FF5582A6;">to test with the baseline</mark> 
 - Create a <mark style="background: #BBFABBA6;">baseline</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/last-20-aids) with his intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=400s) 🔥🔥🔥 
-	- 🚀🚀🚀 - *use the <mark style="background: #ABF7F7A6;">last 20 aids</mark> for predictions*
-	- 🏗️🏗️🏗️ Let me implement it in polars, notebook  <mark style="background: #D2B3FFA6;">todo</mark> 
+	- 💡💡💡 *use the <mark style="background: #ABF7F7A6;">last 20 aids</mark> of each test session for predictions for clicks, carts and orders*
+	- 🏗️🏗️🏗️ Let me implement it in polars [[OTTO Recsys Comp (New)#^e8e009|codes]] ,  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars)  <mark style="background: #ADCCFFA6;">done</mark>  with public [scores](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars/comments#2100313) noon on 2023.1.15
 - <mark style="background: #BBFABBA6;">Co-visitation Matrix</mark> [notebook](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix) by @vslaykovsky and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=534s) 🔥🔥🔥 
-	-  [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
-	- 🚀🚀🚀 - if the last 20 aids are not 20 in total, then fill in the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> to the last aid of each test session
-	- 🏗️🏗️🏗️ Let me implement it in polars, notebook
+	- how co-visitation matrix is [explained](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix?scriptVersionId=110008312&cellId=1) by @vslayvkovsky 🚀
+	- [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
+	- 💡💡💡 - if the last 20 aids of each test session are not enough, then append the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> 
+	- 🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15
 - Candidate <mark style="background: #BBFABBA6;">reranking using static rules</mark> [notebook](https://www.kaggle.com/code/cdeotte/candidate-rerank-model-lb-0-575) by @cdeotte and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=773s)  🔥🔥🔥 
 	- use 3 co-visitation matrices to select 50 to 200 candidates from 1.6 million candidates
 	- use hand-crafted rules to rerank the candidates as predictions
@@ -132,7 +133,7 @@ Where can I find item and user metadata?
 	- make a proper subset (or more) from training set (4 weeks) for last iteration <mark style="background: #ADCCFFA6;">start early on 2023.1.13</mark> 
 		- When the training set start and end and how the data is extracted according to time, [[OTTO Recsys Comp (New)#^8fbdee|codes]] 🎉
 		- How to select 7 days from the first day's 22:00 to the last day's 22:00, [[OTTO Recsys Comp (New)#^a94741|codes]] 🎉
-		- Let's get `train_sessions_full`, `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels`  out of it by spliting from the last 2 days, [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook) [dataset](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) <mark style="background: #ADCCFFA6;">done end of 2023.1.13</mark>  🎉
+		- Let's get `train_sessions_full`, `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels`  out of it by spliting from the last 2 days,  [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook) [dataset](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) <mark style="background: #ADCCFFA6;">done end of 2023.1.13</mark>  🎉 [[OTTO Recsys Comp (New)#^9bc9b7|codes for verifying dataset]] 
 		- also figured out how to deal with `datetime` and `duration` in polars [[OTTO Recsys Comp (New)#^54ebe4|details]] 🔥🎉🎉
 	- integrate my implementations on evaluation   <mark style="background: #BBFABBA6;">Todo</mark> 
 	- 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go, let me reimplement it in polars
@@ -156,6 +157,8 @@ Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_ses
 ---
 
 ## <mark style="background: #FFB86CA6;">My codes</mark> 
+
+
 
 
 ```python
@@ -198,9 +201,15 @@ train_v7_3rd = pl.scan_parquet('/kaggle/input/otto-validation-optimized-parquet/
 test_v7_3rd = pl.scan_parquet('/kaggle/input/otto-validation-optimized-parquet/test_sessions.parquet')
 test_v7_full_3rd = pl.scan_parquet('/kaggle/input/otto-validation-optimized-parquet/test_sessions_full.parquet')
 
+train_sessions_full = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/train_sessions_full.parquet')
+train_sessions = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/train_sessions.parquet')
+test_sessions_full = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test_sessions_full.parquet')
+test_sessions = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test_sessions.parquet')
+test_labels = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test_labels.parquet')
 
 train_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/train_ms.parquet')
 test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+sample_sub = pl.scan_csv('/kaggle/input/otto-recommender-system/sample_submission.csv')
 ```
 
 ^0f6921
@@ -653,3 +662,82 @@ test_labels = pl.scan_parquet('/kaggle/input/1st-7days-train-validation-set/test
     .collect()
 )
 ```
+
+^9bc9b7
+
+
+```python
+train_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/train_ms.parquet')
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+sample_sub = pl.read_csv('../input/otto-recommender-system/sample_submission.csv')
+
+# grab the last 20 aids for each test session
+
+joined = (
+    test_ms
+    .with_columns([
+        pl.col('aid').cumcount().over('session').alias('idx_inside_each_sess'),
+        pl.col('aid').count().over('session').alias('tot_rows_each_sess')
+    ])
+    .sort(['session', 'ts'], reverse=[False, False]) # corrected
+    .groupby('session')
+    .tail(20)
+    .select(pl.exclude(['idx_inside_each_sess', 'tot_rows_each_sess']))
+    .groupby('session')
+    .agg([
+        pl.col('aid'),
+    ])
+    .with_columns([
+        pl.col('aid').arr.eval(pl.element().cast(pl.Utf8)).arr.join(' ').alias('labels')
+    ])
+    .select(pl.exclude('aid'))
+    .with_columns([
+        (pl.col('session').cast(pl.Utf8) + '_clicks').alias('sess_click'),
+        (pl.col('session').cast(pl.Utf8) + '_carts').alias('sess_cart'),
+        (pl.col('session').cast(pl.Utf8) + '_orders').alias('sess_order'),        
+    ])
+    .collect()
+)
+
+
+
+
+
+part1 = (
+    joined
+    .select([
+        pl.col('sess_click').alias('session_type'),
+        'labels',
+        'session'
+    ])
+)
+
+part2 = (
+    joined
+    .select([
+        pl.col('sess_cart').alias('session_type'),
+        'labels',
+        'session'
+    ])
+)
+
+part3 = (
+    joined
+    .select([
+        pl.col('sess_order').alias('session_type'),
+        'labels',
+        'session'
+    ])
+)
+
+submission = (
+    pl.concat([part1, part2, part3])
+    .sort('session')
+    .select(pl.exclude('session'))
+
+)
+
+submission.write_csv('submission.csv')
+```
+
+^e8e009
