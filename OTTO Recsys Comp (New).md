@@ -75,7 +75,16 @@ Where can I find item and user metadata?
 	- how co-visitation matrix is [explained](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix?scriptVersionId=110008312&cellId=1) by @vslayvkovsky 🚀
 	- [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
 	- 💡💡💡 - if the last 20 aids of each test session are not enough, then append the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> 
-	- 🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15
+	- 🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15, [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/) nearly done in 2023.1.17
+		- key concepts 😱 😂 ⚡🔥
+			- what is co-visitation intuitively
+			- how to create a feature to select the best 20 aids from many
+			- how to use co-visitation matrix to select candidates from millions of aids
+		- techinques 🔥🔥🔥
+			- use `DEBUG=True` when writing the codes from start, otherwise running large dataset and failed due to code error is a huge waste of time 😱😱😱😱😱😱
+			- I have spent most of the 2 days in implementing in polars, and realized that polars aren't fast in all situations 
+			- and `defaultdict` and `Counter` are fast and powerful, 
+			- and `sorted` is useful in sorting dict by keys or values
 - Candidate <mark style="background: #BBFABBA6;">reranking using static rules</mark> [notebook](https://www.kaggle.com/code/cdeotte/candidate-rerank-model-lb-0-575) by @cdeotte and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=773s)  🔥🔥🔥 
 	- use 3 co-visitation matrices to select 50 to 200 candidates from 1.6 million candidates
 	- use hand-crafted rules to rerank the candidates as predictions
@@ -163,9 +172,13 @@ Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_ses
 
 ```python
 !pip install polars
-
+!pip install snoop
+from collections import defaultdict, Counter
+import gc
+from snoop import pp
 import polars as pl
 import pandas as pd
+import numpy as np
 import random
 from polars.testing import assert_frame_equal, assert_series_equal
 from datetime import datetime

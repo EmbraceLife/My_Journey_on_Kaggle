@@ -90,6 +90,11 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - how to count the number of duplicates with `is_duplicated` and remove them with `unique()`? [[Polars-Utils-Kaggle#^9c01d0|codes]] 🔥🔥🔥
 - how to store pairs of aids into `defaultdict` and keep counting the pairs with `Counter`? [[Polars-Utils-Kaggle#^10f42e|codes]] 🔥🔥🔥
 - how to `reverse` a series rather than `sort` the values of a series in reverse order? [[Polars-Utils-Kaggle#^a41c08|codes]]
+- how to sort elements of a dict by either key or value in ascending or descending order with `sorted(dict.items(), key, reverse)`?  [[Polars-Utils-Kaggle#^d95672|codes]] 🔥🔥🔥
+- how does a `Counter` work? [[Polars-Utils-Kaggle#^e9b875|codes]] 🔥🔥🔥🔥🔥
+- how does a `defaultdict` and `Counter` can work together by set `Counter` as its default value? [[Polars-Utils-Kaggle#^7513c3|codes]] 🔥🔥🔥🔥🔥
+- how does `defaultdict` set its default value as 0? [[Polars-Utils-Kaggle#^d79dea|codes]]  🔥🔥🔥
+- how to run a huge df with polars or pandas without blowing out kaggle RAM? [[Polars-Utils-Kaggle#^0f5296|codes]] 
 - how to do mirror in obsidian? <mark style="background: #BBFABBA6;">todo</mark> 
 
 ---
@@ -360,24 +365,6 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 
 ---
 ---
-
-```python
-!pip install polars
-
-import numpy as np
-import polars as pl
-import pandas as pd
-import random
-from polars.testing import assert_frame_equal, assert_series_equal
-from datetime import datetime
-
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
-pd.set_option('display.max_colwidth', None)
-cfg = pl.Config.restore_defaults()  
-pl.Config.set_tbl_rows(50)  
-pl.Config.set_fmt_str_lengths(1000)
-```
 
 
 ```python
@@ -669,3 +656,163 @@ for aid_x, aid_y in zip(current_chunk.select('aid').to_series().to_list(), curre
 ```
 
 ^a41c08
+
+
+
+```python
+# how to sort elements of a dict by either key or value in ascending or descending order
+[(k,v) for k, v in sorted({1:2, 3:4, 2:5}.items())] # sort dict by key in ascending order
+[(k,v) for k, v in sorted({1:2, 3:4, 2:5}.items(), reverse=True)] # sort dict by key in descending order
+[(k,v) for k, v in sorted({1:2, 3:4, 2:5}.items(), key=lambda item: item[0])] # sort dict by key in ascending order
+[(k,v) for k, v in sorted({1:2, 3:4, 2:5}.items(), key=lambda item: -item[0])] # sort dict by key in descending order
+[(k,v) for k, v in sorted({1:2, 3:4, 2:5}.items(), key=lambda item: item[1])] # sort dict by value in ascending order
+[(k,v) for k, v in sorted({1:2, 3:4, 2:5}.items(), key=lambda item: -item[1])] # sort dict by value in descending order
+
+[(1, 2), (2, 5), (3, 4)]
+[(3, 4), (2, 5), (1, 2)]
+[(1, 2), (2, 5), (3, 4)]
+[(3, 4), (2, 5), (1, 2)]
+[(1, 2), (3, 4), (2, 5)]
+[(2, 5), (3, 4), (1, 2)]
+```
+
+^d95672
+
+
+```python
+# how does a Counter work
+
+c = Counter('abcdeabcdabcaba')  # count elements from a string
+
+sorted(c)                       # list all unique elements
+# ['a', 'b', 'c', 'd', 'e']
+
+c.elements()
+# <itertools.chain at 0x7fbcd8510ed0>
+list(c.elements())
+# ['a', 'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'e']
+sorted(c.elements())
+# ['a', 'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'e']
+''.join(sorted(c.elements()))   # list elements with repetitions
+# 'aaaaabbbbcccdde'
+
+c.keys()
+# dict_keys(['a', 'b', 'c', 'd', 'e'])
+list(c.keys())
+# ['a', 'b', 'c', 'd', 'e']
+sorted(c)
+# ['a', 'b', 'c', 'd', 'e']
+c.values()
+# dict_values([5, 4, 3, 2, 1])
+list(c.values())
+# [5, 4, 3, 2, 1]
+sum(c.values())                 # total of all counts
+# 15
+
+
+c.most_common(3)                # three most common elements
+# [('a', 5), ('b', 4), ('c', 3)]
+
+
+c['a']                          # count of letter 'a'
+# 5
+for elem in 'shazam':           # update counts from an iterable
+    c[elem] += 1                # by adding 1 to each element's count
+c['a']                          # now there are seven 'a'
+# 7
+
+
+del c['b']                      # remove all 'b'
+c['b']                          # now there are zero 'b'
+# 0
+
+d = Counter('simsalabim')       # make another counter
+c.update(d)                     # add in the second counter
+c['a']                          # now there are nine 'a'
+# 9
+
+c.clear()                       # empty the counter
+c
+# Counter()
+```
+
+^e9b875
+
+```python
+# how does a `defaultdict` and `Counter` can work together?
+aids_temp=defaultdict(Counter)
+# Counter()
+aids_temp['123'] # default to a Counter
+# 0
+aids_temp['123']['abc'] # a Counter with default value to 0
+aids_temp['123']['abc'] += 1
+aids_temp['123']['abc']
+# 1
+aids_temp['123']['abc'] += 4
+aids_temp['123']['abc']
+# 5
+aids_temp['123']['def'] += 3
+aids_temp['123'].keys()
+# dict_keys(['abc', 'def'])
+aids_temp['123'].values()
+# dict_values([5, 3])
+aids_temp['456']['xyz'] += 9
+aids_temp
+# defaultdict(collections.Counter, {'123': Counter({'abc': 5, 'def': 3}), '456': Counter({'xyz': 9})})
+```
+
+^7513c3
+
+```python
+# how does `defaultdict` set its default value as 0? 
+aids_temp=defaultdict(lambda: 0)
+aids_temp['a'] 
+# 0
+aids_temp['a'] += 3
+aids_temp['b'] += 1
+aids_temp
+# defaultdict(<function __main__.<lambda>()>, {'a': 3, 'b': 1})
+```
+
+^d79dea
+
+```python
+# how to run a huge df with polars or pandas without blowing out kaggle RAM? 
+%%time
+import numpy as np
+tot_duplicated = 0
+dup_after_unique = 0
+chunk_size = 3_000_000
+sessions = subsets.select('session').unique().to_series().to_list()
+
+for i in range(0, len(sessions), chunk_size):
+    tot_duplicated += (
+        subsets
+        .filter(pl.col('session').is_between(sessions[i], sessions[np.min([i+chunk_size-1, len(sessions)-1])], closed='both'))
+        .is_duplicated().sum()
+    )
+    print(f'{int(np.ceil(i/chunk_size))} 3-million-sessions are done, found {tot_duplicated} duplicates')
+
+    dup_after_unique += (
+        subsets
+        .filter(pl.col('session').is_between(sessions[i], sessions[np.min([i+chunk_size-1, len(sessions)-1])], closed='both'))
+        .unique()
+        .is_duplicated().sum()
+    )
+    print(f'after unique(), there are {dup_after_unique} duplicates.')
+
+# 0 3-million-sessions are done, found 260059 duplicates
+# after unique(), there are 0 duplicates.
+# 1 3-million-sessions are done, found 422816 duplicates
+# after unique(), there are 0 duplicates.
+# 2 3-million-sessions are done, found 532646 duplicates
+# after unique(), there are 0 duplicates.
+# 3 3-million-sessions are done, found 629549 duplicates
+# after unique(), there are 0 duplicates.
+# 4 3-million-sessions are done, found 659149 duplicates
+# after unique(), there are 0 duplicates.
+# CPU times: user 8min 51s, sys: 3min 10s, total: 12min 1s
+# Wall time: 5min 20s 
+```
+
+^0f5296
