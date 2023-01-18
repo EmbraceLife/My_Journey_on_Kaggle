@@ -95,7 +95,8 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - how does a `defaultdict` and `Counter` can work together by set `Counter` as its default value? [[Polars-Utils-Kaggle#^7513c3|codes]] 🔥🔥🔥🔥🔥
 - how does `defaultdict` set its default value as 0? [[Polars-Utils-Kaggle#^d79dea|codes]]  🔥🔥🔥
 - how to run a huge df with polars or pandas without blowing out kaggle RAM? [[Polars-Utils-Kaggle#^0f5296|codes]] 
-- how to do mirror in obsidian? <mark style="background: #BBFABBA6;">todo</mark> 
+- When the training set start and end and how the data is extracted according to time, [[OTTO Recsys Comp (New)#^8fbdee|codes]] 
+- How to select 7 days from the first day's 22:00 to the last day's 22:00, [[OTTO Recsys Comp (New)#^a94741|codes]]
 
 ---
 **<mark style="background: #FFB8EBA6;">POLARS</mark>** 

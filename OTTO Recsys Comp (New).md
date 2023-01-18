@@ -1,12 +1,12 @@
 
-<mark style="background: #FFB8EBA6;">Basic Resources</mark> 
+## <mark style="background: #FFB8EBA6;">Basic Resources</mark> 
 
-otto comp: OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) , [LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#) [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes) [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true),
+otto comp: OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) , [LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#) [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes) [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true), my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
 
 
 --- 
 
-<mark style="background: #FFB8EBA6;">OTTO repo's FAQs</mark> 
+###  <mark style="background: #FFB8EBA6;">OTTO repo's FAQs</mark> 
 
 How is a user `session` defined?
 -   A session is all activity by a single user either in the train or the test set.
@@ -37,27 +37,25 @@ Where can I find item and user metadata?
 
 ---
 
-<mark style="background: #FFB8EBA6;">Exploratory Data Analysis</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/) ^54ebe4
-
-- What are the imports and settings for otto comp? [[OTTO Recsys Comp (New)#^0769ee|codes]]
-- What are the most used dataset to be loaded? [[OTTO Recsys Comp (New)#^0f6921|codes]] 
-- How to `cast` the `first`, `last`, `max`, `min` value of `pl.col('ts')` into `pl.Datetime(time_unit='ms')` ? [[OTTO Recsys Comp (New)#^00fed4|codes]] 🔥🔥🔥🔥
-- How to change `pl.Datetime` default value (`time_unit` from 'us' to 'ms') with `with_time_unit('ms')` ? [[OTTO Recsys Comp (New)#^3a334e|codes]] [nb-ver-1](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116229932)🔥🔥🔥🔥
-- How to split the output of `pl.Datetime(time_unit='ms')` into separete columns `dt.year()`, `dt.month()`, `dt.day()`, `dt.hour()`, `dt.minute()`, `dt.second()`? [[OTTO Recsys Comp (New)#^7f5465|codes]] 🔥🔥🔥🔥
-- How to calc the `pl.Duration(time_unit='ms')` of each event since the beginning of each session in terms of `dt.days()`, `dt.hours()`, `dt.minutes()`, `dt.seconds()`? [[OTTO Recsys Comp (New)#^4aec22|codes]] 🔥🔥🔥🔥
-- How to get the first few rows of each session with `groupby('session').head()`? `groupby` [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/groupby.html), [[OTTO Recsys Comp (New)#^fa70d5|codes]] 🔥🔥🔥🔥
-- How to produce a `datetime(2023, 1, 10)` with `pl.lit`? [[OTTO Recsys Comp (New)#^5ac544|codes]], [nb-ver-2](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116240207)
-- How to `cast` `pl.col('ts')` from `pl.Int32` to `pl.Datetime(time_unit='ms')` and `filter` with `is_between(datetime(2023,1,13), datetime(2023,1,14))`? [[OTTO Recsys Comp (New)#^9a15dc|codes]] 🔥🔥🔥🔥
-- How to tell whether `pl.col('ts')` has milliseconds as unit not seconds nor microseconds with `pl.duration(microseconds=(pl.col('ts').last() - pl.col('ts').first()))`?  [[OTTO Recsys Comp (New)#^69336f|codes]] 🔥
-- How to find out `duration` or `Duration` in 'us', 'ms', 'hr', 'day' for each session with `groupby('session')` and `(pl.col('ts').last() - pl.col('ts').first()).cast(pl.Datetime(time_unit='ms')).dt.hour()`  [[OTTO Recsys Comp (New)#^d51937|codes]] [ver-3](https://www.kaggle.com/code/danielliao/otto-eda-polars?scriptVersionId=116250048&cellId=10) 🔥🔥🔥
-- When the training set start and end and how the data is extracted according to time, [[OTTO Recsys Comp (New)#^8fbdee|codes]] 
-- How to select 7 days from the first day's 22:00 to the last day's 22:00, [[OTTO Recsys Comp (New)#^a94741|codes]]
-
+## <mark style="background: #FFB8EBA6;">My reflections in this comp</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/) ^54ebe4
+- What exactly does this comp want us to predict? 💡💡💡
+	- given a group of aids clicked, carted or/and ordered by a user (or in a session)
+	- to predict the next 20 aids to be clicked, 20 to be carted and 20 to be ordered
+	- out of 1.8 million aids in the training set
+- What is Candidate ReRank model? 💡💡💡
+	- first we use a model to select hundreds of aid candidates, then we use another model to select the final 20 aids for predictions
+- Why Chris Deotte said Candidate ReRank model will most likely to win this comp? 💡💡💡
+	- maybe it is the most obvious approach and it works in other RecSys comp, according to Chris Deotte
+	- there are 1.8 milliion aids to choose from, but only need 20 aids for each session_type
+	- It's kind of making sense to break a large problem into 2 smaller problems: choose hundreds from millions in one model, and then choose 20 from hundreds in another
+	- but how to select hundreds from millions? through similarities? 
+		- great kagglers in otto have shared approaches like co-visitation matrix, word2vec, matrix factorization, and maybe more I don't know
+- How to understand covisitation matrix intuitively? [[OTTO Recsys Comp (New)#^7f7de5|notes]] 💡💡💡
 
 ---
 
 
-<mark style="background: #FFB8EBA6;">Important Notebooks to Study</mark>  ^4a8749
+## <mark style="background: #FFB8EBA6;">Important Notebooks to Study</mark>  ^4a8749
 
 - check out my new dataset [subset1](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) for validity, [notebook](https://www.kaggle.com/code/danielliao/verify-1week-otto-train-valid-test?scriptVersionId=116345295) <mark style="background: #ADCCFFA6;">done</mark>  2023.1.14
 	- There should be no aids of `test_sessions` or `test_labels` unknown to `train_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
@@ -76,10 +74,21 @@ Where can I find item and user metadata?
 	- [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
 	- 💡💡💡 - if the last 20 aids of each test session are not enough, then append the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> 
 	- 🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15, [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/) nearly done in 2023.1.17
-		- key concepts 😱 😂 ⚡🔥
-			- what is co-visitation intuitively
-			- how to create a feature to select the best 20 aids from many
-			- how to use co-visitation matrix to select candidates from millions of aids
+		- -   how similar is my implementation to Radek’s 🔥🔥🔥
+			-   next_AIDs: 64 more pairs than Radek’s
+			-   slightly faster than pandas
+			-   but the public score is exactly the same, 0.569 😂😂
+			-   both are super slow compared with @deotte’s GPU cudf version, still need to learn pandas 😱😱😱💡💡💡
+		- key concepts and codes blocks 😱 😂 ⚡🔥
+			- 
+			- what is co-visitation intuitively [[OTTO Recsys Comp (New)#^7f7de5|notes]] 
+			- how to subset and join train and test? and how to use DEBUG for fast experimenting codes? [[OTTO Recsys Comp (New)#^495ed2|codes]] 
+			- how to create and tweak a co-visitation matrix [[OTTO Recsys Comp (New)#^0ad2ea|codes]]
+			- how to create a feature (weight based on time, type and occurrences) to rerank the best 20 aids from many [[OTTO Recsys Comp (New)#^3f59e6|codes]]
+			- how to use co-visitation matrix to select candidates from millions of aids  [[OTTO Recsys Comp (New)#^3f59e6|codes]]
+			    -   take 20 most common aids for each aid in a test session and put them into candidate list
+			    -   take 40 most common aids from the candidate list and add them to the aids of the test session if they are new to the session
+			    -   then select the first 20 aids
 		- techinques 🔥🔥🔥
 			- use `DEBUG=True` when writing the codes from start, otherwise running large dataset and failed due to code error is a huge waste of time 😱😱😱😱😱😱
 			- I have spent most of the 2 days in implementing in polars, and realized that polars aren't fast in all situations 
@@ -108,7 +117,7 @@ Where can I find item and user metadata?
 
 ---
 
-<mark style="background: #FFB8EBA6;">Milestone OTTO NOTEBOOKS</mark> 
+## <mark style="background: #FFB8EBA6;">Milestone OTTO NOTEBOOKS</mark> 
 
 - Explore otto full dataset (original in jsonl format) [notebook](https://www.kaggle.com/code/danielliao/peek-at-otto-jsonl-dataset/notebook)
 - 😱 😂 🚀 Convert otto full dataset from jsonl to parquet and optimized in polars <mark style="background: #ABF7F7A6;">using kaggle's 30GB RAM</mark> [notebook](https://www.kaggle.com/code/danielliao/recreate-otto-full-optimized-memory-footprint)
@@ -119,7 +128,9 @@ Where can I find item and user metadata?
 - 🚀 😂 🌟The [Discovery](https://twitter.com/shendusuipian/status/1607645668386164736) of a corruption of a validation set created by a Grandmaster and [conversations](https://www.kaggle.com/datasets/radek1/otto-train-and-test-data-for-local-validation/discussion/374405#2077900) with them
 	- finding out which validation set has no cold start problem on aid, comparing validation from @radek1 and validations from mine [notebook](https://www.kaggle.com/danielliao/no-cold-start-aid-in-validation/) 
 
-<mark style="background: #FFB8EBA6;">Notebooks to Reimplement Organizer's script</mark> 
+---
+
+## <mark style="background: #FFB8EBA6;">Notebooks to Reimplement Organizer's script</mark> 
  
 - 😂 🚀 reimplement organizer's script in polars to create `train_sessions` or `train_valid` in otto validation set and verify its validity in this [notebook](https://www.kaggle.com/danielliao/reimplement-otto-train-validation-in-polars), [[OTTO Recsys Comp (New)#^b8c496|codes]] 
 - 😱 😂 🚀 ⭐ reimplement organizer's script in polars to create `test_valid_full` or `test_sessions_full` and verify its validaty in this [notebook](https://www.kaggle.com/code/danielliao/reimplement-test-sessions-full-validation?scriptVersionId=115004300), [[OTTO Recsys Comp (New)#^2676d6|codes]],  [story](https://forums.fast.ai/t/a-beginners-attempt-at-otto-with-a-focus-on-polars/102803/7?u=daniel)
@@ -147,7 +158,10 @@ Where can I find item and user metadata?
 	- integrate my implementations on evaluation   <mark style="background: #BBFABBA6;">Todo</mark> 
 	- 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go, let me reimplement it in polars
 
-<mark style="background: #FFB8EBA6;">Notebooks to Verify My Dataset</mark> 
+
+---
+
+## <mark style="background: #FFB8EBA6;">Notebooks to Verify My Dataset</mark> 
 
 Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels`  of validation set the same to the ones generated by organizer's script?
 -  😂 ⭐ Compare my `train.parquet` and `test.parquet`  from my [otto-radek-style-polars](https://www.kaggle.com/datasets/danielliao/otto-radek-style-polars) with Radek's `train` and `test` from [otto-full-optimized-memory-footprint](https://www.kaggle.com/datasets/radek1/otto-full-optimized-memory-footprint): <mark style="background: #ADCCFFA6;">Done</mark> ! experiment [notebook](https://www.kaggle.com/danielliao/compare-train-test-full-with-radek) (proved the same)
@@ -158,7 +172,10 @@ Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_ses
 - 😂 ⭐ Compare 5th validation set (jsonl [datast](https://www.kaggle.com/datasets/danielliao/otto-validation-jsonl5th) created on paperspace without pipenv, [notebook](https://www.kaggle.com/danielliao/5th-otto-validation-optimized-jsonl2parque/) to create optimized-parquet [dataset](https://www.kaggle.com/datasets/danielliao/otto-validation-optimized-parquet-5th) on Kaggle) with 4th validation set: <mark style="background: #ADCCFFA6;">Done!</mark> (validation 1st, 2nd, 5th are the same as their jsonls are created on paperspace, even when 5th is created without pipenv ) [notebook](https://www.kaggle.com/code/danielliao/compare-test-and-labels-valid-4vs5), [story](https://forums.fast.ai/t/a-beginners-attempt-at-otto-with-a-focus-on-polars/102803/13?u=daniel)
 
 
-<mark style="background: #FFB8EBA6;">Datasets Safe and Easy to Use</mark> 
+---
+
+
+## <mark style="background: #FFB8EBA6;">Datasets Safe and Easy to Use</mark> 
 
 - otto-train-set-test-set-optimized (both seconds and milliseconds, generated purely on Kaggle): [otto-radek-style-polars](https://www.kaggle.com/datasets/danielliao/otto-radek-style-polars)
 - otto-validation-split-7-days (generated purely on Kaggle): [validation-4th-optimized-parquet](https://www.kaggle.com/datasets/danielliao/validation-4th-optimized-parquet)
@@ -754,3 +771,216 @@ submission.write_csv('submission.csv')
 ```
 
 ^e8e009
+
+```markdown
+This is shared in this [Kaggle cell](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars?scriptVersionId=116611084#Creating-Co-visitation-Matrix---nextAIDs)
+
+**a more concise definition to covisitation**
+
+-   it’s a way to take any aid and any number of aids which are most similar to it
+-   co-visitation matrices differentiate from each other based on how they define similarity or how they select aids to be paired together
+
+
+**co-visitation matrix is the outcome of exploring the following ideas/questions**
+
+-   Is there any relationship between one aid/product with other aids/products in the same session or across all sessions?
+-   Are there some aids more similar to some and more different to others?
+-   Could it be possible when this aid is viewed, some aids are more likely to be clicked/carted/ordered than other aids?
+-   Could we pair aids together for each and every session and count the occurrences of pairs?
+-   Since one aid (eg., '122') could have many pair-partners, by counting the occurrences of the pairs ('122', pair-partner), could we find the most common pair-partners of aid '122'?
+-   Could the next clicks or carts or orders be the most common pair-partners of the last aid (or all aids) of a test session?
+
+**what does pairing logic or a definition of simiarlity look like** 
+
+In Radek's notebook, the pairing logic is the following
+
+-   use only the last 30 aids of each session to pair on each other with pandas `merge` or polars `join` on `session`
+-   remove the pairs of same partners
+-   keep pairs whose right-partner is after left-partner within a day
+
+**We can tweak the pairing logic to change our co-visitation matrix**
+
+```
+
+^7f7de5
+
+
+```python
+# how to create and tweak a co-visitation matrix on its pairing logic or similarity definition
+%%time 
+next_AIDs = defaultdict(Counter)
+chunk_size = 300000
+for i in range(0, len(sessions), chunk_size):
+    current_chunk = (
+        subsets
+        .filter(pl.col('session').is_between(sessions[i], sessions[np.min([i+chunk_size-1, len(sessions)-1])], closed='both'))
+        .unique() # no duplicates
+        .groupby('session').tail(30) # step 1
+    )
+    current_chunk = (
+        current_chunk
+        .join(current_chunk, on='session', suffix='_right')
+        .sort(['session', 'aid', 'aid_right']) # nice view
+        .filter(pl.col('aid') != pl.col('aid_right')) # step 2: no need for pairs of themselves
+        .with_columns([
+            ((pl.col('ts_right') - pl.col('ts'))/(24*60*60*1000)).alias('days_elapsed') # step 3: differentiate aid_right is after or before aid in days
+        ])
+        .filter((pl.col('days_elapsed')>=0) & (pl.col('days_elapsed') <=1)) # step 4: only pairs whose aid_rights are after aid within 24 hrs
+    )
+
+    # step 5: organize all the pairs in defaultdict + Counter which is super faster than pure polars solution
+    for aid_x, aid_y in zip(current_chunk.select('aid').to_series().to_list(), current_chunk.select('aid_right').to_series().to_list()):
+        next_AIDs[aid_x][aid_y] += 1
+
+    print(f'{int(np.ceil(i/chunk_size))} out of {int(np.ceil(len(sessions)/chunk_size))} - {np.min([i+chunk_size-1, len(sessions)-1])} sessions are done')
+len(next_AIDs)
+
+
+del train_ms, subset_of_train, subsets
+gc.collect()
+```
+
+^0ad2ea
+
+
+```python
+# how to subset and join train and test? and how to use DEBUG for fast experimenting codes?
+if DEBUG: fraction_of_sessions_to_use = 0.00001
+else: fraction_of_sessions_to_use = 1
+
+train_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/train_ms.parquet')
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+
+
+%%time
+lucky_sessions_train = (
+    train_ms
+    .select([
+        pl.col('session').unique().sample(frac=fraction_of_sessions_to_use, seed=42)
+    ])
+    .collect()
+    .to_series().to_list()
+)
+
+lucky_sessions_test = (
+    test_ms
+    .select([
+        pl.col('session').unique().sample(frac=fraction_of_sessions_to_use, seed=42)
+    ])
+    .collect()
+    .to_series().to_list()
+)
+
+subset_of_train = (
+    train_ms
+    .filter(pl.col('session').is_in(lucky_sessions_train))
+
+)
+
+subset_of_test = (
+    test_ms
+    .filter(pl.col('session').is_in(lucky_sessions_test))
+
+)
+
+subsets = pl.concat([subset_of_train, subset_of_test]).collect()
+sessions = subsets.select('session').unique().to_series().to_list()
+```
+
+^495ed2
+
+```python
+%%time
+lists_aids_types = (
+    test_ms
+    .unique() #
+    .groupby('session')
+    .agg([
+        pl.col('aid').list().alias('test_session_AIDs'),
+        pl.col('type').list().alias('test_session_types'),        
+    ])
+    .collect()
+)
+
+lists_aids_types.head()
+
+
+%%time
+labels = []
+session_types = ['clicks', 'carts', 'orders']
+no_data = 0
+no_data_all_aids = 0
+type_weight_multipliers = {0: 1, 1: 6, 2: 3}
+test_session_AIDs = lists_aids_types.select('test_session_AIDs').to_series().to_list()
+test_session_types = lists_aids_types.select('test_session_types').to_series().to_list()
+
+# take each session's aids and types
+for AIDs, types in zip(test_session_AIDs, test_session_types):
+
+    # if the session has more than 20 aids
+    if len(AIDs) >= 20: 
+        # np.logspace: Return numbers spaced evenly on a log scale.
+        # `-1` is to ensure the weights ranges between [0,1]
+        # the weights is given to AIDs based on the time order or chronological order
+        weights=np.logspace(start=0.1,stop=1,num=len(AIDs),base=2, endpoint=True)-1 
+        
+        # create a defaultdict for this session only
+        # anything added into this dict will have a default value 0
+        # try `aids_temp[1]` and `aids_temp`
+        aids_temp=defaultdict(lambda: 0)
+        
+        # in each sess, an aid may occur multiples in multiple types at different time, 
+        # the line below is to take all 3 factors into account to value the importance of this aid to the session
+        # each unique aid and its aggregated weight are stored in a defaultdict
+        for aid,w,t in zip(AIDs,weights,types): 
+            aids_temp[aid]+= w * type_weight_multipliers[t]
+          
+        # let's 
+        sorted_aids=[k for k, v in sorted(aids_temp.items(), key=lambda item: -item[1])]
+
+        # when using the polars below to replace the line above, it is actually 2 times slower
+        # aid = [key for (key, value) in aids_temp.items()]
+        # adwt = [value for (key, value) in aids_temp.items()]
+        # sorted_aids = (
+        #     pl.DataFrame([aid, adwt], columns=['aid', 'weight'])
+        #     .sort('weight', reverse=True)
+        #     .select('aid').to_series().to_list()
+        # )
+
+        # take the 20 aids with the largest weights from this session as one list and append it into a new list `labels`
+        labels.append(sorted_aids[:20])
+    
+    # when this session has less than 20 aids
+    else:
+        # reverse the order of AIDs (a list of aids of this session) and remove the duplicated aids
+        AIDs = list(dict.fromkeys(AIDs[::-1])) # python version
+        
+        # If using this polars below to replace the line above, it is infinitely slower
+        # AIDs = pl.Series('aid', AIDs).unique().reverse().to_list() # polars version
+
+        # keep track of the length of new AIDs above
+        AIDs_len_start = len(AIDs)
+        
+
+        candidates = []
+        # take each unique aid of this session, access its the 20 most common pair-partners and their counts
+        # insert the list of the 20 most common pair-partner aids into another list `candidates` (only a pure list )
+        # in the end, this `candidates` list is a lot and has many duplicates too
+        for AID in AIDs:
+            if AID in next_AIDs: candidates += [aid for aid, count in next_AIDs[AID].most_common(20)]
+                
+        # take the 40 most common aids from `candidates`, and if they are already inside AIDs of this session, 
+        # then insert them into AIDs (still a pure list because of `+`, and `append` can't do it)
+        AIDs += [AID for AID, cnt in Counter(candidates).most_common(40) if AID not in AIDs]
+        
+        # but we still only take the first 20 aids from AIDs as this session's prediction and store it in `labels`
+        labels.append(AIDs[:20])
+        
+        # if no candidates are generated, count 1 to `no_data`
+        # if candidates == []: no_data += 1 # this variable is actually not used by Radek
+        
+        # keep an account of the num of aids in this session and all sessions which adding no candidates
+        if AIDs_len_start == len(AIDs): no_data_all_aids += 1
+```
+
+^3f59e6

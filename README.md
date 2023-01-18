@@ -1,4 +1,6 @@
-# My Journey on Kaggle
+# My Journey on Kaggle 
+
+my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
 
 Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.com/radekosmulski), [kaggle](https://www.kaggle.com/radek1/code)  @cdeotte on [kaggle](https://www.kaggle.com/cdeotte/code), and a lot more I hope.
  
@@ -66,6 +68,8 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - 🎉🎉🎉 The first discussion and a notebook on Kaggle which I am proudly to present, see this [tweet](https://twitter.com/shendusuipian/status/1614412905566605314)
 - 🔥🔥🔥⚡⚡⚡2023.1.15 I have not finished his video but can't wait to write down <mark style="background: #BBFABBA6;">Chris Deotte's secret to grandmasters</mark> - true love to do EDA on datasets (where many inspirations come from) + good validation + fast iterations 
 - 🎉🎉🎉 What's a happy day, I became Kaggle Notebook Expert today! 
-- I have sort of finished today's task, but I have not recorded/updated my learnings when doing rewriting Radek's Covisitation matrix notebook in polars because I was too consumed by the problems I was dealing. I don't think it is good and I need to find a way to record my learning when I am dealing with problems. 😱😱😱😱😱
+- 2023.1.16 I have sort of finished today's task, but I have not recorded/updated my learnings when doing rewriting Radek's Covisitation matrix notebook in polars because I was too consumed by the problems I was dealing. I don't think it is good and I need to find a way to record my learning when I am dealing with problems. 😱😱😱😱😱
+- 2023.1.17 I should have write down my goals specifically for each project (like rewriting this notebook) as Wasim adviced (just keep the goals in mind won't work in practice, it has to be in the notebook where I am working at)  and remind myself those exactly goals whenever I hit a wall with a detailed problems, otherwise I will spent too much time working on less important smaller tasks without making progress on the real important ones!!! 😭😭😭⚡⚡⚡
+- 2023.1.18 morning, found another super amazing kaggler who is only joined Kaggle for 2 weeks and have done one competition but won 3 Expert titles, but most important the way this person shares is also very beneficial to beginners. kaggle [post](https://www.kaggle.com/discussions/getting-started/378982) and his Tatanic [github](https://github.com/BEPb/kaggle_titanic) 🔥🔥🔥🔥🔥🔥🔥
  
 	

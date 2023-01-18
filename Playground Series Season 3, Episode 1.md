@@ -1,4 +1,7 @@
-<mark style="background: #FFB8EBA6;">How and Why shoud I get started</mark> 
+my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
+
+## <mark style="background: #FFB8EBA6;">How and Why shoud I get started</mark> 
+
 - Introduced to me by Radek's [tweet](https://twitter.com/shendusuipian/status/1610269663262568448) and this kaggle [post](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/375714)
 - Radek's comp intro [video](https://www.youtube.com/watch?v=cIFRuaQy2Ow&loop=0) gets very interested in it
 - 😱 😱 Reasons not to do it: 
@@ -9,14 +12,15 @@
 	- experimenting and learning new tricks fast
 	- all large and complex datasets and comps can be first shrinked and then those benefits above can be applied
 
-<mark style="background: #FFB8EBA6;">My plan for this comp</mark> 
+## <mark style="background: #FFB8EBA6;">My plan for this comp</mark> 
+
 - Implement everything Radek is sharing in this comp
 - recording my journey in github [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle)
 
 ---
 ---
 
-<mark style="background: #FFB8EBA6;">Interesting discussions</mark> 
+## <mark style="background: #FFB8EBA6;">Interesting discussions</mark> 
 
 - why 10 KF is not too many, see [discussion](https://www.kaggle.com/code/phongnguyen1/distance-to-cities-features-clustering/comments#2085057)
 
@@ -26,7 +30,8 @@
 
 
 
-<mark style="background: #FFB86CA6;">Pipline iterations with Milestones</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark>  ^6f2913
+## <mark style="background: #FFB86CA6;">Pipline iterations with Milestones</mark>  and <mark style="background: #ADCCFFA6;">TODOS</mark>  ^6f2913
+
 - EDA [[Playground Series Season 3, Episode 1#^15326e| details]]
 	- numerical vs categorical
 	- nulls, NAs
@@ -69,10 +74,10 @@
 ---
 ---
 
-<mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission by @radek1 🚀</mark>  🔥 🧨 
+## <mark style="background: #FFB8EBA6;">📈 EDA + training a first model + submission by @radek1 🚀</mark>  🔥 🧨 
 
 
-<mark style="background: #FFB86CA6;">Data checking version 5</mark>   [version 5](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115370967) ^15326e
+### <mark style="background: #FFB86CA6;">Data checking version 5</mark>   [version 5](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115370967) ^15326e
 
 - more [info](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html) on the dataset from sklearn
 - what to predict? (*the the median house value for California districts*) [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115369488&cellId=1) 
@@ -83,7 +88,7 @@
 - how many `NA`s or `null`s in each feature? [cell1](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115389565&cellId=15), [cell2](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115389565&cellId=16) 
 - check the shape of the `train` and `test`, [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115390387&cellId=18)
 
-<mark style="background: #FFB86CA6;">Modeling version 5</mark> 
+### <mark style="background: #FFB86CA6;">Modeling version 5</mark> 
 - why do modeling, instead of doing statistical analysis to find interesting things? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115390387&cellId=19)
 - what are all the libraries and funcions needed for the modeling? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115426784&cellId=21)
 - how to learn more of the classes and functions imported for modeling? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115426784&cellId=21)
@@ -119,7 +124,7 @@
 
 ---
 
-<mark style="background: #FFB86CA6;">Modeling version 6</mark>  version [6](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828) : 
+### <mark style="background: #FFB86CA6;">Modeling version 6</mark>  version [6](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828) : 
 
 - changes of Radek's in version 6
 	- merge the additional dataset with official dataset [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115448636&cellId=18)
@@ -139,7 +144,7 @@
 
 --- 
 
-<mark style="background: #FFB86CA6;">Modeling Radek version 7</mark>  [version 7](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19)
+### <mark style="background: #FFB86CA6;">Modeling Radek version 7</mark>  [version 7](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19)
 
 - The major changes of this version compared to version 6, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115450828&cellId=19) 
 - 😱 😱 😱 but I don't know how did those parameters come from, nor how does LGBMRegressor model work
@@ -150,7 +155,7 @@
 
 ---
 
-<mark style="background: #FFB86CA6;">Modeling Radek version 8</mark>  [version 8](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015)
+### <mark style="background: #FFB86CA6;">Modeling Radek version 8</mark>  [version 8](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015)
 
 - what's new in this version 8? (adding a new model `catboost` to mix), see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=23)
 - how to build and train a catboost model, see [cell](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission?scriptVersionId=115453015&cellId=24)
@@ -167,10 +172,11 @@
 ---
 ---
 
+
+
+### <mark style="background: #FFB86CA6;">Modeling Daniel version 37</mark>  [version 37](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115698631) ^35e6ac
+
 <mark style="background: #FFB8EBA6;">Simple feature that boost your score +0.002 by @snnclsr</mark> 🔥
-
-
-<mark style="background: #FFB86CA6;">Modeling Daniel version 37</mark>  [version 37](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115698631) ^35e6ac
 
 - <mark style="background: #ADCCFFA6;">key idea</mark> : labeling the external datasource in a column
 	- Radek shared the idea in a [video](https://youtu.be/S7pv_aU_ER8), detailed discussion about [this](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/376043) 
@@ -180,7 +186,7 @@
 ---
 
 
-<mark style="background: #FFB8EBA6;">S03E01: EDA for Modelling by @soupmonster</mark>  🔥 🔥 🔥 <mark style="background: #BBFABBA6;">not yet explored</mark> 
+### <mark style="background: #FFB8EBA6;">S03E01: EDA for Modelling by @soupmonster</mark>  🔥 🔥 🔥 <mark style="background: #BBFABBA6;">not yet explored</mark> 
 
 - <mark style="background: #ADCCFFA6;">key idea</mark>: Add distance from landmark feature, introduced to me by Radek in this [tweet](https://twitter.com/radekosmulski/status/1610880953882406914)
 	- 🗺️ Add distance from landmark feature [here](https://www.kaggle.com/competitions/playground-series-s3e1/discussion/376078) explains why Longitude/Latitude are the most important Features
@@ -192,7 +198,7 @@
 ---
 
 
-<mark style="background: #FFB8EBA6;">Distance to key locations by @phongnguyen1 version 26</mark> 🔥🔥🔥  [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations),his [dataset](https://www.kaggle.com/datasets/phongnguyen1/s03e01-california) including many geo info
+### <mark style="background: #FFB8EBA6;">Distance to key locations by @phongnguyen1 version 26</mark> 🔥🔥🔥  [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations),his [dataset](https://www.kaggle.com/datasets/phongnguyen1/s03e01-california) including many geo info
 
 - 😂 🧨 I reimplemented it in polars, see [version](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827)
 	- what is the `haversine_distances` used to calculate distance between two locations, see [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115729827&cellId=15)
@@ -205,7 +211,7 @@
 	- public score: 0.55436, so the additional 3 distance features make <mark style="background: #FF5582A6;">a huge jump in score</mark> 
 
  
-<mark style="background: #FFB8EBA6;">Distance to key locations by @phongnguyen1 version 30</mark> 🔥🔥🔥  [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations?scriptVersionId=115759694),his [dataset](https://www.kaggle.com/datasets/phongnguyen1/s03e01-california) including many geo info
+### <mark style="background: #FFB8EBA6;">Distance to key locations by @phongnguyen1 version 30</mark> 🔥🔥🔥  [notebook](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations?scriptVersionId=115759694),his [dataset](https://www.kaggle.com/datasets/phongnguyen1/s03e01-california) including many geo info
 
 - 😱😱😱 [More](https://www.kaggle.com/code/phongnguyen1/distance-to-key-locations?scriptVersionId=115730400&cellId=2) to explore in @phongnguyen1's notebook <mark style="background: #BBFABBA6;">todo</mark> 
 	- how to do reverse geo and add the geoinfo to the dataset

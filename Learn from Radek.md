@@ -210,3 +210,28 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 - 📗 My book on learning Machine Learning: [https://rosmulski.gumroad.com/l/learn...](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbl9JanlJOFB4OXBmb3ZnQUo1RXhubG5YMEU1QXxBQ3Jtc0ttX0tVSUNHRWFRNmtUOXNlcGYyMklsWllhd1FGaUlGUW94Rkxfb2Y3dFFSVGNxWEd0Q0o3QnZ3NDlaQ0JrVUNCV3FrSXZBUGo4cERHUHJ5NTMxcDdzQTBoRVluaGFtV0V6amJtb2EzOGRFdFhpaFY4bw&q=https%3A%2F%2Frosmulski.gumroad.com%2Fl%2Flearn_machine_learning%2Fyoutube&v=gtPEX_eRAVo) 
 - 📬 My newsletter: [https://newsletter.radekosmulski.com/](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3BiZzhKMVpfQk92UW9ZcWVyd1RxTExxX2JiUXxBQ3Jtc0trYnludmo5S3UyYno5ZW9mN3k1VC1Zb2dyQXViYnV4eWRsdDFyVGg0cUdRYVdrNEJMQUtub1pGVUgtRzBHT3hGNVR6WmZLenhHY3MtNjZpaTIwRlN3dHpRSjRGY2xDVDU4c0d6SE9NMmNrcHpPVnVEMA&q=https%3A%2F%2Fnewsletter.radekosmulski.com%2F&v=gtPEX_eRAVo) 
 - 📒 My blog: [https://radekosmulski.com/](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2NoaGl0M2hKOV9HWldpbUxJdVNpSDc1ZGdxZ3xBQ3Jtc0tudG54dzlaNGc0UXFja1VUOTFyN29SZk1DN2pFRllCNEo1MVNQWE5YRFFVcVBZN0dNS0JXMURfVkswZGY2M0kwUXlTMFUxMHMtM2poenhSaTEybUpVLXRSWDRIWXJjQ2JLTHhSdHN4aW1qaEN0RWkzYw&q=https%3A%2F%2Fradekosmulski.com%2F&v=gtPEX_eRAVo)
+
+
+---
+
+<mark style="background: #FFB8EBA6;">Radek talking about MasterMind group</mark>   [Thread](https://twitter.com/radekosmulski/status/1615286309974867974)
+
+- what is mastermind group and why it can do magic to you? [video](https://youtu.be/KEVeMunS0Jc?t=29)
+	- learn the know-how from the group
+	- emotional drive to sustain 
+	- reflection of your learning can benefit yourself and contribute to your mastermind group 
+- how to form your mastermind group? [video](https://youtu.be/KEVeMunS0Jc?t=285)
+	- same level of experience as you
+	- you can teach each other and benefit each other with different perspectives
+	- find them online through interactions on fastai and kaggle
+
+---
+
+- what's interesting about the dataset? [video](https://youtu.be/8CO7FnF2yNM?t=0)
+- what about variables columns, what's in a row, and what to predict ? [video](https://youtu.be/8CO7FnF2yNM?t=73) 
+- what is the metric? area of ROC curve, why it is a good metric for this comp? [video](https://youtu.be/8CO7FnF2yNM?t=100)
+- How all boosted tree models handle string/categorical columns? and what extra benefits does lightGBM provide us? [video](https://youtu.be/8CO7FnF2yNM?t=125)
+- What kind of challenge does this datast: train set (1677 rows, 35 columns), test set (1117, 34) bring to us? overfitting  [video](https://youtu.be/8CO7FnF2yNM?t=202)
+- Any missing values? - [video](https://youtu.be/8CO7FnF2yNM?t=230)
+- Adding original data which generated the comp official dataset and adding a column to distinguish original from official dataset gives model great improvement - [video](https://youtu.be/8CO7FnF2yNM?t=243) 
+- - [video](https://youtu.be/8CO7FnF2yNM?t=373)
