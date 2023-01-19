@@ -134,6 +134,7 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 - Baseline 1: the last 20 aid, implemented Radek  [notebook](https://www.kaggle.com/code/radek1/last-20-aids)  in polars, see my  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars) 
 - Baseline 2:  [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek, I implemented it in polars with my reflection on co-visitation matrix and detailed comments for codes,  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/)  
 
+see all my milestone notebook at repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/OTTO%20Recsys%20Comp%20(New).md#my-milestone-notebooks-on-otto)
 
 ---
 
@@ -141,7 +142,7 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 
 ## <mark style="background: #FFB8EBA6;">Following Radek into OTTO</mark>  ^4a8749
 
-#### 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go <mark style="background: #BBFABBA6;">todo</mark> 
+#### 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go <mark style="background: #BBFABBA6;">todo, may not need it</mark>  
 - let me reimplement it in polars, but it is not as fast as cudf
 - let's implement this with cudf
 

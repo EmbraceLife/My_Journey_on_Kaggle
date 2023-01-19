@@ -18,6 +18,11 @@ see my journey on my journey [repo](https://github.com/EmbraceLife/My_Journey_on
 - recording my journey in github [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle)
 
 ---
+
+## <mark style="background: #FFB8EBA6;">My Reflection</mark>  <mark style="background: #BBFABBA6;">todo</mark> 
+
+
+
 ---
 
 ## <mark style="background: #FFB8EBA6;">Interesting discussions</mark> 
