@@ -1,22 +1,8 @@
+[pandas](https://wesmckinney.com/book/pandas-basics.html#pandas_dataframe), [cuDF](https://docs.rapids.ai/api/cudf/stable/), [polars](https://pola-rs.github.io/polars-book/user-guide/quickstart/intro.html), GPU for python [video](https://www.youtube.com/watch?v=5s8PljqLdkA)
 
 
-<mark style="background: #FFB8EBA6;">RESOURCES</mark> 
 
-divefastai : [kaggle otto a beginner's map](https://github.com/EmbraceLife/myfastaivault/blob/main/divefastai/00fastainbs/kaggle_otto_a_beginner's_map.md)
-
- [chatgpt](https://chat.openai.com/chat)
-
-[pandas](https://wesmckinney.com/book/pandas-basics.html#pandas_dataframe), [cuDF](https://docs.rapids.ai/api/cudf/stable/), [polars](https://pola-rs.github.io/polars-book/user-guide/quickstart/intro.html), [covisitation and candidate dataset](https://www.kaggle.com/datasets/danielliao/co-visiation-matrices-with-candidates-v1), fastai [streamlit](https://fmussari-fts-fastai-youtube-playlists-app-eohwrp.streamlit.app/), GPU for python [video](https://www.youtube.com/watch?v=5s8PljqLdkA)
-
-Radek's [thread](https://twitter.com/radekosmulski/status/1597080115686805506) on how to succeed in otto
-
-new ideas: a faster Candidate ReRanker [notebook](https://www.kaggle.com/code/adaubas/otto-fast-handcrafted-model), NN [model](https://www.kaggle.com/competitions/otto-recommender-system/discussion/370756#2056631) , [fastai](https://www.kaggle.com/code/shravankumar147/can-we-use-fastai), handcraft [improve](https://www.kaggle.com/code/tuongkhang/otto-pipeline2-lb-0-576/comments#2049094), [great example on how to go from basic with baselines](https://www.kaggle.com/code/junjitakeshima/otto-easy-understanding-for-beginner-en/comments#2057777), build on [w2v](https://www.kaggle.com/code/alexandershumilin/otto-word2vec/comments#2048246), [EDA eg](https://www.kaggle.com/code/adaubas/otto-interesting-times-series-eda-on-products/notebook), the best [EDA](https://www.kaggle.com/code/edwardcrookenden/otto-getting-started-eda-baseline) (turned into polars I should), second best [EDA](https://www.kaggle.com/code/cdeotte/time-series-eda-users-and-real-sessions) 
-
-A kaggle GM on [youtube](https://twitter.com/Rob_Mulla ) 
-
----
-
-<mark style="background: #FFB8EBA6;">MY UTILS</mark> 
+## <mark style="background: #FFB8EBA6;">MY UTILS</mark> 
 
 - search emoj in obsidian `cmd + j` 
 - load my utils as a lib onto kaggle [cell](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113382947&cellId=6)
@@ -38,7 +24,7 @@ A kaggle GM on [youtube](https://twitter.com/Rob_Mulla )
 ---
 
 
-<mark style="background: #FFB8EBA6;">Debugging with `return`, `pp`</mark> 
+## <mark style="background: #FFB8EBA6;">Debugging with `return`, `pp`</mark> 
 user [guide](https://github.com/alexmojaki/snoop) on `pp`
 😱 😂 🚀 how to debugging to understand each line of a script: example [notebook](https://www.kaggle.com/danielliao/evaluate-otto-organizer-script)  ^3ac7a9
 - what does `submission.csv` look like? debugging `predictions = f.readlines()[1:]` see [cell](https://www.kaggle.com/code/danielliao/evaluate-otto-organizer-script?scriptVersionId=115225853&cellId=6)
@@ -59,7 +45,7 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 ---
 
 
-<mark style="background: #FFB8EBA6;">Exploratory Data Analysis</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/)
+## <mark style="background: #FFB8EBA6;">Exploring otto comp with polars</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/)
 
 - What are the imports and settings for otto comp? [[OTTO Recsys Comp (New)#^0769ee|codes]]
 - What are the most used dataset to be loaded? [[OTTO Recsys Comp (New)#^0f6921|codes]] 
@@ -99,7 +85,8 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - How to select 7 days from the first day's 22:00 to the last day's 22:00, [[OTTO Recsys Comp (New)#^a94741|codes]]
 
 ---
-**<mark style="background: #FFB8EBA6;">POLARS</mark>** 
+
+## <mark style="background: #FFB8EBA6;">POLARS</mark>
 
 
 

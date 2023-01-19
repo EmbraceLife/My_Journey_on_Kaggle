@@ -71,7 +71,7 @@
 
 ---
 
-#### <mark style="background: #FFB8EBA6;">2 Things I Learned on Kaggle Today</mark>  [video](https://youtu.be/S7pv_aU_ER8)
+## <mark style="background: #FFB8EBA6;">2 Things I Learned on Kaggle Today</mark>  [video](https://youtu.be/S7pv_aU_ER8)
 
 ^52405f
 
@@ -109,7 +109,7 @@
 
 ---
 
-#### <mark style="background: #FFB8EBA6;">Feed your DL models up to 400x faster with the Merlin Dataloader! Fewer lines of code + better perf!</mark>  [video](https://youtu.be/Xyoa0r2QraI)
+## <mark style="background: #FFB8EBA6;">Feed your DL models up to 400x faster with the Merlin Dataloader! Fewer lines of code + better perf!</mark>  [video](https://youtu.be/Xyoa0r2QraI)
 
 - 🛠️ what does Merlin DataLoader library do and why Radek loves it? start [here](https://youtu.be/Xyoa0r2QraI?t=0)
 	- feed DL models with datasets much fasters with much less code
@@ -156,7 +156,7 @@
 
 ---
 
-####  <mark style="background: #FFB8EBA6;">AMA with Radek Osmulski (learning ML, getting a DL job, Kaggling...)</mark>  [video](https://youtu.be/qjWZvdo7PYA)
+##  <mark style="background: #FFB8EBA6;">AMA with Radek Osmulski (learning ML, getting a DL job, Kaggling...)</mark>  [video](https://youtu.be/qjWZvdo7PYA)
 
 ^73faa3
 
@@ -180,7 +180,7 @@
 
 
 ---
-#### <mark style="background: #FFB8EBA6;">Radek introduce OTTO comp</mark>  [Thread](https://twitter.com/radekosmulski/status/1613138626304708609)
+## <mark style="background: #FFB8EBA6;">Radek introduce OTTO comp</mark>  [Thread](https://twitter.com/radekosmulski/status/1613138626304708609)
 
 ^c32318
 
@@ -214,9 +214,9 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 
 ---
 
-<mark style="background: #FFB8EBA6;">Radek talking about MasterMind group</mark>   [Thread](https://twitter.com/radekosmulski/status/1615286309974867974)
+## <mark style="background: #FFB8EBA6;">Radek talking about MasterMind group</mark>   [Thread](https://twitter.com/radekosmulski/status/1615286309974867974)
 
-- what is mastermind group and why it can do magic to you? [video](https://youtu.be/KEVeMunS0Jc?t=29)
+- what is mastermind group and why it can do magic to you? [video](https://youtu.be/KEVeMunS0Jc?t=29) ^c04b53
 	- learn the know-how from the group
 	- emotional drive to sustain 
 	- reflection of your learning can benefit yourself and contribute to your mastermind group 
@@ -227,6 +227,8 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 
 ---
 
+## <mark style="background: #FFB8EBA6;">Playground Series S3E03 Competition on Kaggle | Intro</mark> 
+
 - what's interesting about the dataset? [video](https://youtu.be/8CO7FnF2yNM?t=0)
 - what about variables columns, what's in a row, and what to predict ? [video](https://youtu.be/8CO7FnF2yNM?t=73) 
 - what is the metric? area of ROC curve, why it is a good metric for this comp? [video](https://youtu.be/8CO7FnF2yNM?t=100)
@@ -234,4 +236,9 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 - What kind of challenge does this datast: train set (1677 rows, 35 columns), test set (1117, 34) bring to us? overfitting  [video](https://youtu.be/8CO7FnF2yNM?t=202)
 - Any missing values? - [video](https://youtu.be/8CO7FnF2yNM?t=230)
 - Adding original data which generated the comp official dataset and adding a column to distinguish original from official dataset gives model great improvement - [video](https://youtu.be/8CO7FnF2yNM?t=243) 
-- - [video](https://youtu.be/8CO7FnF2yNM?t=373)
+- setup for feature columns and target column - [video](https://youtu.be/8CO7FnF2yNM?t=373)
+- Benefit and Warning of using `MultiColumnLabelEncoder` to convert string/categorical columns into integer columns- [video](https://youtu.be/8CO7FnF2yNM?t=406)
+- Transform train and test sets with `MultiColumnLabelEncoder`- [video](https://youtu.be/8CO7FnF2yNM?t=491)
+- Use `StratifiedKFold` to spread out positive labels equally into 10 folds for training and validation while handling the unbalanced positive and label labels (5%vs95%) - [video](https://youtu.be/8CO7FnF2yNM?t=528)
+- - [video](https://youtu.be/8CO7FnF2yNM?t=594)
+- - [video](https://youtu.be/8CO7FnF2yNM?t=728) 

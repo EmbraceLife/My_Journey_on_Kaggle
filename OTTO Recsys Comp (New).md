@@ -3,6 +3,20 @@
 
 otto comp: OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) , [LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#) [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes) [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true), my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
 
+new notebooks to explore: 
+- One Month Left - Here is what you need to know! [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/374229#2105455) 🔥🔥🔥🔥
+- best [EDA](https://www.kaggle.com/code/cdeotte/time-series-eda-users-and-real-sessions) 
+- a faster Candidate ReRanker [notebook](https://www.kaggle.com/code/adaubas/otto-fast-handcrafted-model), 
+-  NN [model](https://www.kaggle.com/competitions/otto-recommender-system/discussion/370756#2056631) 
+- a notebook using [fastai](https://www.kaggle.com/code/shravankumar147/can-we-use-fastai) 
+- handcraft [improve](https://www.kaggle.com/code/tuongkhang/otto-pipeline2-lb-0-576/comments#2049094) on deotte's Co-visitation Candidate ReRank model
+- [great example on how to go from basic with baselines](https://www.kaggle.com/code/junjitakeshima/otto-easy-understanding-for-beginner-en/comments#2057777), 
+- build on Radek's [w2v](https://www.kaggle.com/code/alexandershumilin/otto-word2vec/comments#2048246)
+- [EDA eg](https://www.kaggle.com/code/adaubas/otto-interesting-times-series-eda-on-products/notebook), 
+- the best [EDA](https://www.kaggle.com/code/edwardcrookenden/otto-getting-started-eda-baseline) 
+
+
+
 
 --- 
 
@@ -37,20 +51,77 @@ Where can I find item and user metadata?
 
 ---
 
-## <mark style="background: #FFB8EBA6;">My reflections in this comp</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/) ^54ebe4
-- What exactly does this comp want us to predict? 💡💡💡
-	- given a group of aids clicked, carted or/and ordered by a user (or in a session)
-	- to predict the next 20 aids to be clicked, 20 to be carted and 20 to be ordered
-	- out of 1.8 million aids in the training set
-- What is Candidate ReRank model? 💡💡💡
-	- first we use a model to select hundreds of aid candidates, then we use another model to select the final 20 aids for predictions
-- Why Chris Deotte said Candidate ReRank model will most likely to win this comp? 💡💡💡
-	- maybe it is the most obvious approach and it works in other RecSys comp, according to Chris Deotte
-	- there are 1.8 milliion aids to choose from, but only need 20 aids for each session_type
-	- It's kind of making sense to break a large problem into 2 smaller problems: choose hundreds from millions in one model, and then choose 20 from hundreds in another
-	- but how to select hundreds from millions? through similarities? 
-		- great kagglers in otto have shared approaches like co-visitation matrix, word2vec, matrix factorization, and maybe more I don't know
-- How to understand covisitation matrix intuitively? [[OTTO Recsys Comp (New)#^7f7de5|notes]] 💡💡💡
+## <mark style="background: #FFB8EBA6;">A growing reflections on otto from a beginner's perspective</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/) ^54ebe4
+
+To share my reflection in Kaggle [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/379291) 
+
+#### <mark style="background: #FFB86CA6;">Why?</mark> 
+
+- writing down my reflections of learning is good for myself and others who share similar experiences
+- I am a beginner who learns slowly and can't keep up with all the good and new posts and notebooks, so I will take my own pace
+- otto is a worthwhile comp which I will keep learning even after the deadline
+- So, this reflection will grow as I keep learning even after the deadline.
+- for a quick sum for most if not all amazing posts/notebooks, please check out @thedevastator 's "One Month Left - Here is what you need to know!" [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/374229#2105455) 🔥🔥🔥🔥
+
+#### <mark style="background: #FFB86CA6;">What to predict</mark> 
+
+##### What exactly does this comp want us to predict? 💡💡💡
+- given a group of aids clicked, carted or/and ordered by a user (or in a session)
+- to predict the next 20 aids to be clicked, 20 to be carted and 20 to be ordered
+- out of 1.8 million aids in the training set
+
+#### <mark style="background: #FFB86CA6;">Candidate ReRank Model</mark> 
+
+
+##### What is Candidate ReRank model? 💡💡💡
+- first we use a model to select hundreds of aid candidates, then we use another model to select the final 20 aids for predictions
+
+##### Why Chris Deotte said Candidate ReRank model will most likely to win this comp? 💡💡💡
+- maybe it is the most obvious approach and it works in other RecSys comp, according to Chris Deotte
+- there are 1.8 milliion aids to choose from, but only need 20 aids for each session_type
+- It's kind of making sense to break a large problem into 2 smaller problems: choose hundreds from millions in one model, and then choose 20 from hundreds in another
+- but how to select hundreds from millions? through similarities? 
+	- great kagglers in otto have shared approaches like co-visitation matrix, word2vec, matrix factorization, and maybe more I don't know
+
+
+
+####  <mark style="background: #FFB86CA6;">Co-visitation Matrix</mark> 
+ 
+
+##### Radek explains it way better than my own reflection below
+- "A co-visitation matrix counts the co-occurrence of two actions in close proximity."
+- "If a user bought A and shortly after bought B, we store these values together."
+- "We calculate counts and use them to estimate the probability of future actions based on recent history."
+- "It is quite important to understand what is happening in the co-visitation matrix approach…"
+- "Since it suffers from the same issues as our trigram example!"
+- "Plus what does the co-visitation matrix resemble?"
+- "You are right, it is akin to doing Matrix Factorization by counting!"
+- "It is really fun that this competition exposed this heuristic (the co-visitation matrix) that I have not been aware of before! 🙏"
+
+##### How to understand covisitation matrix intuitively? [[OTTO Recsys Comp (New)#^7f7de5|notes]] 💡💡💡
+-   it’s a way to take any aid and find any number of aids which are most similar to it
+-   co-visitation matrices differentiate from each other based on how they define similarity or how they select aids to be paired together
+
+##### if you were to play the role of the inventor of co-visitation matrix, what series of ideas/questions could trigger the creation of it?
+-   Is there any relationship between one aid/product with other aids/products in the same session or across all sessions?
+-   Are there some aids more similar to some and more different to others?
+-   Could it be possible when this aid is viewed, some aids are more likely to be clicked/carted/ordered than other aids?
+-   Could we pair aids together for each and every session and count the occurrences of pairs?
+-   Since one aid (eg., '122') could have many pair-partners, by counting the occurrences of the pairs ('122', pair-partner), could we find the most common pair-partners of aid '122'?
+-   Could the next clicks or carts or orders be the most common pair-partners of the last aid (or all aids) of a test session?
+
+##### what does pairing logic or a definition of simiarlity look like
+-   In Radek's notebook, the pairing logic is the following
+-   use only the last 30 aids of each session to pair on each other with pandas `merge` or polars `join` on `session`
+-   remove the pairs of same partners
+-   keep pairs whose right-partner is after left-partner within a day
+
+##### We can tweak the pairing logic to change our co-visitation matrix
+
+#### <mark style="background: #FFB86CA6;">Word2Vect</mark> 
+
+##### What shortcomings does co-visitation matrix have? Could Word2Vec be a better model?
+- [asked & answered](https://www.kaggle.com/competitions/otto-recommender-system/discussion/365358#2105430) Thank you @radek1 for your insightful reply again!
 
 ---
 
