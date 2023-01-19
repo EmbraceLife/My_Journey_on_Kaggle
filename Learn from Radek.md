@@ -253,4 +253,4 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 
 ---
 
-Read more of my learning from Radek, check [here](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/Learn%20from%20Radek.md)
+Read more of my learning from Radek, check [here](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/Learn%20from%20Radek.md#playground-series-s3e03-competition-on-kaggle--intro)

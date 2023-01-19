@@ -1,25 +1,4 @@
 
-## <mark style="background: #FFB8EBA6;">Basic Resources</mark> 
-
-otto comp: OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) , [LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#) [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes) [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true), my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
-
-new notebooks to explore: 
-- One Month Left - Here is what you need to know! [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/374229#2105455) 🔥🔥🔥🔥
-- best [EDA](https://www.kaggle.com/code/cdeotte/time-series-eda-users-and-real-sessions) 
-- a faster Candidate ReRanker [notebook](https://www.kaggle.com/code/adaubas/otto-fast-handcrafted-model), 
--  NN [model](https://www.kaggle.com/competitions/otto-recommender-system/discussion/370756#2056631) 
-- a notebook using [fastai](https://www.kaggle.com/code/shravankumar147/can-we-use-fastai) 
-- handcraft [improve](https://www.kaggle.com/code/tuongkhang/otto-pipeline2-lb-0-576/comments#2049094) on deotte's Co-visitation Candidate ReRank model
-- [great example on how to go from basic with baselines](https://www.kaggle.com/code/junjitakeshima/otto-easy-understanding-for-beginner-en/comments#2057777), 
-- build on Radek's [w2v](https://www.kaggle.com/code/alexandershumilin/otto-word2vec/comments#2048246)
-- [EDA eg](https://www.kaggle.com/code/adaubas/otto-interesting-times-series-eda-on-products/notebook), 
-- the best [EDA](https://www.kaggle.com/code/edwardcrookenden/otto-getting-started-eda-baseline) 
-
-
-
-
---- 
-
 ###  <mark style="background: #FFB8EBA6;">OTTO repo's FAQs</mark> 
 
 How is a user `session` defined?
@@ -69,6 +48,13 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 - given a group of aids clicked, carted or/and ordered by a user (or in a session)
 - to predict the next 20 aids to be clicked, 20 to be carted and 20 to be ordered
 - out of 1.8 million aids in the training set
+
+#### <mark style="background: #FFB86CA6;">Validation for fast iteration</mark> 
+
+<mark style="background: #BBFABBA6;">todo</mark> 
+- I have created many notebooks to try to achieve this, but Radek has done it with a single notebook 😱😱😱😱
+- Can mine be as fast as Radek's?
+
 
 #### <mark style="background: #FFB86CA6;">Candidate ReRank Model</mark> 
 
@@ -123,72 +109,14 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 ##### What shortcomings does co-visitation matrix have? Could Word2Vec be a better model?
 - [asked & answered](https://www.kaggle.com/competitions/otto-recommender-system/discussion/365358#2105430) Thank you @radek1 for your insightful reply again!
 
----
 
 
-## <mark style="background: #FFB8EBA6;">Important Notebooks to Study</mark>  ^4a8749
 
-- check out my new dataset [subset1](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) for validity, [notebook](https://www.kaggle.com/code/danielliao/verify-1week-otto-train-valid-test?scriptVersionId=116345295) <mark style="background: #ADCCFFA6;">done</mark>  2023.1.14
-	- There should be no aids of `test_sessions` or `test_labels` unknown to `train_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
-	- no overlap sessions between `train_sessions` and `test_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
-- How to <mark style="background: #BBFABBA6;">ensemble</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/2-methods-how-to-ensemble-predictions) 🔥🔥🔥
-	- 🚀🚀🚀 The template of ensemble is brilliant and ready to use. 
-		- ⚗️I can make multiple subsets and make predictions on each and ensemble them
-		- ⚗️⚗️⚗️ more ensembles of the same model as good as the same model on entire dataset? <mark style="background: #FF5582A6;">to test with the baseline</mark> 
-	- 🤔🤔🤔 but what if the predictions from different trees are more different than similar, how to pick the remaining different aids? 
-		- ⚗️⚗️⚗️ keep the order of list generation?  <mark style="background: #FF5582A6;">to test with the baseline</mark> 
-- Create a <mark style="background: #BBFABBA6;">baseline</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/last-20-aids) with his intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=400s) 🔥🔥🔥 
-	- 💡💡💡 *use the <mark style="background: #ABF7F7A6;">last 20 aids</mark> of each test session for predictions for clicks, carts and orders*
-	- 🏗️🏗️🏗️ Let me implement it in polars [[OTTO Recsys Comp (New)#^e8e009|codes]] ,  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars)  <mark style="background: #ADCCFFA6;">done</mark>  with public [scores](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars/comments#2100313) noon on 2023.1.15
-- <mark style="background: #BBFABBA6;">Co-visitation Matrix</mark> [notebook](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix) by @vslaykovsky and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=534s) 🔥🔥🔥 
-	- how co-visitation matrix is [explained](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix?scriptVersionId=110008312&cellId=1) by @vslayvkovsky 🚀
-	- [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
-	- 💡💡💡 - if the last 20 aids of each test session are not enough, then append the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> 
-	- 🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15, [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/) nearly done in 2023.1.17
-		- -   how similar is my implementation to Radek’s 🔥🔥🔥
-			-   next_AIDs: 64 more pairs than Radek’s
-			-   slightly faster than pandas
-			-   but the public score is exactly the same, 0.569 😂😂
-			-   both are super slow compared with @deotte’s GPU cudf version, still need to learn pandas 😱😱😱💡💡💡
-		- key concepts and codes blocks 😱 😂 ⚡🔥
-			- 
-			- what is co-visitation intuitively [[OTTO Recsys Comp (New)#^7f7de5|notes]] 
-			- how to subset and join train and test? and how to use DEBUG for fast experimenting codes? [[OTTO Recsys Comp (New)#^495ed2|codes]] 
-			- how to create and tweak a co-visitation matrix [[OTTO Recsys Comp (New)#^0ad2ea|codes]]
-			- how to create a feature (weight based on time, type and occurrences) to rerank the best 20 aids from many [[OTTO Recsys Comp (New)#^3f59e6|codes]]
-			- how to use co-visitation matrix to select candidates from millions of aids  [[OTTO Recsys Comp (New)#^3f59e6|codes]]
-			    -   take 20 most common aids for each aid in a test session and put them into candidate list
-			    -   take 40 most common aids from the candidate list and add them to the aids of the test session if they are new to the session
-			    -   then select the first 20 aids
-		- techinques 🔥🔥🔥
-			- use `DEBUG=True` when writing the codes from start, otherwise running large dataset and failed due to code error is a huge waste of time 😱😱😱😱😱😱
-			- I have spent most of the 2 days in implementing in polars, and realized that polars aren't fast in all situations 
-			- and `defaultdict` and `Counter` are fast and powerful, 
-			- and `sorted` is useful in sorting dict by keys or values
-- Candidate <mark style="background: #BBFABBA6;">reranking using static rules</mark> [notebook](https://www.kaggle.com/code/cdeotte/candidate-rerank-model-lb-0-575) by @cdeotte and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=773s)  🔥🔥🔥 
-	- use 3 co-visitation matrices to select 50 to 200 candidates from 1.6 million candidates
-	- use hand-crafted rules to rerank the candidates as predictions
-- <mark style="background: #BBFABBA6;">Candidate Selection Model + ReRanking Model</mark> introduced by Radek [video](https://youtu.be/gtPEX_eRAVo?t=1057) 🔥🔥🔥 
-	- candidate selection models include co-visitation matrix, and others
-	- instead of hand-crafted rules, it's better to use reranking models include LGBM models [notebook](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker)
-	- 🤔🤔🤔 how could LGBM model discover hand-crafted rules above? 
-- Second-stage Ranker <mark style="background: #BBFABBA6;">LGBM Ranker</mark> [notebook](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker) introduced by Radek [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1225s) 🔥🔥🔥
-	- 💡💡💡 LGBM [Ranker](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRanker.html) + Catboost [Ranker](https://catboost.ai/en/docs/concepts/python-reference_catboostranker) (learnt from Radek in [[Playground Series Season 3, Episode 1#^e3004d| playground series 3-1]]) 
-	- what does log_recency_score look like? see my sympy plot and question asked [here](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker/comments#2099033), [[OTTO Recsys Comp (New)#^ec82df|codes]] 
-	- how to build features and target into the dataframe for training? see Radek's [cells](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker?scriptVersionId=115190046&cellId=16) 
-	- a blog [post](https://tamaracucumides.medium.com/learning-to-rank-with-lightgbm-code-example-in-python-843bd7b44574) on LGBM ranker
-- Word2vec model to generate candidates [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1335s) by Radek 🔥🔥🔥 [notebook](https://www.kaggle.com/code/radek1/word2vec-how-to-training-and-submission) 
-	- what is sentence dataframe like in this comp
-	- train the word2vec model to find the most similar aids of test aids
-- Matrix Factorization with Merlin Dataloaders [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1719s) and [notebook](https://www.kaggle.com/code/radek1/matrix-factorization-pytorch-merlin-dataloader) introduced by Radek
-	- use the low level code of MF to introduce diversity into your MF model
-	- 💡💡💡 scores generated by MF and W2V on candidates can be used by Rerank model get better results ⚡
-- pipeline collections [notebook](https://www.kaggle.com/code/danielliao/kaggle-otto-pipeline-collections)
-- **A basic pipeline** introduced by #otto_edward  with [my corrected version](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113569269&cellId=115) it can score 0.483 in BL and my polars implmentation on full dataset is [here](https://www.kaggle.com/code/danielliao/kaggle-otto-pipeline-collections?scriptVersionId=114464575) with 0.484 BL score
 
 ---
 
-## <mark style="background: #FFB8EBA6;">Milestone OTTO NOTEBOOKS</mark> 
+## <mark style="background: #FFB8EBA6;">My Milestone notebooks on OTTO</mark> 
+
 
 - Explore otto full dataset (original in jsonl format) [notebook](https://www.kaggle.com/code/danielliao/peek-at-otto-jsonl-dataset/notebook)
 - 😱 😂 🚀 Convert otto full dataset from jsonl to parquet and optimized in polars <mark style="background: #ABF7F7A6;">using kaggle's 30GB RAM</mark> [notebook](https://www.kaggle.com/code/danielliao/recreate-otto-full-optimized-memory-footprint)
@@ -198,6 +126,99 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 - 😱 😂 🚀 Optimize and convert otto validation set (<mark style="background: #ABF7F7A6;">full, including test_labels</mark> ) from jsonl to parquet on Kaggle with polars  [experiment](https://www.kaggle.com/code/danielliao/peek-at-otto-jsonl-dataset#Let's-peek-at-test_labels.jsonl), [notebook](https://www.kaggle.com/code/danielliao/otto-validation-optimized-jsonl2parquet?scriptVersionId=114894810) for optimization and conversion, (created the [new optimized validation dataset](https://www.kaggle.com/datasets/danielliao/otto-validation-optimized-parquet) )
 - 🚀 😂 🌟The [Discovery](https://twitter.com/shendusuipian/status/1607645668386164736) of a corruption of a validation set created by a Grandmaster and [conversations](https://www.kaggle.com/datasets/radek1/otto-train-and-test-data-for-local-validation/discussion/374405#2077900) with them
 	- finding out which validation set has no cold start problem on aid, comparing validation from @radek1 and validations from mine [notebook](https://www.kaggle.com/danielliao/no-cold-start-aid-in-validation/) 
+- 😱 😂 🚀 Create your own validation dataset in any length any way you want,  [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook)
+- 💡💡💡💡 I need a template for subsetting the dataset in order to testing codes extremely fast no matter how small or big is the dataset, [[OTTO Recsys Comp (New)#^edf481|polars codes]], for GPU speedup, I may need a cudf code version too <mark style="background: #BBFABBA6;">todo</mark> 
+- 😱 😂 🚀 Evaluate your submission trained on validation dataset
+	- Evaluate your submission with organizer's script on kaggle,  [notebook](https://www.kaggle.com/danielliao/run-organizer-evaluation-script-directly-on-kaggle/)
+	- Evaluate your submission with organizer's script implemented in polars,  [notebook](https://www.kaggle.com/danielliao/implement-organizer-evaluate-script-polars) 
+- Baseline 1: the last 20 aid, implemented Radek  [notebook](https://www.kaggle.com/code/radek1/last-20-aids)  in polars, see my  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars) 
+- Baseline 2:  [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek, I implemented it in polars with my reflection on co-visitation matrix and detailed comments for codes,  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/)  
+
+
+---
+
+
+
+## <mark style="background: #FFB8EBA6;">Following Radek into OTTO</mark>  ^4a8749
+
+#### 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go <mark style="background: #BBFABBA6;">todo</mark> 
+- let me reimplement it in polars, but it is not as fast as cudf
+- let's implement this with cudf
+
+#### check out my new dataset [subset1](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) for validity, [notebook](https://www.kaggle.com/code/danielliao/verify-1week-otto-train-valid-test?scriptVersionId=116345295) <mark style="background: #ADCCFFA6;">done</mark>  2023.1.14
+	- There should be no aids of `test_sessions` or `test_labels` unknown to `train_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
+	- no overlap sessions between `train_sessions` and `test_sessions`  <mark style="background: #ADCCFFA6;">done</mark>  
+
+#### How to <mark style="background: #BBFABBA6;">ensemble</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/2-methods-how-to-ensemble-predictions) 🔥🔥🔥
+🚀🚀🚀 The template of ensemble is brilliant and ready to use. 
+- ⚗️I can make multiple subsets and make predictions on each and ensemble them
+- ⚗️⚗️⚗️ more ensembles of the same model as good as the same model on entire dataset? <mark style="background: #FF5582A6;">to test with the baseline</mark> 
+
+🤔🤔🤔 but what if the predictions from different trees are more different than similar, how to pick the remaining different aids? 
+- ⚗️⚗️⚗️ keep the order of list generation?  <mark style="background: #FF5582A6;">to test with the baseline</mark> 
+
+#### Create a <mark style="background: #BBFABBA6;">baseline</mark> by Radek [notebook](https://www.kaggle.com/code/radek1/last-20-aids) with his intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=400s) 🔥🔥🔥 
+- 💡💡💡 *use the <mark style="background: #ABF7F7A6;">last 20 aids</mark> of each test session for predictions for clicks, carts and orders*
+- 🏗️🏗️🏗️ Let me implement it in polars [[OTTO Recsys Comp (New)#^e8e009|codes]] ,  [notebook](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars)  <mark style="background: #ADCCFFA6;">done</mark>  with public [scores](https://www.kaggle.com/code/danielliao/implement-radek-last20aids-in-polars/comments#2100313) noon on 2023.1.15
+
+
+#### <mark style="background: #BBFABBA6;">Co-visitation Matrix</mark> [notebook](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix) by @vslaykovsky and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=534s) 🔥🔥🔥 
+
+how co-visitation matrix is [explained](https://www.kaggle.com/code/vslaykovsky/co-visitation-matrix?scriptVersionId=110008312&cellId=1) by @vslayvkovsky 🚀
+[co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
+
+💡💡💡 - if the last 20 aids of each test session are not enough, then append the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> 
+🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15, [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/) nearly done in 2023.1.17
+
+how similar is my implementation to Radek’s 🔥🔥🔥
+-   next_AIDs: 64 more pairs than Radek’s
+-   slightly faster than pandas
+-   but the public score is exactly the same, 0.569 😂😂
+-   both are super slow compared with @deotte’s GPU cudf version, still need to learn pandas 😱😱😱💡💡💡
+
+key concepts and codes blocks 😱 😂 ⚡🔥
+- what is co-visitation intuitively [[OTTO Recsys Comp (New)#^7f7de5|notes]] 
+- how to subset and join train and test? and how to use DEBUG for fast experimenting codes? [[OTTO Recsys Comp (New)#^495ed2|codes]] 
+- how to create and tweak a co-visitation matrix [[OTTO Recsys Comp (New)#^0ad2ea|codes]]
+- how to create a feature (weight based on time, type and occurrences) to rerank the best 20 aids from many [[OTTO Recsys Comp (New)#^3f59e6|codes]]
+
+how to use co-visitation matrix to select candidates from millions of aids  [[OTTO Recsys Comp (New)#^3f59e6|codes]]
+-   take 20 most common aids for each aid in a test session and put them into candidate list
+-   take 40 most common aids from the candidate list and add them to the aids of the test session if they are new to the session
+-   then select the first 20 aids
+
+techinques 🔥🔥🔥
+- use `DEBUG=True` when writing the codes from start, otherwise running large dataset and failed due to code error is a huge waste of time 😱😱😱😱😱😱
+- I have spent most of the 2 days in implementing in polars, and realized that polars aren't fast in all situations 
+- and `defaultdict` and `Counter` are fast and powerful, 
+- and `sorted` is useful in sorting dict by keys or values
+
+#### Candidate <mark style="background: #BBFABBA6;">reranking using static rules</mark> [notebook](https://www.kaggle.com/code/cdeotte/candidate-rerank-model-lb-0-575) by @cdeotte and Radek's intro [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=773s)  🔥🔥🔥 
+- use 3 co-visitation matrices to select 50 to 200 candidates from 1.6 million candidates
+- use hand-crafted rules to rerank the candidates as predictions
+
+####  <mark style="background: #BBFABBA6;">Candidate Selection Model + ReRanking Model</mark> introduced by Radek [video](https://youtu.be/gtPEX_eRAVo?t=1057) 🔥🔥🔥 
+- candidate selection models include co-visitation matrix, and others
+- instead of hand-crafted rules, it's better to use reranking models include LGBM models [notebook](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker)
+- 🤔🤔🤔 how could LGBM model discover hand-crafted rules above? 
+
+#### Second-stage Ranker <mark style="background: #BBFABBA6;">LGBM Ranker</mark> [notebook](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker) introduced by Radek [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1225s) 🔥🔥🔥
+	- 💡💡💡 LGBM [Ranker](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRanker.html) + Catboost [Ranker](https://catboost.ai/en/docs/concepts/python-reference_catboostranker) (learnt from Radek in [[Playground Series Season 3, Episode 1#^e3004d| playground series 3-1]]) 
+	- what does log_recency_score look like? see my sympy plot and question asked [here](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker/comments#2099033), [[OTTO Recsys Comp (New)#^ec82df|codes]] 
+	- how to build features and target into the dataframe for training? see Radek's [cells](https://www.kaggle.com/code/radek1/polars-proof-of-concept-lgbm-ranker?scriptVersionId=115190046&cellId=16) 
+	- a blog [post](https://tamaracucumides.medium.com/learning-to-rank-with-lightgbm-code-example-in-python-843bd7b44574) on LGBM ranker
+
+#### Word2vec model to generate candidates [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1335s) by Radek 🔥🔥🔥 [notebook](https://www.kaggle.com/code/radek1/word2vec-how-to-training-and-submission) 
+	- what is sentence dataframe like in this comp
+	- train the word2vec model to find the most similar aids of test aids
+
+#### Matrix Factorization with Merlin Dataloaders [video](https://www.youtube.com/watch?v=gtPEX_eRAVo&t=1719s) and [notebook](https://www.kaggle.com/code/radek1/matrix-factorization-pytorch-merlin-dataloader) introduced by Radek
+	- use the low level code of MF to introduce diversity into your MF model
+	- 💡💡💡 scores generated by MF and W2V on candidates can be used by Rerank model get better results ⚡
+
+#### pipeline collections [notebook](https://www.kaggle.com/code/danielliao/kaggle-otto-pipeline-collections)
+- **A basic pipeline** introduced by #otto_edward  with [my corrected version](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113569269&cellId=115) it can score 0.483 in BL and my polars implmentation on full dataset is [here](https://www.kaggle.com/code/danielliao/kaggle-otto-pipeline-collections?scriptVersionId=114464575) with 0.484 BL score
+
 
 ---
 
@@ -219,7 +240,7 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 			- join them together, [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115355042&cellId=40) <mark style="background: #ADCCFFA6;">Done!</mark> 
 			- to confirm my implementation result is the same to the organizer's result, [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115377521&cellId=41) <mark style="background: #ADCCFFA6;">Done!</mark> 
 		- implement `recall_by_event_type` and `weighted_recalls`, check script in [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115378747&cellId=46) , and implemented [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115380231&cellId=49), confirmed [cell](https://www.kaggle.com/code/danielliao/evaluate-otto-organizer-script?scriptVersionId=115301417&cellId=8) <mark style="background: #ADCCFFA6;">Done!</mark> 
-- 😱 😂 🎉🎉 using reimplementation notebooks above to split any subset of `train` into `train_sessions`, `test_sessions` and `test_labels` for fast experimentation on training and evaluating
+- 😱 😂 🎉🎉 using reimplementation notebooks above to split any subset of `train` into `train_sessions`, `test_sessions` and `test_labels` for fast experimentation on training and evaluating. [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook) to create your own validation dataset, and  [notebook](https://www.kaggle.com/danielliao/run-organizer-evaluation-script-directly-on-kaggle/) to evaluate the submission based on validation dataset
 	- integrate my implementations together for `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels` <mark style="background: #ADCCFFA6;">start late on 2023.1.12, done 2023.1.13 morning</mark>
 	- make a proper subset (or more) from training set (4 weeks) for last iteration <mark style="background: #ADCCFFA6;">start early on 2023.1.13</mark> 
 		- When the training set start and end and how the data is extracted according to time, [[OTTO Recsys Comp (New)#^8fbdee|codes]] 🎉
@@ -227,7 +248,9 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 		- Let's get `train_sessions_full`, `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels`  out of it by spliting from the last 2 days,  [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook) [dataset](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) <mark style="background: #ADCCFFA6;">done end of 2023.1.13</mark>  🎉 [[OTTO Recsys Comp (New)#^9bc9b7|codes for verifying dataset]] 
 		- also figured out how to deal with `datetime` and `duration` in polars [[OTTO Recsys Comp (New)#^54ebe4|details]] 🔥🎉🎉
 	- integrate my implementations on evaluation   <mark style="background: #BBFABBA6;">Todo</mark> 
-	- 😱  Radek's [a-robust-local-validation-framework](https://www.kaggle.com/code/radek1/a-robust-local-validation-framework)  does subset, modeling, and evaluate in one go, let me reimplement it in polars
+		- use organizer's evaluation script to evaluate your submission based on a validation dataset, see [notebook](https://www.kaggle.com/danielliao/run-organizer-evaluation-script-directly-on-kaggle/)
+		- implement organizer's evaluation script in polars, see [notebook](https://www.kaggle.com/danielliao/implement-organizer-evaluate-script-polars) 
+	- 
 
 
 ---
@@ -250,7 +273,32 @@ Are my handmade `train`, `test` of full dataset, and `train_sessions`, `test_ses
 
 - otto-train-set-test-set-optimized (both seconds and milliseconds, generated purely on Kaggle): [otto-radek-style-polars](https://www.kaggle.com/datasets/danielliao/otto-radek-style-polars)
 - otto-validation-split-7-days (generated purely on Kaggle): [validation-4th-optimized-parquet](https://www.kaggle.com/datasets/danielliao/validation-4th-optimized-parquet)
+- Radek's validation [dataset](https://www.kaggle.com/datasets/radek1/otto-train-and-test-data-for-local-validation)
+- Radek's full [dataset](https://www.kaggle.com/datasets/radek1/otto-full-optimized-memory-footprint)  
 ---
+
+
+## <mark style="background: #FFB8EBA6;">Basic Resources</mark> 
+
+otto comp: OTTO dataset [repo](https://github.com/otto-de/recsys-dataset#dataset-statistics) , [LeaderBoard Ranking](https://www.kaggle.com/competitions/otto-recommender-system/leaderboard#) [discussions](https://www.kaggle.com/competitions/otto-recommender-system/discussion?sort=votes) [notebooks](https://www.kaggle.com/competitions/otto-recommender-system/code?competitionId=38760&sortBy=voteCount) my [notebooks](https://www.kaggle.com/danielliao/code?scroll=true), my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
+
+new notebooks to explore: 
+- One Month Left - Here is what you need to know! [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/374229#2105455) 🔥🔥🔥🔥
+- best [EDA](https://www.kaggle.com/code/cdeotte/time-series-eda-users-and-real-sessions) 
+- a faster Candidate ReRanker [notebook](https://www.kaggle.com/code/adaubas/otto-fast-handcrafted-model), 
+-  NN [model](https://www.kaggle.com/competitions/otto-recommender-system/discussion/370756#2056631) 
+- a notebook using [fastai](https://www.kaggle.com/code/shravankumar147/can-we-use-fastai) 
+- handcraft [improve](https://www.kaggle.com/code/tuongkhang/otto-pipeline2-lb-0-576/comments#2049094) on deotte's Co-visitation Candidate ReRank model
+- [great example on how to go from basic with baselines](https://www.kaggle.com/code/junjitakeshima/otto-easy-understanding-for-beginner-en/comments#2057777), 
+- build on Radek's [w2v](https://www.kaggle.com/code/alexandershumilin/otto-word2vec/comments#2048246)
+- [EDA eg](https://www.kaggle.com/code/adaubas/otto-interesting-times-series-eda-on-products/notebook), 
+- the best [EDA](https://www.kaggle.com/code/edwardcrookenden/otto-getting-started-eda-baseline) 
+
+
+
+
+
+
 ---
 
 ## <mark style="background: #FFB86CA6;">My codes</mark> 
@@ -1055,3 +1103,51 @@ for AIDs, types in zip(test_session_AIDs, test_session_types):
 ```
 
 ^3f59e6
+
+
+```python
+# a template for testing codes extremely fast no matter how small or big is the dataset
+train_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/train_ms.parquet')
+test_ms = pl.scan_parquet('/kaggle/input/otto-radek-style-polars/test_ms.parquet')
+sample_sub = pl.scan_csv('/kaggle/input/otto-recommender-system/sample_submission.csv')
+
+DEBUG = False
+if DEBUG: fraction_of_sessions_to_use = 0.00001
+else: fraction_of_sessions_to_use = 1
+
+%%time
+lucky_sessions_train = (
+    train_ms
+    .select([
+        pl.col('session').unique().sample(frac=fraction_of_sessions_to_use, seed=42)
+    ])
+    .collect()
+    .to_series().to_list()
+)
+
+lucky_sessions_test = (
+    test_ms
+    .select([
+        pl.col('session').unique().sample(frac=fraction_of_sessions_to_use, seed=42)
+    ])
+    .collect()
+    .to_series().to_list()
+)
+
+subset_of_train = (
+    train_ms
+    .filter(pl.col('session').is_in(lucky_sessions_train))
+
+)
+
+subset_of_test = (
+    test_ms
+    .filter(pl.col('session').is_in(lucky_sessions_test))
+
+)
+
+subsets = pl.concat([subset_of_train, subset_of_test]).collect()
+sessions = subsets.select('session').unique().to_series().to_list()
+```
+
+^edf481
