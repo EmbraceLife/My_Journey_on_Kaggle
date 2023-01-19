@@ -53,7 +53,7 @@ Where can I find item and user metadata?
 
 ## <mark style="background: #FFB8EBA6;">A growing reflections on otto from a beginner's perspective</mark>  [notebook](https://www.kaggle.com/code/danielliao/otto-eda-polars/) ^54ebe4
 
-To share my reflection in Kaggle [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/379291) 
+See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/OTTO%20Recsys%20Comp%20(New).md#a-growing-reflections-on-otto-from-a-beginners-perspective--notebook-54ebe4) and Kaggle [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/379291) 
 
 #### <mark style="background: #FFB86CA6;">Why?</mark> 
 

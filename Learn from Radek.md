@@ -233,12 +233,24 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 - what about variables columns, what's in a row, and what to predict ? [video](https://youtu.be/8CO7FnF2yNM?t=73) 
 - what is the metric? area of ROC curve, why it is a good metric for this comp? [video](https://youtu.be/8CO7FnF2yNM?t=100)
 - How all boosted tree models handle string/categorical columns? and what extra benefits does lightGBM provide us? [video](https://youtu.be/8CO7FnF2yNM?t=125)
-- What kind of challenge does this datast: train set (1677 rows, 35 columns), test set (1117, 34) bring to us? overfitting  [video](https://youtu.be/8CO7FnF2yNM?t=202)
+- What kind of challenge does this datast bring to us, train set (1677 rows, 35 columns), test set (1117, 34)? overfitting  [video](https://youtu.be/8CO7FnF2yNM?t=202)
 - Any missing values? - [video](https://youtu.be/8CO7FnF2yNM?t=230)
 - Adding original data which generated the comp official dataset and adding a column to distinguish original from official dataset gives model great improvement - [video](https://youtu.be/8CO7FnF2yNM?t=243) 
 - setup for feature columns and target column - [video](https://youtu.be/8CO7FnF2yNM?t=373)
 - Benefit and Warning of using `MultiColumnLabelEncoder` to convert string/categorical columns into integer columns- [video](https://youtu.be/8CO7FnF2yNM?t=406)
 - Transform train and test sets with `MultiColumnLabelEncoder`- [video](https://youtu.be/8CO7FnF2yNM?t=491)
-- Use `StratifiedKFold` to spread out positive labels equally into 10 folds for training and validation while handling the unbalanced positive and label labels (5%vs95%) - [video](https://youtu.be/8CO7FnF2yNM?t=528)
-- - [video](https://youtu.be/8CO7FnF2yNM?t=594)
-- - [video](https://youtu.be/8CO7FnF2yNM?t=728) 
+- Use `StratifiedKFold` to spread out positive labels equally into 10 folds for training and validation in order to handling the unbalanced positive and label labels (5%vs95%) - [video](https://youtu.be/8CO7FnF2yNM?t=528)
+- How Radek use primitive hyperparameter search method to get to `n_estimator = 150` when creating a LightGBM model and what about advanced hyperparameter search? - [video](https://youtu.be/8CO7FnF2yNM?t=594)
+- How to create a LightGBM model by specifying categorical features, train the model, and use model to predict probabilities for negative and positive outcomes, and how to calc the ROC ? - [video](https://youtu.be/8CO7FnF2yNM?t=636)  
+- How to find out the most important features and their importances through the trained model instead of doing EDA? What the feature importances could not tell us? - [video](https://youtu.be/8CO7FnF2yNM?t=725)
+- Why add Catboost models and how they perform even better? - [video](https://youtu.be/8CO7FnF2yNM?t=871)
+- How to do ensemble of all the models above and make a submission? - [video](https://youtu.be/8CO7FnF2yNM?t=941)
+
+#### But what to do next? 
+- There are some todos which I planned in the first playground series introduced by Radek
+- We should definitely read other kaggler's notebooks and discussions for new ideas to try
+- but what does Radek recommend? 
+
+---
+
+Read more of my learning from Radek, check [here](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/Learn%20from%20Radek.md)

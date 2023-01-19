@@ -76,5 +76,11 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - 2023.1.19 Sometimes I fell into the trap of worrying whether what I learnt in doing kaggle is too unsystematic and won't help me in the long run. Solution: <mark style="background: #D2B3FFA6;">Perseverance</mark> will remove all the unnecessary and unfounded worries I have or will have in the long run. ⚡⚡⚡💡💡💡
 - I love the idea of [[00fastainbs/my_journey_on_kaggle/Learn from Radek#^c04b53|mastermind group]] introduced by Radek. One appealing benefit of having such a group is reflection for the group can be <mark style="background: #D2B3FFA6;">a strong motivation me to do the reflection more seriously</mark> . But it seems to make such a group a prerequisite for the reflection work, but as Radek said you can't force people to join your mastermind group. So, how to have my mastermind group right now without forcing it in order to do my reflection well? The solution is to tell myself that <mark style="background: #D2B3FFA6;">my mastermind group is out there online checking my work in twitter, kaggle and fastai forum with or without informing me</mark> , and all I need to do is to work and share diligently with them as audience in my mind. 💡💡🎉🎉 
 - I have been worrying about how to share my learning nicely on twitter and kaggle? I organize my work mainly in Obsidian note, and then push it to my [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle), but sharing notes on twitter and kaggle forum is not straightforward and can take more time which I feel unnecessary. Now, using Radek's <mark style="background: #D2B3FFA6;">strategy of constraints</mark> and how he applied to building youtube channel, a simple solution should suffice: growing my reflections by adding tweets or updating kaggle posts in terms of <mark style="background: #D2B3FFA6;">images and links to relevant places on my repo</mark> .
- 
-	
+- 2023.1.19 todo: 
+	- playground video, 
+	- put together evaluation script in one notebook for otto, 
+	- set learning goals in Deotte's co-visitation candidate rerank model 
+
+---
+
+Read more of the ups and downs of my journey, see [here](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 

@@ -1,4 +1,4 @@
-my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
+see my journey on my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle) 
 
 ## <mark style="background: #FFB8EBA6;">How and Why shoud I get started</mark> 
 
@@ -140,7 +140,7 @@ my journey [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle)
 
 <mark style="background: #FF5582A6;">Q&A Radek version 6 vs my version 22</mark> 
 - why scores produced by pandas and polars are different? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115440584&cellId=31) asked and answered [here](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2085777) and solved in this notebook [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115532182&cellId=36) <mark style="background: #BBFABBA6;">solved</mark>
-- why is the falling scores from Radek's version 5 to version 6? my guess is that after joining the additional dataset, the problem gets harder due to more data. [asked](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2086984) here <mark style="background: #BBFABBA6;">hypothesis proposed</mark> 
+- why is the falling scores from Radek's version 5 to version 6? my guess is that after joining the additional dataset, the problem gets harder due to more data. [asked](https://www.kaggle.com/code/radek1/eda-training-a-first-model-submission/comments#2086984) here <mark style="background: #BBFABBA6;">hypothesis proposed</mark> <mark style="background: #BBFABBA6;">This is a wrong question because the score is lower the better</mark> ⚡⚡⚡⚡⚡⚡⚡
 
 --- 
 
