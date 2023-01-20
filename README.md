@@ -78,7 +78,8 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 - I have been worrying about how to share my learning nicely on twitter and kaggle? I organize my work mainly in Obsidian note, and then push it to my [repo](https://github.com/EmbraceLife/My_Journey_on_Kaggle), but sharing notes on twitter and kaggle forum is not straightforward and can take more time which I feel unnecessary. Now, using Radek's <mark style="background: #D2B3FFA6;">strategy of constraints</mark> and how he applied to building youtube channel, a simple solution should suffice: growing my reflections by adding tweets or updating kaggle posts in terms of <mark style="background: #D2B3FFA6;">images and links to relevant places on my repo</mark> .
 - 2023.1.19: playground video <mark style="background: #ADCCFFA6;">done</mark> , put together evaluation script in one notebook for otto <mark style="background: #ADCCFFA6;">done</mark> , solved the problems of sharing my reflections of what I learnt <mark style="background: #ADCCFFA6;">done</mark> 
 - 2023.1.20 : set learning goals in Deotte's co-visitation candidate rerank model #todo
-	- run the new playground series and check out the LightGBM on categorical columns
+	- run the new playground series and check out the LightGBM on categorical columns in both polars and pandas with detailed comment 
+	- do reflection for playground series
 	- learn to use cudf as I learnt to use polars, so that I can train with GPU (much faster than polars with CPU based on my experience so far)
 	- gain better understand of using co-visitations for generating candidates, create hand-crafted rules for reranking (potentially used as features)
 	- how to split large dataset to train models without blowing out GPU and CPU RAM

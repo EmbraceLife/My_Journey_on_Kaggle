@@ -19,6 +19,7 @@
 	- `vim dataset-metadata.json` to update the name of the dataset
 	- `kaggle datasets create` (create a new Dataset)
 	- `kaggle datasets version` (create a new version for an existing Dataset)
+- how to embed youtube video in a cell? [[Polars-Utils-Kaggle#^2b7617|codes]]  
 
 
 ---
@@ -147,6 +148,12 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - How to create 3 `null` and `append` to a column? [api](https://pola-rs.github.io/polars/py-polars/html/reference/expressions/api/polars.Expr.rechunk.html#polars.Expr.rechunk)
 - how to check `None` with `is_null` `is_not_null` and create `null` with `pl.lit(None)`? [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115343714&cellId=21)
 - how many `NA`s or `null`s in every column? [cell1](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115389565&cellId=15), [cell2](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115389565&cellId=16) 
+- drop a whole row if there is even a single `null` in the df [[Polars-Utils-Kaggle#^3b0ceb|codes]] 
+- drop a whole row only when null fill the whole row [[Polars-Utils-Kaggle#^3b0ceb|codes]] 
+- drop a column only when null fill the whole column [[Polars-Utils-Kaggle#^3b0ceb|codes]] 
+- how to count nulls in a column  [[Polars-Utils-Kaggle#^3b0ceb|codes]] 
+- how to loop every column of a df  [[Polars-Utils-Kaggle#^3b0ceb|codes]] 
+
 
 <mark style="background: #FFB86CA6;">Whether an element is in a list with `is_in`</mark> 
 - example: ` pl.col('ground_truth').arr.first().is_in(pl.col('labels')).cast(pl.Int8).alias('click_hits_1')`  [cell](https://www.kaggle.com/code/danielliao/implement-evaluate-script-otto?scriptVersionId=115343714&cellId=21)
@@ -804,3 +811,27 @@ for i in range(0, len(sessions), chunk_size):
 ```
 
 ^0f5296
+
+
+```python
+# how to embed a youtube video in a cell
+from IPython.display import YouTubeVideo
+YouTubeVideo('8CO7FnF2yNM', width=800, height=300)
+```
+
+^2b7617
+
+```python
+# drop a whole row if there is even a single `null` in the df 
+df.drop_nulls()
+
+# drop a whole row only when null fill the whole row
+df.filter(~pl.all(pl.all().is_null()))
+
+# drop a column only when null fill the whole column
+# how to count nulls in a column
+# how to loop every column of a df
+df[[s.name for s in df if not (s.null_count() == df.height)]]
+```
+
+^3b0ceb
