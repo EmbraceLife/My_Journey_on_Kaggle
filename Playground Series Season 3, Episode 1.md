@@ -19,9 +19,9 @@ see my journey on my journey [repo](https://github.com/EmbraceLife/My_Journey_on
 
 ---
 
-## <mark style="background: #FFB8EBA6;">My Reflection</mark>  <mark style="background: #BBFABBA6;">todo</mark> 
+## <mark style="background: #FFB8EBA6;">My Reflection</mark>  #todo
 
-
+Here are two winning [solutions](https://www.kaggle.com/competitions/playground-series-s3e1/leaderboard) to study
 
 ---
 

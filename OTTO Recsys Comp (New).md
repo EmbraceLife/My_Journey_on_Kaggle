@@ -42,16 +42,92 @@ See it in my repo [page](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blo
 - So, this reflection will grow as I keep learning even after the deadline.
 - for a quick sum for most if not all amazing posts/notebooks, please check out @thedevastator 's "One Month Left - Here is what you need to know!" [post](https://www.kaggle.com/competitions/otto-recommender-system/discussion/374229#2105455) 🔥🔥🔥🔥
 
+
+
+#### <mark style="background: #FFB86CA6;">What inside the dataset</mark> 
+
+**How the official OTTO dataset repo page describe it**
+
+> -   12M real-world anonymized user sessions
+> -   220M events, consiting of `clicks`, `carts` and `orders`
+> -   1.8M unique articles in the catalogue
+
+
 #### <mark style="background: #FFB86CA6;">What to predict</mark> 
 
 ##### What exactly does this comp want us to predict? 💡💡💡
-- given a group of aids clicked, carted or/and ordered by a user (or in a session)
-- to predict the next 20 aids to be clicked, 20 to be carted and 20 to be ordered
-- out of 1.8 million aids in the training set
+
+thanks 🙏 to [@artemfedorov](https://www.kaggle.com/artemfedorov) for pointing out the misleading part of my previous description here, below is my second attempt.
+
+##### The official OTTO dataset repo [page](https://github.com/otto-de/recsys-dataset#evaluation) describe the prediction task very precisely actually
+
+> For each `session` in the test data, your task it to predict the `aid` values for each `type` that occur after the last timestamp `ts` the test session. In other words, the test data contains sessions truncated by timestamp, and you are to predict what occurs after the point of truncation.
+
+> For `clicks` there is only a single ground truth value for each session, which is the next `aid` clicked during the session (although you can still predict up to 20 `aid` values). The ground truth for `carts` and `orders` contains all `aid` values that were added to a cart and ordered respectively during the session.
+
+##### Another rephrase to help understanding hopefully
+
+^4cc0b4
+
+- I am given a test session which has been truncated at certain timestamp
+- The ground truth includes only the 1st clicked aid for each test session after the timestamp above, but I am given 20 chances to get it right
+- The ground truth has all the carted aids for each session after the timestamp above, I am given 20 chances to get them all right when they are less than 20; but don't worry even when the ground truth carted aids are more than 20, I can still score full as long as I can get 20 of those carted aids right.
+- The ground truth has all the ordered aids for each session after the timestamp above, I am given 20 chances to get them all right when they are less than 20; but don't worry even when the ground truth ordered aids are more than 20, I can still score full as long as I can get 20 of those ordered aids right.
+
+The detailed rephase above is derived from the `Recall@20` metric below
+
+
+#### <mark style="background: #FFB86CA6;">How to evaluate predictions</mark> 
+
+##### How calc the `Recall@20` metric to score a type of all test sessions
+
+$$
+R_{type} = \frac{ \sum\limits_{i=1}^N | \\{ \text{predicted aids} \\}\_{i, type} \cap \\{ \text{ground truth aids} \\}\_{i, type} | }{ \sum\limits_{i=1}^N \min{( 20, | \\{ \text{ground truth aids} \\}_{i, type} | )}}
+$$
+
+Please read my interpretation of this metric in the section above on [[OTTO Recsys Comp (New)#^4cc0b4|how to interpret it]]
+
+##### How to add up 3 different type scores above to get the total score
+
+$$
+score = 0.10 \cdot R_{clicks} + 0.30 \cdot R_{carts} + 0.60 \cdot R_{orders}
+$$
+
+
+
+
+#### <mark style="background: #FFB86CA6;">What insights can be derived from EDA</mark> 
+
+
+
+##### **The official OTTO dataset repo has provided 3 tables for us**
+
+The formula and meaning of `density` is answered by the organizer @pnormann  [here](https://github.com/otto-de/recsys-dataset/issues/2#issuecomment-1313697705) 
+
+| dataset | num_sessions | num_items | num_events  | num_clicks  | num_carts  | num_orders | Density |
+| ------- | ------------ | --------- | ----------- | ----------- | ---------- | ---------- | ------- |
+| Train   | 12_899_779   | 1_855_603 | 216_716_096 | 194_720_954 | 16_896_191 | 5_098_951  | 0.0005  | 
+| Test    |  1_671_803            |           |             |             |            |            |         |
+
+|                           |  mean |   std |  min |  50% |  75% |  90% |  95% |  max |
+| :------------------------ | ----: | ----: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Train num_events per session | 16.80 | 33.58 |    2 |    6 |   15 |   39 |   68 |  500 |
+| Test num_events per session | TBA | TBA | TBA | TBA | TBA | TBA | TBA | TBA |
+
+
+|                        |   mean |    std |  min |  50% |  75% |  90% |  95% |    max |
+| :--------------------- | -----: | -----: | ---: | ---: | ---: | ---: | ---: | -----: |
+| Train num_events per item | 116.79 | 728.85 |    3 |   20 |   56 |  183 |  398 | 129004 |
+| Test num_events per item  |    TBA |    TBA |  TBA |  TBA |  TBA |  TBA |  TBA |    TBA |
+
+##### What insights can we derive?
+
+
+
 
 #### <mark style="background: #FFB86CA6;">Validation for fast iteration</mark> 
 
-<mark style="background: #BBFABBA6;">todo</mark> 
+
 - I have created many notebooks to try to achieve this, but Radek has done it with a single notebook 😱😱😱😱
 - Can mine be as fast as Radek's?
 
@@ -169,7 +245,7 @@ how co-visitation matrix is [explained](https://www.kaggle.com/code/vslaykovsky/
 [co-visitation matrix - simplified, imprvd logic 🔥](https://www.kaggle.com/code/radek1/co-visitation-matrix-simplified-imprvd-logic) by Radek
 
 💡💡💡 - if the last 20 aids of each test session are not enough, then append the <mark style="background: #ABF7F7A6;">most likely co-occurred aids</mark> 
-🏗️🏗️🏗️ Let me implement it in polars, notebook <mark style="background: #BBFABBA6;">todo</mark> started afternoon 2023.1.15, [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/) nearly done in 2023.1.17
+🏗️🏗️🏗️ Let me implement it in polars, notebook started afternoon 2023.1.15, [notebook](https://www.kaggle.com/code/danielliao/implement-radek-simple-covisitation-matrix-polars/) nearly done in 2023.1.17
 
 how similar is my implementation to Radek’s 🔥🔥🔥
 -   next_AIDs: 64 more pairs than Radek’s
@@ -248,7 +324,7 @@ techinques 🔥🔥🔥
 		- How to select 7 days from the first day's 22:00 to the last day's 22:00, [[OTTO Recsys Comp (New)#^a94741|codes]] 🎉
 		- Let's get `train_sessions_full`, `train_sessions`, `test_sessions_full`, `test_sessions`, `test_labels`  out of it by spliting from the last 2 days,  [notebook](https://www.kaggle.com/code/danielliao/subset-first-7days-train-test-split/notebook) [dataset](https://www.kaggle.com/datasets/danielliao/1st-7days-train-validation-set) <mark style="background: #ADCCFFA6;">done end of 2023.1.13</mark>  🎉 [[OTTO Recsys Comp (New)#^9bc9b7|codes for verifying dataset]] 
 		- also figured out how to deal with `datetime` and `duration` in polars [[OTTO Recsys Comp (New)#^54ebe4|details]] 🔥🎉🎉
-	- integrate my implementations on evaluation   <mark style="background: #BBFABBA6;">Todo</mark> 
+	- integrate my implementations on evaluation <mark style="background: #ADCCFFA6;">done</mark> 
 		- use organizer's evaluation script to evaluate your submission based on a validation dataset, see [notebook](https://www.kaggle.com/danielliao/run-organizer-evaluation-script-directly-on-kaggle/)
 		- implement organizer's evaluation script in polars, see [notebook](https://www.kaggle.com/danielliao/implement-organizer-evaluate-script-polars) 
 	- 
