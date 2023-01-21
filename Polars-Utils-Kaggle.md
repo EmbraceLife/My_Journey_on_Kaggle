@@ -94,6 +94,17 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - How to print `head` and `tail` together with `suffix` [cell](https://www.kaggle.com/code/danielliao/reimplement-otto-train-validation-in-polars?scriptVersionId=114980240&cellId=30)
 - check `width`, `height`, `shape[0]` of a df, [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115390387&cellId=18)
 - how to do `argsort` for Series? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=34)
+- how to align frames or dfs? [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.align_frames.html)
+
+
+<mark style="background: #FFB86CA6;">How to select with pl.col</mark> 
+
+- `pl.col(*)`
+- `pl.col("^ham.*$)"`
+- `pl.col(['ham', 'hamberg']`
+- `pl.col(pl.Utf8)`
+- `pl.col([pl.Int64, pl.Float64])`
+
 
 <mark style="background: #FFB86CA6;">How to deal with datetime</mark> 
 

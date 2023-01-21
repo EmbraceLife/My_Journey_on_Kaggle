@@ -3,11 +3,13 @@
 Kaggle [site](https://www.kaggle.com/competitions/playground-series-s3e3) 
 
 
-#### <mark style="background: #FFB86CA6;">Goal of Playground Series</mark> 
+#### <mark style="background: #FFB86CA6;">My Goal of doing this comp</mark> 
 
 > the goals of the Playground Series remain the same—to give the Kaggle community a variety of fairly light-weight challenges that can be used to learn and sharpen skills in different aspects of machine learning and data science. 
 
-It means we should try as many models and techniques as we could and iterate as fast as we can
+- I want to use this comp to build a <mark style="background: #D2B3FFA6;">template</mark> to help me to <mark style="background: #BBFABBA6;">try as many models and techniques as we could</mark> and <mark style="background: #BBFABBA6;">iterate as fast as we can</mark> 
+- This <mark style="background: #D2B3FFA6;">template</mark> should show me<mark style="background: #BBFABBA6;"> all the steps</mark> to tackle a comp from start to finish, from surface scratch to fairly deep
+- <mark style="background: #BBFABBA6;">Try as many models as I can</mark> using notebooks and discussions shared on Kaggle
 
 ---
 
@@ -27,42 +29,78 @@ What are `artifacts` and why they sound like a bad thing?
 
 #### <mark style="background: #FFB86CA6;">First things to check about the Dataset</mark> 
 
+##### <mark style="background: #FFB8EBA6;">check out the dataset files</mark> [[Playground Series Season 3, Episode 3#^146e83|codes]] 
 
-##### What does the official [dataset](https://www.kaggle.com/competitions/playground-series-s3e3/data?select=train.csv) look like
+##### <mark style="background: #FFB8EBA6;">Overview of the official</mark> [dataset](https://www.kaggle.com/competitions/playground-series-s3e3/data?select=train.csv) 
+- Train: (1677, 35)
+- Test: (1119, 34)
+- numeric columns: 25 (excluding `id` and `Attrition`)
+- categorical columns: 8
+- total feature columns: 33
+- target column: 1
+- columns to drop: 1, `id`
 
-##### How many Feature columns: 33 
+##### <mark style="background: #FFB8EBA6;">How many Feature columns</mark> : 33 
 Excluding `id` and `Attrition`
 
 > `Age`, `BusinessTravel`, `DailyRate`, `Department`, `DistanceFromHome`, `Education`, `EducationField`, `EmployeeCount`, `EnvironmentSatisfaction`, `Gender`, `HourlyRate`, `JobInvolvement`, `JobLevel`, `JobRole`, `JobSatisfaction`, `MaritalStatus`, `MonthlyIncome`, `MonthlyRate`, `NumCompaniesWorked`, `Over18`, `OverTime`, `PercentSalaryHike`, `PerformanceRating`, `RelationshipSatisfaction`, `StandardHours`, `StockOptionLevel`, `TotalWorkingYears`, `TrainingTimesLastYear`, `WorkLifeBalance`, `YearsAtCompany`, `YearsInCurrentRole`, `YearsSinceLastPromotion`, `YearsWithCurrManager`.
 
-##### How many Categorical columns: 8
+##### <mark style="background: #FFB8EBA6;">How many Categorical columns: 8</mark> 
 > `'BusinessTravel', 'Department', 'EducationField', 'Gender', 'JobRole', 'MaritalStatus', 'Over18', 'OverTime'` 
 
 How to find out the dtypes of each column? how to find out which columns are Utf8/String or numeric or Int64? [[Playground Series Season 3, Episode 3#^d02f8d|codes]] 
 
-##### How many Numerical columns: 27 (including `id` and `Attrition`)
+##### <mark style="background: #FFB8EBA6;">How many Numerical columns: 27</mark> (including `id` and `Attrition`)
 How to find out which columns are numeric or Int64? [[Playground Series Season 3, Episode 3#^d02f8d|codes]] 
 
-##### How many Target column: 1, `Attrition`
+##### <mark style="background: #FFB8EBA6;">How many Target column: 1</mark> , `Attrition`
 
-##### How many column to ignore: 1,  `id`
+##### <mark style="background: #FFB8EBA6;">How many column to ignore: 1</mark> ,  `id`
 - How to prove that we can safely regard `id` as a useless column? [[Playground Series Season 3, Episode 3#^06bbfb|codes]] 
 
-##### How many null or NAs: 0
+##### <mark style="background: #FFB8EBA6;">How many null or NAs: 0</mark> 
 - How many null in each column [[Playground Series Season 3, Episode 3#^4a0fb0|codes]]
 - How many NAs or Nulls in each column  [[Playground Series Season 3, Episode 3#^4a0fb0|codes]]
 - How many NAs or Nulls in each row [[Playground Series Season 3, Episode 3#^4a0fb0|codes]]
 - How many null in total [[Playground Series Season 3, Episode 3#^4a0fb0|codes]]
 
-##### How cast dtypes of certain columns to save RAM
+##### <mark style="background: #FFB8EBA6;">How cast dtypes of certain columns to save RAM</mark> 
 - how to find out the max number of each numeric columns, [[Playground Series Season 3, Episode 3#^75aa71|codes]]
 - what is the max number of all the numeric columns, [[Playground Series Season 3, Episode 3#^75aa71|codes]]
 - cast all numeric columns to dtype Int16 and find the maximum value of each column, [[Playground Series Season 3, Episode 3#^75aa71|codes]]
 - how to select only numeric columns to cast into Int16, and leave other columns unchanged, [[Playground Series Season 3, Episode 3#^75aa71|codes]]
 
-Read the codes and outputs in the twitter [thread](https://twitter.com/shendusuipian/status/1616440208492466183)
+##### <mark style="background: #FFB8EBA6;">Encode categorical columns</mark> 
+
+polars [api](https://pola-rs.github.io/polars/py-polars/html/reference/series/api/polars.Series.cat.set_ordering.html)
+
+- No need for a class like `MultiColumnLabelEncoder`, [[Playground Series Season 3, Episode 3#^40e4d1|codes]] 
+- how to turn a categorical column into dummies columns? [[Playground Series Season 3, Episode 3#^be9fad|codes]] 🔥🔥🔥
+- how to merge dummies columns into a single label encodered column? [[Playground Series Season 3, Episode 3#^be9fad|codes]] 🔥🔥🔥
+- how to remove all dummies columns? [[Playground Series Season 3, Episode 3#^be9fad|codes]] 🔥🔥🔥
+
+
+##### <mark style="background: #FFB8EBA6;">Shared and disjoined columns of two dfs</mark> 
+
+- How to use set.intersection and set.difference or set.symmetric_difference to find out shared and disjoint elements of columns of two dfs? [[Playground Series Season 3, Episode 3#^d2e019|codes]] 
+
+Read the codes and outputs in the twitter [thread](https://twitter.com/shendusuipian/status/1616440208492466183), Read everything on my repo page
 
 ---
+
+#### <mark style="background: #FFB86CA6;">Challenges: smaller dataset and overfitting</mark> 
+
+- Train: (1677, 35)
+- Test: (1119, 34)
+- examples/rows are too small compared to the number of features
+- many models can easily overfit on such a small dataset
+
+
+
+
+---
+
+
 
 
 #### <mark style="background: #FFB86CA6;">Evaluation Metrics</mark> 
@@ -105,6 +143,18 @@ read more on the repo page https://github.com/EmbraceLife/My_Journey_on_Kaggle/b
 ---
 
 ## <mark style="background: #FFB86CA6;">Codes</mark> 
+
+
+```python
+# get the dataset 
+train_generated = pl.read_csv('/kaggle/input/playground-series-s3e3/train.csv')
+test_generated = pl.read_csv('/kaggle/input/playground-series-s3e3/test.csv')
+train_original = pl.read_csv('/kaggle/input/ibm-hr-analytics-attrition-dataset/WA_Fn-UseC_-HR-Employee-Attrition.csv')
+sample_sub = pl.read_csv('/kaggle/input/playground-series-s3e3/sample_submission.csv')
+```
+
+^146e83
+
 
 ```python
 # How to prove that we can safely regard `id` as a useless column
@@ -212,3 +262,69 @@ train_generated.head()
 ```
 
 ^75aa71
+
+```python
+
+train_generated_dummies = (
+    train_generated
+    .to_dummies(columns=string_columns) # how to turn a categorical column into dummies columns
+    .with_columns([ # merge dummies columns into a single label encodered column
+        pl.concat_list('^'+string_column+ '.*$').arr.arg_max().alias(string_column) for string_column in string_columns
+    ])
+    .select([ # remove all dummies columns
+        pl.all().exclude([('^' + string_column + '_.*$') for string_column in string_columns])
+    ])
+)
+train_generated_dummies.head()
+len(train_generated_dummies.columns)
+```
+
+^be9fad
+
+```python
+# How to use set.intersection and set.difference or set.symmetric_difference to find out shared and disjoint elements of columns of two dfs
+inter = set(train_original.columns).intersection(set(train_generated.columns))
+set(train_original.columns).symmetric_difference(set(train_generated.columns))
+# {'EmployeeNumber', 'id'}
+set(train_original.columns).difference(set(train_generated.columns))
+# {'EmployeeNumber'}
+set(train_generated.columns).difference(set(train_original.columns))
+# {'id'}
+set(train_original.columns).difference(inter)
+# {'EmployeeNumber'}
+set(train_generated.columns).difference(inter)
+# {'id'}
+```
+
+^d2e019
+
+```python
+# source: https://stackoverflow.com/a/30267328/1105837
+
+class MultiColumnLabelEncoder:
+    def __init__(self,columns = None):
+        self.columns = columns # array of column names to encode
+
+    def fit(self,X,y=None):
+        return self # not relevant here
+
+    def transform(self,X):
+        '''
+        Transforms columns of X specified in self.columns using
+        LabelEncoder(). If no columns specified, transforms all
+        columns in X.
+        '''
+        output = X.copy()
+        if self.columns is not None:
+            for col in self.columns:
+                output[col] = LabelEncoder().fit_transform(output[col])
+        else:
+            for colname,col in output.iteritems():
+                output[colname] = LabelEncoder().fit_transform(col)
+        return output
+
+    def fit_transform(self,X,y=None):
+        return self.fit(X,y).transform(X)
+```
+
+^40e4d1
