@@ -60,6 +60,21 @@ etc.
 ```
 
 
+##### <mark style="background: #FFB8EBA6;">Evaluation Metrics</mark> 
+
+Submissions are evaluated on [area under the ROC curve](http://en.wikipedia.org/wiki/Receiver_operating_characteristic) between the predicted probability and the observed target.
+
+From the wikipedia link, I found the following info to be helpful.
+
+> The ROC curve is created by plotting the [true positive rate](https://en.wikipedia.org/wiki/True_positive_rate "True positive rate") (TPR) against the [false positive rate](https://en.wikipedia.org/wiki/False_positive_rate "False positive rate") (FPR) at various threshold settings.  
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Roc_curve.svg/440px-Roc_curve.svg.png)
+
+![{\displaystyle \mathrm {TPR} ={\frac {\mathrm {TP} }{\mathrm {P} }}={\frac {\mathrm {TP} }{\mathrm {TP} +\mathrm {FN} }}=1-\mathrm {FNR} }](https://wikimedia.org/api/rest_v1/media/math/render/svg/f02ea353bf60bfdd9557d2c98fe18c34cd8db835)
+
+![{\displaystyle \mathrm {TNR} ={\frac {\mathrm {TN} }{\mathrm {N} }}={\frac {\mathrm {TN} }{\mathrm {TN} +\mathrm {FP} }}=1-\mathrm {FPR} }](https://wikimedia.org/api/rest_v1/media/math/render/svg/8f2c867f0641e498ec8a59de63697a3a45d66b07)
+
+![{\displaystyle FPR={\frac {\mathrm {FP} }{\mathrm {FP} +\mathrm {TN} }}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/c5119dc2a74e72317ac2274c5b0d4d562597d8af)
 
 
 ---
@@ -77,10 +92,17 @@ Radek [notebook](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-sub
 - default catboost  
 - ensemble the predictions from 20 models
 
+#### <mark style="background: #FFB8EBA6;">Other notebooks and discussions to learn from</mark> 
+Highly voted notebooks to check out
+- Radek [explains](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-submission/comments#2103641) why using category label encoder instead of one hot encoding 
+https://www.kaggle.com/competitions/playground-series-s3e3/discussion/378804
+https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94
+https://www.kaggle.com/code/samuelcortinhas/ps-s3e3-hill-climbing-like-a-gm
+
+
 ---
 
-## <mark style="background: #FFB86CA6;">The Template (things to do) to build pipelines</mark> 
-
+## <mark style="background: #FFB86CA6;">Template: prepare dataset for training</mark> 
 
 ##### <mark style="background: #FFB8EBA6;">How to read the dataset files</mark> 
 
@@ -146,8 +168,7 @@ How do I know which columns to ignore?
 
 ##### <mark style="background: #FFB8EBA6;">How to encode categorical columns</mark> 
 
-polars [api](https://pola-rs.github.io/polars/py-polars/html/reference/series/api/polars.Series.cat.set_ordering.html)
-
+- Radek [explains](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-submission/comments#2103641) why using category label encoder instead of one hot encoding 
 - No need for a class like `MultiColumnLabelEncoder`, [[Playground Series Season 3, Episode 3#^40e4d1|codes]] 
 - how to get the list of string columns for categorical features? [[Playground Series Season 3, Episode 3#^3442a8|codes]] 
 - how to turn a categorical column into dummies columns? [[Playground Series Season 3, Episode 3#^be9fad|codes]] 🔥🔥🔥
@@ -169,6 +190,82 @@ Read the codes and outputs in the twitter [thread](https://twitter.com/shendusui
 
 
 
+## <mark style="background: #FFB86CA6;">Template: Build, Train and Predict</mark> 
+
+### <mark style="background: #FFB8EBA6;">What to import for using LightGMB and Catboost</mark> 
+
+#### <mark style="background: #ABF7F7A6;">For predicting employee attrition</mark>  [[Playground Series Season 3, Episode 3#^e3c58a|here]] 
+
+- need `StratifiedKFold` to imbalance of positive vs negative labels
+- using `LabelEncoder` to handle categorical columns, [api](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) 
+- using `LGBMClassifier` for binary classification 
+- using `roc_auc_score` metric, [api](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score)
+
+---
+
+
+### <mark style="background: #FFB8EBA6;">How to do K-folds? </mark> 
+
+#### <mark style="background: #ABF7F7A6;">How to StratifiedKFold</mark> 
+
+- API of `StratifiedKFold` is different from `KFold`
+- The key seems to be the target needs specified in `kf.split`.  [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
+- How to split fold (10 folds for example) into (X_train, y_train) , (X_valid,  y_valid)   [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
+
+---
+
+### <mark style="background: #FFB8EBA6;">How to build a LGBM model?</mark> 
+
+#### <mark style="background: #ABF7F7A6;">How to build, train and predict with a LGBM Classifier</mark> 
+
+
+- how to build a classifier with `n_estimator`, `metric` and `categorical_feature` [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
+- how to train or `fit` the classifier with `X_train, y_train`, `eval_set`, `verbose`? [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
+- how to predict with `predict_proba`? [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
+
+---
+
+
+### <mark style="background: #FFB8EBA6;">How to build a Catboost model?</mark> 
+
+#### <mark style="background: #ABF7F7A6;">How to build, train and predict with a Catboost Classifier</mark> 
+
+- how to build a catboost classifier with `iterations`? [[Playground Series Season 3, Episode 3#^3490c3|codes]]
+- how to train or `fit` the classifier with `X_train.to_numpy(), y_train.to_numpy()`, `eval_set` and `verbose`?[[Playground Series Season 3, Episode 3#^3490c3|codes]]
+- how to predict with `predict_proba`? [[Playground Series Season 3, Episode 3#^3490c3|codes]]
+
+
+
+---
+
+## <mark style="background: #FFB86CA6;">Template: How to ensemble</mark> 
+
+### <mark style="background: #FFB8EBA6;">Split dataset for training multiple models</mark> 
+
+- use `KFold` or `StratifiedKFold` to split dataset into multiple folds, [[Playground Series Season 3, Episode 3#^c5df6d|codes]] 
+
+### <mark style="background: #FFB8EBA6;">Store all models for inference later</mark> 
+
+- store each model and prediction done by the model, [[Playground Series Season 3, Episode 3#^abc7f1|codes]] 
+
+
+### <mark style="background: #FFB8EBA6;">Take the mean of inference of all models</mark> 
+
+- how to use stored models to predict on test set and take mean of all the predictions, [[Playground Series Season 3, Episode 3#^56b6b7|codes]]
+
+---
+
+## <mark style="background: #FFB86CA6;">Template: How to dig into feature engineering</mark> 
+
+- how to display all feature importance from a model? [[Playground Series Season 3, Episode 3#^0dc1f6|codes]], see [example](https://www.kaggle.com/code/danielliao/build-up-from-radek?scriptVersionId=116956319&cellId=22)
+- how to use visualization to shed light on potential features for engineering? 
+	- how to plot categorical features against attrition? [[Playground Series Season 3, Episode 3#^80f49b|codes]] 
+- how to derive ideas for feature engineering based on great visualization? I think the discussion  [asked](https://www.kaggle.com/competitions/playground-series-s3e3/discussion/378804#2103685) in kaggle #question
+ 
+---
+
+
+
 
 ## <mark style="background: #FFB86CA6;">Challenges: smaller dataset and overfitting</mark> 
 
@@ -183,66 +280,12 @@ Read the codes and outputs in the twitter [thread](https://twitter.com/shendusui
 
 ---
 
-## <mark style="background: #FFB86CA6;">Training</mark> 
-
-
-### <mark style="background: #FFB8EBA6;">What to import for using LightGMB </mark> 
-
-#### <mark style="background: #ABF7F7A6;">For predicting employee attrition</mark>  [[Playground Series Season 3, Episode 3#^e3c58a|here]] 
-
-- need `StratifiedKFold` to imbalance of positive vs negative labels
-- using `LabelEncoder` to handle categorical columns, [api](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) 
-- using `LGBMClassifier` for binary classification 
-- using `roc_auc_score` metric
-
----
-
-
-### <mark style="background: #FFB8EBA6;">How to do K-folds? </mark> 
-
-#### <mark style="background: #ABF7F7A6;">How to StratifiedKFold</mark> 
-
-- API of `StratifiedKFold` is different from `KFold`
-- The key seems to be the target needs specified in `kf.split`.  [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
-- How to split fold (10 folds for example) into (X_train, y_train) , (X_valid,  y_valid)   [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
-
-
-- how to train and save models and scores [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
-- how to display all feature importances? [[Playground Series Season 3, Episode 3#^0dc1f6|codes]]
-- how to train with catboost with default? [[Playground Series Season 3, Episode 3#^5cf9d5|codes]]
-- how to predict on test set with all models and ensemble the predictions? [[Playground Series Season 3, Episode 3#^56b6b7|codes]]
-- how to make a submission? [[Playground Series Season 3, Episode 3#^42c6d2|codes]] 
-
-
-
-
-
-
----
-
-
-
-
-#### <mark style="background: #FFB86CA6;">Evaluation Metrics</mark> 
-
-Submissions are evaluated on [area under the ROC curve](http://en.wikipedia.org/wiki/Receiver_operating_characteristic) between the predicted probability and the observed target.
-
-From the wikipedia link, I found the following info to be helpful.
-
-> The ROC curve is created by plotting the [true positive rate](https://en.wikipedia.org/wiki/True_positive_rate "True positive rate") (TPR) against the [false positive rate](https://en.wikipedia.org/wiki/False_positive_rate "False positive rate") (FPR) at various threshold settings.  
-
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Roc_curve.svg/440px-Roc_curve.svg.png)
-
-![{\displaystyle \mathrm {TPR} ={\frac {\mathrm {TP} }{\mathrm {P} }}={\frac {\mathrm {TP} }{\mathrm {TP} +\mathrm {FN} }}=1-\mathrm {FNR} }](https://wikimedia.org/api/rest_v1/media/math/render/svg/f02ea353bf60bfdd9557d2c98fe18c34cd8db835)
-
-![{\displaystyle \mathrm {TNR} ={\frac {\mathrm {TN} }{\mathrm {N} }}={\frac {\mathrm {TN} }{\mathrm {TN} +\mathrm {FP} }}=1-\mathrm {FPR} }](https://wikimedia.org/api/rest_v1/media/math/render/svg/8f2c867f0641e498ec8a59de63697a3a45d66b07)
-
-![{\displaystyle FPR={\frac {\mathrm {FP} }{\mathrm {FP} +\mathrm {TN} }}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/c5119dc2a74e72317ac2274c5b0d4d562597d8af)
-
----
-
 
 read more on the repo page https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/Playground%20Series%20Season%203%2C%20Episode%203.md
+
+---
+
+
 
 ---
 
@@ -597,6 +640,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
+
+from catboost import CatBoostClassifier
 ```
 
 ^e3c58a
@@ -614,8 +659,8 @@ for i, (train_index, val_index) in enumerate(kf.split(train_encoded, y=train_enc
     y_val = train_encoded[target][val_index]
 
 
-#     clf = LGBMClassifier(n_estimators=150, categorical_feature=list(range(34)[-9:]), metric='auc') # actually worse result
-    clf = LGBMClassifier(n_estimators=150, metric='auc')
+	clf = LGBMClassifier(n_estimators=150, categorical_feature=list(range(34)[-9:]), metric='auc') # works better
+    # clf = LGBMClassifier(n_estimators=150, metric='auc') # without using categorical_feature is working less well
     clf.fit(X_train.to_numpy(), 
             y_train.to_numpy(), 
             eval_set=[(X_val.to_numpy(), y_val.to_numpy())], 
@@ -662,9 +707,11 @@ for i, (train_index, val_index) in enumerate(kf.split(train_encoded, y=train_enc
 print(f'mean score across all folds: {np.mean(scores)}')
 ```
 
+^3490c3
+
 ^5cf9d5
 ```python
-# how to predict on test set with all models and ensemble the predictions
+# how to use stored models to predict on test set and take mean of all the predictions
 test_preds = []
 
 for clf in (clfs_f64pl + clfs_f64pl_cat):
@@ -681,6 +728,25 @@ test_preds_mean_pl = (
     .mean(axis=1)
     .to_list()
 )
+
+# another example
+test_preds = []
+
+for clf in clfs:
+    preds = clf.predict_proba(test_encoded[features].to_numpy())
+    test_preds.append(preds[:, 1])
+    
+
+test_preds_mean = (
+    pl.DataFrame(test_preds)
+    .transpose()
+    .select([
+        pl.all().explode()
+    ])
+    .mean(axis=1)
+    .to_list()
+)    
+# test_preds_mean = np.stack(test_preds).mean(0)
 ```
 
 ^56b6b7
@@ -766,3 +832,67 @@ train.height == train_generated.height + original_samelooking.height
 ```
 
 ^a2390a
+
+```python
+# How to use StratifiedKFold
+kf = StratifiedKFold(n_splits=10, random_state=1, shuffle=True) 
+for i, (train_index, val_index) in enumerate(kf.split(train_encoded, y=train_encoded['Attrition'].to_numpy())): 
+
+# How to use simple KFold
+kf = KFold(n_splits=5, random_state=0, shuffle=True) # controls the randomness of each fold
+for i, (train_index, val_index) in enumerate(kf.split(train)):
+```
+
+^c5df6d
+
+```python
+clfs = [] 
+scores = []
+
+# store each model and prediction done by the model
+clfs.append(clf) 
+scores.append(roc_auc_score(y_val, preds[:, 1]))
+```
+
+^abc7f1
+
+```python
+# how to plot categorical features against attrition
+import matplotlib.pyplot as plt
+train = train_generated.to_pandas()
+categoricals = ['BusinessTravel', 'Department', 'EducationField',
+                'Gender', 'JobRole', 'MaritalStatus', 
+                'Education', 'EnvironmentSatisfaction', 'JobInvolvement',
+                'JobLevel', 'JobSatisfaction', 'OverTime', 'PerformanceRating',
+                'RelationshipSatisfaction', 'StockOptionLevel', 
+                'TrainingTimesLastYear', 'WorkLifeBalance']
+fig, axs = plt.subplots(6, 3, sharey=True, figsize=(25,30))
+for feature, ax in zip(categoricals, axs.flatten()):
+    vc = train[feature].value_counts()
+    ind = vc.index
+    if ind.dtype == np.int64: ind = np.sort(ind)
+    vc = vc.reindex(ind)
+    vc_no = train[feature][train.Attrition == 0].value_counts().reindex(ind)
+    vc_yes = train[feature][train.Attrition == 1].value_counts().reindex(ind)
+
+#     width = vc / vc.max() * 0.9
+#     ax.bar(range(len(vc)), vc_yes / vc, width=width, color='red')
+#     ax.bar(range(len(vc)), vc_no / vc, bottom=vc_yes / vc, width=width, color='cyan')
+
+    # Thanks to @sergiosaharovskiy https://www.kaggle.com/competitions/playground-series-s3e3/discussion/378804#2110830
+    width = train[feature].value_counts(normalize=True) * 1.5
+    ax.bar(range(len(vc)), vc_yes / vc, width=width, color='#9E3F00', linewidth=0.10)
+    ax.bar(range(len(vc)), vc_no / vc, bottom=vc_yes / vc, width=width, color='#EB5E00', linewidth=0.10)
+        
+    rotation = 0 if ind.dtype == np.int64 else 45
+    ax.set_xticks(range(len(vc)), vc.index, rotation=rotation)
+    ax.set_ylabel('Attrition rate')
+    ax.set_xlabel(feature)
+axs.flatten()[-1].axis('off')
+# to make it better looking
+plt.tight_layout()
+plt.show(); # using ; to remove all the messages you don't want to see
+```
+
+^80f49b
+

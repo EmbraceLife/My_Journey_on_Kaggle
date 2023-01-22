@@ -1,6 +1,14 @@
-[pandas](https://wesmckinney.com/book/pandas-basics.html#pandas_dataframe), [cuDF](https://docs.rapids.ai/api/cudf/stable/), [polars](https://pola-rs.github.io/polars-book/user-guide/quickstart/intro.html), GPU for python [video](https://www.youtube.com/watch?v=5s8PljqLdkA)
+[pandas](https://wesmckinney.com/book/pandas-basics.html#pandas_dataframe), [cuDF](https://docs.rapids.ai/api/cudf/stable/), [polars](https://pola-rs.github.io/polars-book/user-guide/quickstart/intro.html), GPU for python [video](https://www.youtube.com/watch?v=5s8PljqLdkA), 
+
+<mark style="background: #FFB8EBA6;">learning resources for polars</mark> 
+- author of polars [twitter](https://twitter.com/RitchieVink)
+- polars data [twitter](https://twitter.com/DataPolars) 
+- a great [intro](https://blog.londogard.com/blog/2022/11/30/why-polars) to polars
 
 follow [author](https://twitter.com/RitchieVink) of polars closely to see whether I really need GPU and cudf to deal with large dataset #todo 
+
+---
+
 
 ## <mark style="background: #FFB8EBA6;">MY UTILS</mark> 
 
