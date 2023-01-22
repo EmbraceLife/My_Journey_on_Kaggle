@@ -1,10 +1,12 @@
 [pandas](https://wesmckinney.com/book/pandas-basics.html#pandas_dataframe), [cuDF](https://docs.rapids.ai/api/cudf/stable/), [polars](https://pola-rs.github.io/polars-book/user-guide/quickstart/intro.html), GPU for python [video](https://www.youtube.com/watch?v=5s8PljqLdkA)
 
-
+follow [author](https://twitter.com/RitchieVink) of polars closely to see whether I really need GPU and cudf to deal with large dataset #todo 
 
 ## <mark style="background: #FFB8EBA6;">MY UTILS</mark> 
 
 - search emoj in obsidian `cmd + j` 
+- forward and backward in obsidian tabs `cmd + shift + ] [`
+- forward and backward in obsidian cursor positions `ctrl =` and `ctrl -` 
 - load my utils as a lib onto kaggle [cell](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113382947&cellId=6)
 - how to allow multi-output in a cell [cell](https://www.kaggle.com/code/danielliao/otto-getting-started-eda-baseline?scriptVersionId=113955605&cellId=2)
 - how to <mark style="background: #ADCCFFA6;">expand column width</mark> of pandas dataframe [cell](https://www.kaggle.com/code/danielliao/peek-at-otto-jsonl-dataset?scriptVersionId=114894270&cellId=4)

@@ -253,4 +253,14 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 
 ---
 
+## <mark style="background: #FFB8EBA6;">Radek Newsletter: Is AI overhyped?</mark>  2023.1.17
+
+> Many activities are worth doing, worth participating in, even if you never stand a chance to be the best in the world at them
+
+> So is AI overhyped? Yes, as evidenced by the silly tweets, there is a large portion of hype that will always be there and that will always be misguided regardless of how good the underlying technology is.
+
+
+---
+
+
 Read more of my learning from Radek, check [here](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/Learn%20from%20Radek.md#playground-series-s3e03-competition-on-kaggle--intro)

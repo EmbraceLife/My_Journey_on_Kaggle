@@ -83,6 +83,9 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- learn to use cudf as I learnt to use polars, so that I can train with GPU (much faster than polars with CPU based on my experience so far)
 	- gain better understand of using co-visitations for generating candidates, create hand-crafted rules for reranking (potentially used as features)
 	- how to split large dataset to train models without blowing out GPU and CPU RAM
+- 2023.1.21: inspiration from Radek's newsletter from last week
+	- > Many activities are worth doing, worth participating in, <mark style="background: #FFB8EBA6;">even if you never stand a chance to be the best in the world at them</mark> 
+- 
 
 ---
 
