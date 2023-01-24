@@ -3,3 +3,32 @@
 	- true love to explore new datasets with Exploratory Data Analysis
 - key to success
 	- good validation set + fast iterations of models
+	- eda, graphs, insihgt
+- have fun, you win  [video](https://youtu.be/QGCvycOXs2M?t=1118)
+- [video](https://youtu.be/QGCvycOXs2M?t=1195)
+- https://youtu.be/QGCvycOXs2M?t=1461
+- https://youtu.be/QGCvycOXs2M?t=1527
+- how to create a high quality or voted notebook, [video](https://youtu.be/QGCvycOXs2M?t=1560)
+	- headers for sections
+	- hide codes to only reveal only the important parts, for presentation
+	- monitor and answer questions
+	- keep yourself on top to keep people serious
+	- address the common needs: previous winning solutions, eda, baselines, links to previous solutions
+- What's interesting and important about teaming  [video](https://youtu.be/QGCvycOXs2M?t=1980)
+	- winning tricks truly shared
+- How to make yourself wanted for teaming?  [video](https://youtu.be/QGCvycOXs2M?t=2136)
+	- strategy example explained
+- How sharing in Kaggle community benefits Chris  [video](https://youtu.be/QGCvycOXs2M?t=2310)
+	- How Chris first time learn to build complex model on Kaggle
+	- How Kaggle always do cutting edge things
+- What's your life and work in Nvidia? [video](https://youtu.be/QGCvycOXs2M?t=2546)
+	- What Rapids team does?
+	- Why Rapids is amazing
+	- What exactly Chris does?
+- How to do time management  [video](https://youtu.be/QGCvycOXs2M?t=2821)
+- quick questions [video](https://youtu.be/QGCvycOXs2M?t=3020)
+	- favorite competitions - [video](https://youtu.be/QGCvycOXs2M?t=3251)
+	- favoriate kernel by Chris - on Titanic and MNIST - [video](https://youtu.be/QGCvycOXs2M?t=3409) 
+	- favorate kernel read by Chris - on MNIST - focus on help everyone to get a deep understanding of NN with MNIST 🔥🔥🔥🔥 - [video](https://youtu.be/QGCvycOXs2M?t=3507) 
+	- [video](https://youtu.be/QGCvycOXs2M?t=3639)
+	- how to refresh mind and body

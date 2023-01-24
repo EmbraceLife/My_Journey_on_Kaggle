@@ -95,8 +95,20 @@ Radek [notebook](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-sub
 #### <mark style="background: #FFB8EBA6;">Other notebooks and discussions to learn from</mark> 
 Highly voted notebooks to check out
 - Radek [explains](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-submission/comments#2103641) why using category label encoder instead of one hot encoding 
-https://www.kaggle.com/competitions/playground-series-s3e3/discussion/378804
-https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94
+- How to [plot](https://www.kaggle.com/competitions/playground-series-s3e3/discussion/378804) categorical features against attrition 
+- multiple models and grid search for hyperparams, [notebook](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94) and a great [comment](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94/comments#2107848) on how to improve further #todo
+	- more columns to ignore and drop, discovered by looking at the `n_unique` of every column, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=7)  ⚡🔥
+	- plot the target distribution with a pie chart, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=15) , [[Playground Series Season 3, Episode 3#^c48a6d|codes]]
+	- plot numerical columns' distribution against attrition distribution, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=17), [[Playground Series Season 3, Episode 3#^61fa0f|codes]] 
+	- plot distribution of categorical columns and target distribution on subclasses of each categorical column, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=19), [[Playground Series Season 3, Episode 3#^e8eac8|codes]]
+	- what insights can be drawn from the plots above? [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=20) [[Playground Series Season 3, Episode 3#^627662|notes]] 
+	- dimension reduction to see clusters? [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=22), [[Playground Series Season 3, Episode 3#^a50154|codes]] 
+		- how to use `ColumnTransformer` of `sklearn`
+		- > It's a butterfly! =) We can see areas with a higher density of orange dots, but no clear clusters.
+	- how to prepare dataset and build pipelines? [cell1](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=26), [cell2](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=27) , [[Playground Series Season 3, Episode 3#^b51dea|codes]] 
+	- try a bunch of models? [[Playground Series Season 3, Episode 3#^f4559d|codes]] 
+	- plot to line up all models to compare their performance [[Playground Series Season 3, Episode 3#^3e964b|codes]] 
+	- do random search for hyperparams for all models, [cells](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=64), 
 https://www.kaggle.com/code/samuelcortinhas/ps-s3e3-hill-climbing-like-a-gm
 
 
@@ -147,7 +159,7 @@ How do I know which columns to ignore?
 
 ##### <mark style="background: #FFB8EBA6;">If you have two datasets, how to find out shared and disjoined columns</mark> 
 
-- How to use set.intersection and set.difference or set.symmetric_difference to find out shared and disjoint elements of columns of two dfs? [[Playground Series Season 3, Episode 3#^d2e019|codes]] 
+- How to use set.intersection and `set.difference` or `set.symmetric_difference` to find out shared and disjoint elements of columns of two dfs? [[Playground Series Season 3, Episode 3#^d2e019|codes]] 
 
 
 ##### <mark style="background: #FFB8EBA6;">How to make original and generated dataset look the same before joining</mark> 
@@ -208,6 +220,7 @@ Read the codes and outputs in the twitter [thread](https://twitter.com/shendusui
 
 #### <mark style="background: #ABF7F7A6;">How to StratifiedKFold</mark> 
 
+- Use `StratifiedKFold` to spread out positive labels equally into 10 folds for training and validation in order to handling the unbalanced positive and label labels (5%vs95%) - [video](https://youtu.be/8CO7FnF2yNM?t=528)
 - API of `StratifiedKFold` is different from `KFold`
 - The key seems to be the target needs specified in `kf.split`.  [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
 - How to split fold (10 folds for example) into (X_train, y_train) , (X_valid,  y_valid)   [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
@@ -218,7 +231,7 @@ Read the codes and outputs in the twitter [thread](https://twitter.com/shendusui
 
 #### <mark style="background: #ABF7F7A6;">How to build, train and predict with a LGBM Classifier</mark> 
 
-
+- How Radek use primitive hyperparameter search method to get to `n_estimator = 150` when creating a LightGBM model and what about advanced hyperparameter search? - [video](https://youtu.be/8CO7FnF2yNM?t=594) #todo
 - how to build a classifier with `n_estimator`, `metric` and `categorical_feature` [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
 - how to train or `fit` the classifier with `X_train, y_train`, `eval_set`, `verbose`? [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
 - how to predict with `predict_proba`? [[Playground Series Season 3, Episode 3#^cb4b2f|codes]]
@@ -895,4 +908,305 @@ plt.show(); # using ; to remove all the messages you don't want to see
 ```
 
 ^80f49b
+
+```python
+# change dtype back to Int64, to see whether improves the result
+train_encoded = (
+    train_encoded
+    .with_columns([
+        pl.all().cast(pl.Int64)
+    ])
+)
+
+test_encoded = (
+    test_encoded
+    .with_columns([
+        pl.all().cast(pl.Int64)
+    ])
+)
+test_encoded.head()
+```
+
+
+```python
+# how to plot a pie chart for attrition
+plt.figure(figsize=(9,9),)
+plt.title("Attrition")
+plt.pie(train_full[conf.target].value_counts(), labels = ["No", "Yes"], autopct='%.0f%%', textprops={'fontsize': 14},)
+plt.show()
+```
+
+^c48a6d
+
+```python
+# how to plot distribution for numerical columns
+fig, ax = plt.subplots(5, 3, figsize = (20, 5*5))
+for i, col in enumerate(num_cols):
+    sns.kdeplot(data=train_full, x=col, fill = True, ax = ax[i // 3][i % 3], hue=conf.target)
+```
+
+^61fa0f
+
+```python
+# plot distribution of categorical columns and target distribution on subclasses of each categorical column
+fig, ax = plt.subplots(16, 2, figsize = (20, 6*16))
+plt.subplots_adjust(wspace=0.33, hspace=0.2)
+for i, col in enumerate(cat_cols):
+    t = (train_full.groupby(col)[conf.target].agg(['sum', 'count']).assign(percent = lambda x: 100 * x['sum'] / x['count'])).reset_index()
+    sns.countplot(data=train_full, x=col, ax = ax[i][0], order=t[col])
+    ax[i][1].set(xlim=(0, 40))
+    sns.barplot(data=t, x="percent", y=col, ax = ax[i][1], orient = "h",)
+```
+
+^e8eac8
+
+```markdown
+Insights
+
+-   Classes are imbalanced. 14% vs 86%
+-   Traveling is exhausting.
+-   Environment must satisfy.
+-   Better education, better stability
+-   Men leaves a bit more often then women
+-   Job involvement should be high to retain employees
+-   Low job level? Low stok option level? No time for my hobbies after work? I'm leaving from here now!
+-   We need new Sales representative again this week
+-   Job must satisfy.
+-   If you are single - you search the best job. Married - a good one. Divorced - job doesn't matter
+-   No one likes overtime
+```
+
+^627662
+
+```python
+# how to do dimension reduction to plot and see clusters or not
+tr = ColumnTransformer([
+    ("num", StandardScaler(), num_cols),
+    ("cat", OrdinalEncoder(), cat_cols),
+])
+x_tn = tr.fit_transform(train_full.drop([conf.target], axis=1), train_full[conf.target])
+
+tnse = TSNE(n_components=2, random_state=conf.random, perplexity=35, )
+train_dis = tnse.fit_transform(x_tn)
+
+plt.figure(figsize=(12,9))
+sns.scatterplot(x=train_dis[:,0], y=train_dis[:,1], hue=train_full[conf.target], alpha=0.9, )
+plt.show()
+```
+
+^a50154
+
+```python
+# how to prepare dataset and build pipelines
+x_train = train_full.copy()
+y_train = x_train.pop(conf.target)
+
+tr_clf = ColumnTransformer([
+    ("num", SimpleImputer(), num_cols),
+    ("cat", OneHotEncoder(handle_unknown='ignore'), cat_cols),
+])
+tr_reg = ColumnTransformer([
+    ("num", StandardScaler(), num_cols),
+    ("cat", OneHotEncoder(handle_unknown='ignore'), cat_cols),
+])
+
+print("train shape = ", x_train.shape)
+
+logs = {}
+def cross_val_auc(name, pipeline, x=x_train, y=y_train, regressor=False, use_reg=False):
+    if regressor:
+        x = tr_reg.fit_transform(x)
+        p = cross_val_predict(pipeline, x, y, cv=10, n_jobs=5, verbose=False)
+    else:
+        if use_reg:
+            x = tr_reg.fit_transform(x)
+        else:
+            x = tr_clf.fit_transform(x)
+        p = cross_val_predict(pipeline, x, y, cv=10, n_jobs=5, method="predict_proba", verbose=False)[:, 1]
+    auc = roc_auc_score(y, p)
+    logs[name] = auc
+    print(f"auc = {auc:.4f}")
+```
+
+^b51dea
+
+```python
+# try a bunch of models
+
+lr = LogisticRegressionCV(Cs=1000, max_iter=1000)
+cross_val_auc("LogisticRegression", lr, use_reg=True)
+
+lasso = LassoCV(alphas=np.linspace(0.0001, 100, 1000))
+cross_val_auc("Lasso", lasso, regressor=True)
+
+ridge = RidgeCV(alphas=np.linspace(0.0001, 100, 1000))
+cross_val_auc("Ridge", ridge, regressor=True)
+
+en = ElasticNetCV(alphas=np.linspace(0.0001, 100, 1000), max_iter=10000)
+cross_val_auc("ElasticNet", en, regressor=True)
+
+cross_val_auc("DecisionTreeClassifier", DecisionTreeClassifier(random_state=conf.random))
+
+cross_val_auc("DecisionTreeRegressor", DecisionTreeRegressor(random_state=conf.random), regressor=True)
+
+cross_val_auc("RandomForestClassifier", RandomForestClassifier(random_state=conf.random))
+
+cross_val_auc("RandomForestRegressor", RandomForestRegressor(random_state=conf.random), regressor=True)
+
+cross_val_auc("ExtraTreesClassifier", ExtraTreesClassifier(random_state=conf.random))
+
+cross_val_auc("ExtraTreesRegressor", ExtraTreesRegressor(random_state=conf.random), regressor=True)
+
+cross_val_auc("XGBClassifier", XGBClassifier(random_state=conf.random))
+
+cross_val_auc("XGBRegressor", XGBRegressor(random_state=conf.random), regressor=True)
+
+cross_val_auc("CatBoostClassifier", CatBoostClassifier(verbose = False, random_state=conf.random))
+
+cross_val_auc("CatBoostRegressor", CatBoostRegressor(verbose=False, random_state=conf.random), regressor=True)
+
+cross_val_auc("LGBMClassifier", LGBMClassifier(random_state=conf.random))
+
+cross_val_auc("LGBMRegressor", LGBMRegressor(random_state=conf.random), regressor=True)
+
+```
+
+^f4559d
+
+```python
+# plot to line up all models to compare their performance 
+logs_df = pd.DataFrame(logs.items(), columns=['Model', 'Auc']).sort_values(by="Auc", ascending=False)
+logs_df.Auc = logs_df.Auc.apply(lambda x: int(x*10000)/10000.0)
+logs_df["Label"] = logs_df.apply(lambda x: x["Model"] + " " + str(x["Auc"]), axis=1)
+
+plt.figure(figsize=(14,9))
+ax = sns.barplot(data=logs_df, x="Auc", y="Model",)
+ax.bar_label(ax.containers[0])
+ax.set(xlim=(0, 1))
+```
+
+^3e964b
+
+```python
+params = {
+    'max_depth': np.linspace(5, 50, 10, dtype=int),
+    'min_samples_split': np.linspace(5, 50, 10, dtype=int),
+    'min_samples_leaf': np.linspace(5, 500, 10, dtype=int), # it or below
+    # 'model__min_weight_fraction_leaf': np.linspace(0.001, 0.1, 5),
+    'max_leaf_nodes': np.linspace(5, 100, 10, dtype=int),
+    'max_features': np.linspace(5, 31, 10, dtype=int),
+}
+search_dt = RandomizedSearchCV(DecisionTreeClassifier(random_state=conf.random), n_iter=100, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_dt.fit(tr_clf.fit_transform(x_train), y_train)
+print(search_dt.best_params_)
+print()
+cross_val_auc("DecisionTreeClassifier searched", search_dt.best_estimator_)
+
+
+search_dtr = RandomizedSearchCV(DecisionTreeRegressor(random_state=conf.random), n_iter=100, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_dtr.fit(tr_reg.fit_transform(x_train), y_train)
+print(search_dtr.best_params_)
+print()
+cross_val_auc("DecisionTreeRegressor searched", search_dtr.best_estimator_, regressor=True)
+
+
+search_r = RandomizedSearchCV(RandomForestClassifier(random_state=conf.random), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_r.fit(tr_clf.fit_transform(x_train), y_train)
+print(search_r.best_params_)
+print()
+cross_val_auc("RandomForestClassifier searched", search_r.best_estimator_)
+
+
+search_rr = RandomizedSearchCV(RandomForestRegressor(random_state=conf.random), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_rr.fit(tr_reg.fit_transform(x_train), y_train)
+print(search_rr.best_params_)
+print()
+cross_val_auc("RandomForestRegressor searched", search_rr.best_estimator_, regressor=True)
+
+
+search_et = RandomizedSearchCV(ExtraTreesClassifier(random_state=conf.random), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_et.fit(tr_clf.fit_transform(x_train), y_train)
+print(search_et.best_params_)
+print()
+cross_val_auc("ExtraTreesClassifier searched", search_et.best_estimator_)
+
+
+search_etr = RandomizedSearchCV(ExtraTreesRegressor(random_state=conf.random), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_etr.fit(tr_reg.fit_transform(x_train), y_train)
+print(search_etr.best_params_)
+print()
+cross_val_auc("ExtraTreesRegressor searched", search_etr.best_estimator_, regressor=True)
+
+
+params = {
+    'learning_rate': np.linspace(0.001, 0.2, 10),
+    'max_depth': np.linspace(3, 50, 10, dtype=int),
+    'colsample_bytree': np.linspace(0.01, 0.99, 10),
+    'min_child_weight': np.linspace(1, 100, 10, dtype=int),
+    'gamma': np.linspace(0.01, 0.99, 10),
+    'subsample': np.linspace(0.01, 0.99, 10)
+}
+search_x = RandomizedSearchCV(XGBClassifier(random_state=conf.random), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_x.fit(tr_clf.fit_transform(x_train), y_train)
+print(search_x.best_params_)
+print()
+cross_val_auc("XGBClassifier searched", search_x.best_estimator_)
+
+
+search_xr = RandomizedSearchCV(XGBRegressor(random_state=conf.random), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_xr.fit(tr_reg.fit_transform(x_train), y_train)
+print(search_xr.best_params_)
+print()
+cross_val_auc("XGBRegressor searched", search_xr.best_estimator_, regressor=True)
+
+
+params = {
+    'learning_rate': np.linspace(0.001, 0.2, 10),
+    'l2_leaf_reg': np.linspace(0.001, 10, 10),
+    'max_depth': np.linspace(1, 5, 10, dtype=int),
+    'min_data_in_leaf': np.linspace(1, 250, 10, dtype=int),
+    "colsample_bylevel": np.linspace(0.001, 0.99, 10)
+}
+search_cb = RandomizedSearchCV(CatBoostClassifier(random_state=conf.random, verbose=False), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_cb.fit(tr_clf.fit_transform(x_train), y_train)
+print(search_cb.best_params_)
+print()
+cross_val_auc("CatBoostClassifier searched", search_cb.best_estimator_)
+
+
+search_cbr = RandomizedSearchCV(CatBoostRegressor(random_state=conf.random, verbose=False), n_iter=50, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_cbr.fit(tr_reg.fit_transform(x_train), y_train)
+print(search_cbr.best_params_)
+print()
+cross_val_auc("CatBoostRegressor searched", search_cbr.best_estimator_, regressor=True)
+
+
+params = {
+#     'num_rounds': np.linspace(100, 500, 10, dtype=int),
+    'learning_rate': np.linspace(0.001, 0.2, 10),
+    'num_leaves': np.linspace(10, 500, 10, dtype=int),
+    'max_depth': np.linspace(1, 50, 10, dtype=int),
+    'min_data_in_leaf': np.linspace(1, 250, 10, dtype=int),
+    'lambda_l1': np.linspace(0.001, 0.99, 10),
+    'lambda_l2': np.linspace(0.001, 0.99, 10),
+    'bagging_fraction': np.linspace(0.001, 0.99, 10),
+    'feature_fraction': np.linspace(0.001, 0.99, 10),
+    'min_gain_to_split': np.linspace(1, 10, 10),
+}
+search_l = RandomizedSearchCV(LGBMClassifier(random_state=conf.random, verbose=0), n_iter=20, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_l.fit(tr_clf.fit_transform(x_train), y_train)
+print(search_l.best_params_)
+print()
+cross_val_auc("LGBMClassifier searched", search_l.best_estimator_)
+
+
+
+search_lr = RandomizedSearchCV(LGBMRegressor(random_state=conf.random, verbose=0), n_iter=20, param_distributions=params, scoring="roc_auc", n_jobs=-1, random_state=conf.random)
+search_lr.fit(tr_reg.fit_transform(x_train), y_train)
+print(search_lr.best_params_)
+print()
+cross_val_auc("LGBMRegressor searched", search_lr.best_estimator_, regressor=True)
+```
+
+
 

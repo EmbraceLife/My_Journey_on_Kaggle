@@ -85,7 +85,10 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- how to split large dataset to train models without blowing out GPU and CPU RAM
 - 2023.1.21: inspiration from Radek's newsletter from last week
 	- > Many activities are worth doing, worth participating in, <mark style="background: #FFB8EBA6;">even if you never stand a chance to be the best in the world at them</mark> 
-- 
+- 2023.1.22: Trying to build a template for tabluar classification and regression competition, see twitter thread [here](https://twitter.com/shendusuipian/status/1617165686601842689) 
+- 2023.1.23: Learn from how to do hyperparam search from a  [notebook](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94)  shared #todo;  I started to do some research on github copilot
+- 2023.1.24: I have paused my kaggle work since yesterday, mainly due to a 2-day project, which is whether and how to get me started on working with github copilot efficiently [[Learn about github copilot]]
+
 
 ---
 

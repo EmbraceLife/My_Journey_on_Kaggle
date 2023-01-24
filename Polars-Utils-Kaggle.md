@@ -106,6 +106,11 @@ user [guide](https://github.com/alexmojaki/snoop) on `pp`
 - how to do `argsort` for Series? [cell](https://www.kaggle.com/code/danielliao/eda-training-a-first-model-submission?scriptVersionId=115449369&cellId=34)
 - how to align frames or dfs? [api](https://pola-rs.github.io/polars/py-polars/html/reference/api/polars.align_frames.html)
 
+<mark style="background: #FFB86CA6;">Description of df</mark> 
+
+- in pandas we have `DataFrame.info()`
+- in polars, we have `DataFrame.descriptive` functions, [api](https://pola-rs.github.io/polars/py-polars/html/reference/dataframe/descriptive.html) like `glimpse`, `estimated_size`, `null_count` etc
+
 
 <mark style="background: #FFB86CA6;">How to select with pl.col</mark> 
 
