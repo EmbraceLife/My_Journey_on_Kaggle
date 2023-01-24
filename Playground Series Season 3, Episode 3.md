@@ -83,6 +83,7 @@ From the wikipedia link, I found the following info to be helpful.
 ## <mark style="background: #FFB86CA6;">Baseline and milestone notebooks </mark> 
 
 #### <mark style="background: #FFB8EBA6;">Radek provides a wonderful baseline</mark>  
+
 Radek [notebook](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-submission), Daniel's polars [implementation](https://www.kaggle.com/code/danielliao/build-up-from-radek)
 - generated and original dataset joined 
 - data source label
@@ -92,23 +93,22 @@ Radek [notebook](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-sub
 - default catboost  
 - ensemble the predictions from 20 models
 
+
+#### <mark style="background: #FFB8EBA6;">Run random search for hyperparams on multiple models</mark> 
+[notebook](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94) and a great [comment](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94/comments#2107848) on how to do hyperparameter search
+- 
+- 
+- `
+- 
+- 
+
+
+
+
 #### <mark style="background: #FFB8EBA6;">Other notebooks and discussions to learn from</mark> 
 Highly voted notebooks to check out
 - Radek [explains](https://www.kaggle.com/code/radek1/eda-training-a-1st-model-submission/comments#2103641) why using category label encoder instead of one hot encoding 
 - How to [plot](https://www.kaggle.com/competitions/playground-series-s3e3/discussion/378804) categorical features against attrition 
-- multiple models and grid search for hyperparams, [notebook](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94) and a great [comment](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94/comments#2107848) on how to improve further #todo
-	- more columns to ignore and drop, discovered by looking at the `n_unique` of every column, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=7)  ⚡🔥
-	- plot the target distribution with a pie chart, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=15) , [[Playground Series Season 3, Episode 3#^c48a6d|codes]]
-	- plot numerical columns' distribution against attrition distribution, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=17), [[Playground Series Season 3, Episode 3#^61fa0f|codes]] 
-	- plot distribution of categorical columns and target distribution on subclasses of each categorical column, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=19), [[Playground Series Season 3, Episode 3#^e8eac8|codes]]
-	- what insights can be drawn from the plots above? [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=20) [[Playground Series Season 3, Episode 3#^627662|notes]] 
-	- dimension reduction to see clusters? [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=22), [[Playground Series Season 3, Episode 3#^a50154|codes]] 
-		- how to use `ColumnTransformer` of `sklearn`
-		- > It's a butterfly! =) We can see areas with a higher density of orange dots, but no clear clusters.
-	- how to prepare dataset and build pipelines? [cell1](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=26), [cell2](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=27) , [[Playground Series Season 3, Episode 3#^b51dea|codes]] 
-	- try a bunch of models? [[Playground Series Season 3, Episode 3#^f4559d|codes]] 
-	- plot to line up all models to compare their performance [[Playground Series Season 3, Episode 3#^3e964b|codes]] 
-	- do random search for hyperparams for all models, [cells](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=64), 
 https://www.kaggle.com/code/samuelcortinhas/ps-s3e3-hill-climbing-like-a-gm
 
 
@@ -143,10 +143,19 @@ Excluding `id` and `Attrition`
 ##### <mark style="background: #FFB8EBA6;">How many column to ignore: 2</mark> ,  `id` and `EmployeeNumber`
 
 How do I know which columns to ignore?
-- `id` from `train_generated` and `EmployeeNumber` from `train_original`
-- How to prove that we can safely regard `id` as a useless column? [[Playground Series Season 3, Episode 3#^06bbfb|codes]] 
-- If these two columns actually the similar things, then we can converge their names to `id`. [[Playground Series Season 3, Episode 3#^14eac2|codes]]
+1. How to prove that we can safely regard `id` as a useless column? [[Playground Series Season 3, Episode 3#^06bbfb|codes]] 
+	- `id` from `train_generated` and `EmployeeNumber` from `train_original`
+	- If these two columns actually the similar things, then we can converge their names to `id`. [[Playground Series Season 3, Episode 3#^14eac2|codes]]
+2. more columns to ignore and drop, discovered by looking at the `n_unique` of every column, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=7)  ⚡🔥
 
+##### <mark style="background: #FFB8EBA6;">Plotting the data</mark> 
+
+- plot the target distribution with a pie chart, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=15) , [[Playground Series Season 3, Episode 3#^c48a6d|codes]]
+- plot numerical columns' distribution against attrition distribution, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=17), [[Playground Series Season 3, Episode 3#^61fa0f|codes]] 
+- plot distribution of categorical columns and target distribution on subclasses of each categorical column, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=19), [[Playground Series Season 3, Episode 3#^e8eac8|codes]]
+- what insights can be drawn from the plots above? [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=20) [[Playground Series Season 3, Episode 3#^627662|notes]] 
+- dimension reduction to see clusters? [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=22), [[Playground Series Season 3, Episode 3#^a50154|codes]] 
+	- how to use `ColumnTransformer` of `sklearn
 
 
 ##### <mark style="background: #FFB8EBA6;">How cast dtypes of certain columns to save RAM</mark> 
@@ -204,6 +213,7 @@ Read the codes and outputs in the twitter [thread](https://twitter.com/shendusui
 
 ## <mark style="background: #FFB86CA6;">Template: Build, Train and Predict</mark> 
 
+
 ### <mark style="background: #FFB8EBA6;">What to import for using LightGMB and Catboost</mark> 
 
 #### <mark style="background: #ABF7F7A6;">For predicting employee attrition</mark>  [[Playground Series Season 3, Episode 3#^e3c58a|here]] 
@@ -247,6 +257,18 @@ Read the codes and outputs in the twitter [thread](https://twitter.com/shendusui
 - how to train or `fit` the classifier with `X_train.to_numpy(), y_train.to_numpy()`, `eval_set` and `verbose`?[[Playground Series Season 3, Episode 3#^3490c3|codes]]
 - how to predict with `predict_proba`? [[Playground Series Season 3, Episode 3#^3490c3|codes]]
 
+---
+
+### <mark style="background: #FFB8EBA6;">Build a pipeline for data-preparasion and training</mark> 
+- how to prepare dataset and build pipelines? [cell1](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=26), [cell2](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=27) , [[Playground Series Season 3, Episode 3#^b51dea|codes]] 
+- try a bunch of models? [[Playground Series Season 3, Episode 3#^f4559d|codes]] 
+- plot to line up all models to compare their performance [[Playground Series Season 3, Episode 3#^3e964b|codes]] 
+- do random search for hyperparams for all models, [cells](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=64), 
+- plot the new performances of all the models after hyperparameter search, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=87)
+- create a single function to hand data preparation, training, validation for all models and run a num of selected models, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=89)
+- ensemble the predictions for submission, [cell](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94?scriptVersionId=116717913&cellId=94)
+
+#todo how to integrate the learning below in my template? 
 
 
 ---

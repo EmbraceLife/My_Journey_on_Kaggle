@@ -87,7 +87,8 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- > Many activities are worth doing, worth participating in, <mark style="background: #FFB8EBA6;">even if you never stand a chance to be the best in the world at them</mark> 
 - 2023.1.22: Trying to build a template for tabluar classification and regression competition, see twitter thread [here](https://twitter.com/shendusuipian/status/1617165686601842689) 
 - 2023.1.23: Learn from how to do hyperparam search from a  [notebook](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94)  shared #todo;  I started to do some research on github copilot
-- 2023.1.24: I have paused my kaggle work since yesterday, mainly due to a 2-day project, which is whether and how to get me started on working with github copilot efficiently [[Learn about github copilot]]
+- 2023.1.24: I have paused my kaggle work since yesterday, mainly due to a 2-day project, which is whether and how to get me started on working with github copilot efficiently [[Learn about github copilot and vscode]]. I have done the research (not feeling super useful to me at the moment, but vscode is useful and I get copilot installed to try it out. However, I am feeling losing the momentum and steam in doing kaggle today 😱😱😱 Is it normal, should I rest for a day from worrying not making progress on kaggle work and to get my strength back? Well, get some the template work done, should have peace in sleep now 😂
+- 
 
 
 ---
