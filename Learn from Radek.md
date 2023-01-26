@@ -255,9 +255,44 @@ In this video, we meet several very powerful RecSys concepts that can be extende
 
 ## <mark style="background: #FFB8EBA6;">Radek Newsletter: Is AI overhyped?</mark>  2023.1.17
 
-> Many activities are worth doing, worth participating in, even if you never stand a chance to be the best in the world at them
+> Many activities are worth doing, worth participating in, <mark style="background: #BBFABBA6;">even if you never stand a chance to be the best in the world at them</mark> 
 
 > So is AI overhyped? Yes, as evidenced by the silly tweets, there is a large portion of hype that will always be there and that will always be misguided regardless of how good the underlying technology is.
+
+---
+
+## Radek YT channel: <mark style="background: #FFB8EBA6;">Parallels between learning Machine Learning and starting a YouTube Channel</mark> 
+
+- get started [video](https://youtu.be/4HM8MCIzu-g?t=56) 
+- Thanks Radek, Now I know It's ok that
+	- I don't have to believe I could make a living out of doing DL/ML, but just focusing on pursuing my passion and interest in ML/DL. 
+	- I sometimes get unmotivated and losing steam and do less work, but just keep protecting and curating my interest and keep doing work
+- What's Radek's advices if my dream is to apply ML/DL to my life and the real world?
+	- train, evaluate and deploy your model and keep iterating with kaggle competitions and github repos
+	- don't worry about phDs and learning and developing theories, the best talents who are doing cutting edge work are not necessarily the phDs.
+	- just get hands dirty and keep tinkering and push the boundary forward
+
+
+---
+## Radek YT channel: <mark style="background: #FFB8EBA6;">How to run Merlin RecSys tutorials on Colab for FREE!</mark> 
+
+Tutorial [video](https://youtu.be/YHFJj8-ik-8), and Tutorial notebooks [repo](https://github.com/NVIDIA-Merlin/models/tree/main/examples) 
+- Reading the comments of the notebooks to learn more of the library
+- get start with the first notebook on [colab](https://colab.research.google.com/drive/1zJPZrraNcPbo8DYrAWj4dmHxdWdlGs1p?usp=sharing) 
+- get GPU runtime [video](https://youtu.be/YHFJj8-ik-8?t=103)
+- how to install merlin on colab [video](https://youtu.be/YHFJj8-ik-8?t=209) and the [code](https://medium.com/nvidia-merlin/how-to-run-merlin-on-google-colab-83b5805c63e0) needed 🔥🔥🔥
+- what libraries can't be run on colab [video](https://youtu.be/YHFJj8-ik-8?t=324) 
+	- a lib efficiently serving DL models, created by Nvidia, but need your own server, so not run on colab
+- how does merlin come in? how does mergin do with serving? [video](https://youtu.be/YHFJj8-ik-8?t=372)
+- import and download dataset and an intro to movielens dataset, what is merlin dataset, [video](https://youtu.be/YHFJj8-ik-8?t=442)
+- training, evaluating the model and checking the metrics, [video](https://youtu.be/YHFJj8-ik-8?t=539) 
+- a great exercise: to try different values of hyperparameters of `DLRMModel`, [video](https://youtu.be/YHFJj8-ik-8?t=756)
+	- I tried 3 different `embedding_dim`
+- move on to the next notebook, colab [notebook](https://colab.research.google.com/github/NVIDIA-Merlin/models/blob/main/examples/02-Merlin-Models-and-NVTabular-integration.ipynb#scrollTo=I3xKZO8hRpJi), but have some issues with the proper dataset to use,  [video](https://youtu.be/YHFJj8-ik-8?t=845)
+- get started on the second notebook (problem solved) [video](https://youtu.be/YHFJj8-ik-8?t=1156)
+	- will show us how NvTabular and Merlin work together
+- Wow, 🔥🔥🔥both dataset files downloaded and libraries imported in previous notebook are still available for this second notebook [video](https://youtu.be/YHFJj8-ik-8?t=1366)
+	- use `ls` to check the dataset files out
 
 
 ---

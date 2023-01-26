@@ -1,0 +1,2 @@
+- huggingface competition [first](https://huggingface.co/spaces/competitions/aiornot/discussions)
+- 

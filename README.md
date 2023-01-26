@@ -87,11 +87,13 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- > Many activities are worth doing, worth participating in, <mark style="background: #FFB8EBA6;">even if you never stand a chance to be the best in the world at them</mark> 
 - 2023.1.22: Trying to build a template for tabluar classification and regression competition, see twitter thread [here](https://twitter.com/shendusuipian/status/1617165686601842689) 
 - 2023.1.23: Learn from how to do hyperparam search from a  [notebook](https://www.kaggle.com/code/kirillka95/ps-s03e03-eda-16-models-test-0-94)  shared.  I started to do some research on github copilot
-- 2023.1.24: I have paused my kaggle work since yesterday, mainly due to a 2-day project, which is whether and how to get me started on working with github copilot efficiently [[Learn about github copilot and vscode]]. 
+- 2023.1.24: I have paused my kaggle work since yesterday, mainly due to a 2-day project, which is whether and how to get me started on working with github copilot efficiently [[Learn about chatGPT, codex, vscode]]. 
 	- I have done some research but not feeling the current copilot to be super useful to my needs at the moment. But vscode is useful and I still get copilot installed to try it out. 
 	- However, in the process I found out how powerful chatGPT and codex models are, and I suddenly have a strong urge to do something useful with them for myself. 
 	- Although I integrated a new notebook which taught me how to do random search for hyperparams 🎉🔥 into my template last night (but I didn't rewrite them 😔), maybe partly because of this urge of trying out gpt-3, I am feeling losing the momentum and steam in doing kaggle today 😱😱😱. I fear it may sink my commitment to learn on kaggleIs. I am struggling and looking for compromise between keeping my momentum on kaggle and trying out gpt3. 
-- 
+- 2023.1.26 redefine my learning goals
+	- learn to use chatGPT pro or openai playground to be my coding tutor 
+		- how chatGPT pro differ? 
 
 
 ---
