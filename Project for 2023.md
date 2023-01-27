@@ -27,6 +27,7 @@
 ## <mark style="background: #FFB8EBA6;">My goal for the project</mark> 
 
 I want a personalized tutor focused on a small knowledge pool like 
+- combine chatGPT and Wolfram Alpha together, why and how are already [done](https://twitter.com/renegadesilicon/status/1618918469805965312)
 - fastai docs and codebases
 - merlin docs and codebases
 - DL books by fastai and huggingface etc
@@ -42,7 +43,8 @@ I want a personalized tutor focused on a small knowledge pool like
 
 ## <mark style="background: #FFB8EBA6;">Other people's project to dissect</mark> 
 
-- LangChain AI doc chatbot repo on  [huggingface](https://huggingface.co/spaces/hwchase17/chat-langchain) 🔥🔥🔥🔥🔥🔥
+- LangChain AI doc chatbot repo on  [huggingface](https://huggingface.co/spaces/hwchase17/chat-langchain) 🔥🔥🔥🔥🔥🔥 and the github [repo](git@github.com:hwchase17/chat-langchain.git) 
+- chatGPT + Wolfram + Whisper on [huggingface](https://huggingface.co/spaces/JavaFXpert/Chat-GPT-LangChain) 🔥🔥🔥🔥🔥🔥
 - YOLOPandas: a codingbot on pandas [repo](https://github.com/ccurme/yolopandas) 
 - A book chatbot  [repo](https://github.com/slavingia/askmybook) 
 
