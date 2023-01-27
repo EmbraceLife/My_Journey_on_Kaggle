@@ -93,7 +93,13 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- Although I integrated a new notebook which taught me how to do random search for hyperparams 🎉🔥 into my template last night (but I didn't rewrite them 😔), maybe partly because of this urge of trying out gpt-3, I am feeling losing the momentum and steam in doing kaggle today 😱😱😱. I fear it may sink my commitment to learn on kaggleIs. I am struggling and looking for compromise between keeping my momentum on kaggle and trying out gpt3. 
 - 2023.1.26 redefine my learning goals
 	- learn to use chatGPT pro or openai playground to be my coding tutor 
-		- how chatGPT pro differ? 
+		- how chatGPT pro differ? sounds good by answers from chatGPT
+	- try to use chatGPT to explain codes of merlin.model get started notebook, it works great excepting suggesting codes [[How to make GPT-3 my coding tutor]]
+		- nor does copilot can give me correct code neither, maybe because I am too unfamiliar with the the library from which I ask codes
+- 2023.1.27 tasks today
+	- use chatbot to learn LangChain library
+	- reading its docs to verify the answers from LangChain library
+	- try to understand how YoLoPandas was built and how it work
 
 
 ---

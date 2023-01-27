@@ -297,5 +297,19 @@ Tutorial [video](https://youtu.be/YHFJj8-ik-8), and Tutorial notebooks [repo](ht
 
 ---
 
+## <mark style="background: #FFB8EBA6;">Radek's newsletter Jan 24 2023</mark> 
 
-Read more of my learning from Radek, check [here](https://github.com/EmbraceLife/My_Journey_on_Kaggle/blob/main/Learn%20from%20Radek.md#playground-series-s3e03-competition-on-kaggle--intro)
+> I want to find the 20% that moves the needle by 80%. That is <mark style="background: #D2B3FFA6;">the only way to survive in the modern world</mark> .
+
+> There are just too many capable actors out there on the hunt for our attention.
+
+> But maybe that is all good. Maybe not getting distracted needs to be our daily struggle.
+
+> Not only not getting distracted by Netflix, but also <mark style="background: #D2B3FFA6;">not getting distracted by another free course</mark> that we could passively consume.
+
+​  [Project based learning](https://click.convertkit-mail2.com/8kudnlkkdmfoh0xrwn5fk/3ohphkhq8vpnmdsr/aHR0cHM6Ly9yYWRla29zbXVsc2tpLmNvbS9nb2luZy1mcm9tLW5vdC1iZWluZy1hYmxlLXRvLWNvZGUtdG8tZGVlcC1sZWFybmluZy1oZXJvLw==) where you devise the project and work on it end-to-end is <mark style="background: #FF5582A6;">the holy grail of learning</mark> .
+
+> We all struggle, we all are human. But in the end two things matter:
+
+-   efficient use of your time
+-   investing your time and money where it matters, that is in yourself

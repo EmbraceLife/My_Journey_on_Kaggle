@@ -1,15 +1,3 @@
-# <mark style="background: #FFB8EBA6;">Building my own coding tutor </mark> 
-
-#todo 
-
-- [intro](https://blog.langchain.dev/langchain-chat/) to LangChain AI
-- LangChain AI [doc](https://langchain.readthedocs.io/en/latest/getting_started/getting_started.html)
-- chatbot of docs of LangChain AI [huggingface](https://huggingface.co/spaces/hwchase17/chat-langchain) 
-- make a codingbot on pandas [repo](https://github.com/ccurme/yolopandas)
-- Turn your PDF into embeddings for GPT-3 (part of making a boot into a chatbot [repo](https://github.com/slavingia/askmybook))
-- how to deal with hallucination? 
-	- for each question, generate 3 answers with `temperature` set to `0.2`, `0.7`, `1.2`, the default value is likely to be `0.7` #todo 
-		- `0.2` may help with verifying the quality
 
 
 # <mark style="background: #FFB8EBA6;">How much can chatGPT be a code tutor for me?</mark> 

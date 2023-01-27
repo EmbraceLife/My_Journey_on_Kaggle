@@ -16,8 +16,8 @@
 
 - summarizing text on huggingface, [demo](https://www.youtube.com/watch?v=Bz7aW6vStBw&loop=0) 
 - interaction with chatGPT, [interogation](https://chat.openai.com/chat/e549c8b0-5fd3-4542-a55b-1bb6ede7a5bd) with a series of question on the topic "what is laser"
-- a [video](https://youtu.be/pc8ftlzB2D0?t=175) guide on how to play with openai playground #todo
-- [video](https://youtu.be/kCc8FmEb1nY) build your own GPT by Andrej Karparthy #todo 
+
+- 
 
 ## <mark style="background: #FFB8EBA6;">Useful resources</mark> 
 
