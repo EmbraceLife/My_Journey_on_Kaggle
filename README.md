@@ -100,7 +100,20 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- use chatbot to learn LangChain library
 	- reading its docs to verify the answers from LangChain library
 	- try to understand how YoLoPandas was built and how it work
-
+- 2023.2.3 Self encouragement: don't be afraid of slowness at first, because as you compound on your learning, you will be fast
+- 2023.2.6 I have spent last 7 days working on chat_LangChain and accomplished the following
+	- understanding what does each line do
+	- shared how to run the app on huggingface and local machine
+	- shared my understand of what each part of the codebase do and they interact with each other
+	- experimented on the prompt template to see the magic of prompt engineering
+	- apply the chatbot to a different external data source: a webpage book
+- today's todos
+	- use chat_LangChain to test whether openai set limit on request/min actually affect on weaviate getting all the documents needed
+		- to achieve above, I will try to give it a new weaviate instance <mark style="background: #ADCCFFA6;">done</mark> 
+		- I can't verify the openai query/min limit on huggingface with the hwchase17's demo. So, this is done I think
+	- paper-qa codebase exploration
+	- prompt exploration and collection
+	- I put last week's work on chat_LangChain all in this interconnected [tweet](https://twitter.com/shendusuipian/status/1622577013340147712)
 
 ---
 

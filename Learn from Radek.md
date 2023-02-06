@@ -313,3 +313,52 @@ Tutorial [video](https://youtu.be/YHFJj8-ik-8), and Tutorial notebooks [repo](ht
 
 -   efficient use of your time
 -   investing your time and money where it matters, that is in yourself
+
+---
+
+## <mark style="background: #D2B3FFA6;">Radek's newsletter Jan 31 2023</mark> 
+
+> Not accepting that you are human. That you are vulnerable and fallible.
+
+> <mark style="background: #FF5582A6;">By not telling the complete story of who you are you deeply hurt yourself.</mark> 
+
+> Yes, deleting a tweet after publishing it is 100x better than not tweeting it in the first place.
+
+> But this behavior has its <mark style="background: #FF5582A6;">roots in a sense of shame</mark> . Along with elevated, <mark style="background: #FF5582A6;">unattainable expectations</mark> .
+
+> UNATTAINABLE to you where you are right now in your journey.
+
+> But <mark style="background: #D2B3FFA6;">by not embracing who you are right now you limit your opportunities to learn and to grow.</mark> 
+
+> Our mind evolved to protect us from harm. This is the main reason why we feel so uncomfortable in new situations.
+
+> But if we <mark style="background: #BBFABBA6;">put ourselves in those uncomfortable spots and give our mind the chance to observe that actually, nothing bad happens to us, and we do this repeatedly...</mark> 
+
+> This is how we learn.
+
+> You do not become better by sitting on the bench. You become better by playing the game.
+
+> <mark style="background: #BBFABBA6;">Give yourself the chance. Go out onto the field and swing that bat even if it feels that you stand no chance.</mark> 
+
+> For first 100 swings you do not. But on the 101 swing something magical is likely to happen.
+
+
+---
+
+## Radek's YT channel: Math in Machine Learning, exploring the cutting edge of research, and more!
+
+[00:00](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=0s) Intro
+[01:41](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=101s) What brings Sairam to Twitter? 
+[03:09](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=189s) Is engaging with the community helpful for research work? 
+[05:49](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=349s) How did Sairam get into Machine Learning?
+[08:32](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=512s) What is the role of math in achieving state-of-the-art results?
+[10:03](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=603s) Why are papers written the way they are (and the role of code in sharing ML ideas)
+[13:49](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=829s) How to get started with communicating online (Twitter, blogging, etc)
+[16:11](https://www.youtube.com/watch?v=bnpE_yGQyQA&t=971s) What makes stable diffusion exciting?
+
+<mark style="background: #FFB8EBA6;">Shining points</mark> 
+
+- kaggle discussion can be a place where researchers look for new and promising ideas
+- Coding provides a more natural way to achieve understanding of math
+- It's ok to feel academic papers read like alien languages as more than often they are written with only a super minority audience in mind
+- Sharing on twitter can sharpen your own ideas and understanding of things learnt

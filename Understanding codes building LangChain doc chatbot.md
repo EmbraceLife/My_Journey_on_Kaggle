@@ -1,6 +1,7 @@
 The chatbot repo on huggingface https://huggingface.co/spaces/hwchase17/chat-langchain/tree/main
 My replicate of this repo above https://huggingface.co/spaces/DanielCL/chat-langchain/settings
 - add repo secret for `WEAVIATE_URL`
+- how to make the chatbot answer longer as chatGPT #todo 🔥🔥🔥
 
 ## <mark style="background: #FFB8EBA6;">Q & A from chatGPT and chatLangChain</mark> 
 
@@ -92,13 +93,148 @@ Then I searched a [blog](https://towardsdatascience.com/getting-started-with-wea
 
 #### What does `from chain import get_new_chain1` do?
 
+- this is actually from the local file named `chain` not a module to be installed
+
+
+#### What's the syntax of `weaviate.Client`?
+
+```python
+def get_weaviate_store():
+	
+	client = weaviate.Client(
+		url=WEAVIATE_URL,
+		additional_headers={"X-OpenAI-Api-Key": os.environ["OPENAI_API_KEY"]},
+	)
+	return Weaviate(client, "Paragraph", "content", attributes=["source"])
+```
+
+> `weaviate.Client` is a class that creates a new client to interact with a Weaviate instance. The syntax for creating an instance of this class is as follows:
+
+> `weaviate.Client(url: str, additional_headers: Optional[Dict[str, str]] = None)`
+
+> It takes two arguments:
+
+> -   `url`: a string representing the URL of the Weaviate instance you want to connect to.
+> -   `additional_headers`: an optional dictionary containing additional headers to include in the requests to the Weaviate instance. This parameter can be used to <mark style="background: #ADCCFFA6;">pass an API key for authentication</mark> , for example.
+
+> It returns an object of class `Client` which can be used for further operations on the weaviate instance.
+
+> I am not able to show you the source code of `weaviate.Client` as it is not an open-source library. It is a private function of the Weaviate package, it can be used after installing the package and import it.
+
+
+#### what is the syntax of `Weaviate` from `Weaviate(client, "Paragraph", "content", attributes=["source"])`? Could you explain the syntax in detail for me?
+
+> `Weaviate` is a class that is instantiated with certain parameters passed in as arguments. The syntax of the class is as follows:
+
+
+```python
+Weaviate(client, 
+		 class_name, 
+		 text_property, 
+		 attributes=None, 
+		 vector_property=None, 
+		 vector_aggregator=None, 
+		 vector_normalizer=None)
+```
+
+
+> -   `client`: an instance of `weaviate.Client` class, this is used to connect to the weaviate server.
+> -   `class_name`: a string that represents the name of the class you want to interact with in Weaviate.
+> -   `text_property`: a string that represents the property of the class that contains the text you want to use for semantic search or example selection.
+> -   `attributes`: a list of strings that represents the attributes of the class that you want to retrieve along with the results.
+> -   `vector_property`: a string that represents the property of the class that contains the vector representation of the text.
+> -   `vector_aggregator`: a string that represents the vector aggregator method to use with the vector representation.
+> -   `vector_normalizer`: a string that represents the vector normalizer method to use with the vector representation.
+
+> This class provides an interface to interact with weaviate, it can be used to create, retrieve, update and delete data in weaviate. The `client` parameter is used to connect to the weaviate server. The `class_name`, `text_property`, `attributes`, `vector_property`, `vector_aggregator`, `vector_normalizer` are used to define the schema for the data you want to interact with in weaviate.
+
+> In the example, `Weaviate(client, "Paragraph", "content", attributes=["source"])` creates an instance of the `Weaviate` class and connects it to the weaviate server using the `client` object, which in turn is using `WEAVIATE_URL` and `os.environ["OPENAI_API_KEY"]` as connection properties. <mark style="background: #D2B3FFA6;">This instance is working on class `Paragraph` which has a property `content` that is used for semantic search and example selection, and it also has an attribute `source` that is also retrieved along with the results</mark> .
+
+
+
+#### What does this code on `PromptTemplate` do in detail?
+```python
+_eg_prompt = PromptTemplate(
+        template=_eg_template,
+        input_variables=["chat_history", "question", "answer"],
+    )
+```
+
+
+> The code you provided is creating a `PromptTemplate` object. This object is used to <mark style="background: #ADCCFFA6;">generate prompts</mark> for a language model. It takes a template string and a list of input variables as parameters. <mark style="background: #ADCCFFA6;">The template string is a string with placeholders for the input variables</mark> . The input variables are used to <mark style="background: #ADCCFFA6;">fill in the template string and generate a prompt</mark> . For more information, see [Prompt Templates](https://langchain.readthedocs.io/en/latest/modules/prompts/getting_started.html) in the LangChain documentation.
+
+#### What could the template string include?
+
+> The template string for a PromptTemplate object can include instructions to the language model, a set of few shot examples to help the language model generate a better response, and a question to the language model. For more information, check out the [Prompt Templates](https://langchain.readthedocs.io/en/latest/modules/prompts/key_concepts.html) section of the LangChain documentation.
+
+
+#### Could you explain this code to me in detail? `SemanticSimilarityExampleSelector(vectorstore=eg_store, k=4)`
+
+> The code `SemanticSimilarityExampleSelector(vectorstore=eg_store, k=4)` instantiates a `SemanticSimilarityExampleSelector` class with a vector store `eg_store` and a number of examples to select `k=4`. This class selects few shot examples based on their similarity to the input. You can find more information about this class in the [documentation](https://langchain.readthedocs.io/en/latest/reference/modules/example_selector.html).
+
+#### Could you explain the syntax of `SemanticSimilarityExampleSelector` in detail?
+
+> The `SemanticSimilarityExampleSelector` class selects examples based on their similarity to the input. It uses an embedding model to compute the similarity between the input and the few shot examples, as well as a vector store to perform the nearest neighbor search. To learn more about the syntax of `SemanticSimilarityExampleSelector`, check out the [Example Selection](https://langchain.readthedocs.io/en/latest/modules/prompts/examples/example_selectors.html) section of the LangChain documentation.
+
+#### Why do we need `SemanticSimilarityExampleSelector`?
+
+> The `SemanticSimilarityExampleSelector` is used to select examples based on their semantic similarity to the input. It uses an embedding model to compute the similarity between the input and the few shot examples, as well as a vector store to perform the nearest neighbor search. To learn more about example selectors, see [Example Selection](https://langchain.readthedocs.io/en/latest/modules/prompts/examples/example_selectors.html).
+
+#### Why do we need to select examples instead of just use all examples?
+
+> It is important to select the most relevant examples when there are multiple examples that are relevant to a prompt. This is because the language model will be able to better understand the context of the prompt, and also potentially learn failure modes to avoid. To help the user with selecting the most relevant examples, LangChain provides example selectors that select the most relevant based on different criteria, such as length, semantic similarity, etc. To learn more about example selectors, see [Example Selection](https://langchain.readthedocs.io/en/latest/modules/prompts/examples/example_selectors.html).
+
+#### what classes does `langchain.prompts.example_selector` contain
+
+> The `langchain.prompts.example_selector` module contains two classes: `LengthBasedExampleSelector` and `MaxMarginalRelevanceExampleSelector`. You can find more information about them in the [documentation](https://langchain.readthedocs.io/en/latest/reference/modules/example_selector.html).
+
+
+#### what is the following code on `FewShotPromptTemplate` doing with `example_selector` and `_eg_prompt`? 
+```python
+FewShotPromptTemplate(
+        prefix=_prefix,
+        suffix=_suffix,
+        example_selector=example_selector,
+        example_prompt=_eg_prompt,
+        input_variables=["question", "chat_history"],
+    )
+```
+
+> The code on `FewShotPromptTemplate` is using `example_selector` and `_eg_prompt` to select a subset of examples from a large number of examples and format them into a prompt template. 
+
+
+> The `FewShotPromptTemplate` class takes in a PromptTemplate and a list of few shot examples and formats the prompt template with the few shot examples.
+
+
+#### Why do we need a prompt template?
+
+> Prompt templates are needed to create prompts in a reproducible way. They contain a template string, and a set of input variables. The template string can be formatted with the input variables to generate a prompt.
+
+#### what does `LLMChain(llm=llm, prompt=prompt)` do?
+
+> `LLMChain(llm=llm, prompt=prompt)` creates a chain that takes user input, formats the prompt with it, and then sends it to the LLM. You can learn more about this chain in the [LLM Chain Documentation](https://langchain.readthedocs.io/en/latest/modules/chains/generic/llm_chain.html).
+
+
+
+
+## What docs to learn now
+- Learn more of Prompt [here](https://langchain.readthedocs.io/en/latest/modules/prompts/getting_started.html)
+- Learn more of `FewShotPromptTemplate` [here](https://langchain.readthedocs.io/en/latest/modules/prompts/examples/few_shot_examples.html)
+
+
+## <mark style="background: #FFB86CA6;">TOC of codes</mark> 
+
+- [[Understanding codes building LangChain doc chatbot#^dff7a6|app.py]]
+- [[Understanding codes building LangChain doc chatbot#^112536|chain.py]] 
+
 
 ---
 
 
 ## <mark style="background: #FFB8EBA6;">codes in the repo</mark> 
 
-```txt requirements.txt
+```txt 
+# requirements.txt
 langchain==0.0.64
 beautifulsoup4
 weaviate-client
@@ -110,7 +246,8 @@ transformers
 gradio
 ```
 
-```python app.py
+```python 
+# app.py
 import datetime
 import os
 
@@ -129,7 +266,10 @@ def get_weaviate_store():
         url=WEAVIATE_URL,
         additional_headers={"X-OpenAI-Api-Key": os.environ["OPENAI_API_KEY"]},
     )
-    return Weaviate(client, "Paragraph", "content", attributes=["source"])
+    return Weaviate(client, 
+				    "Paragraph", # class_name
+				    "content", # text_property
+				    attributes=["source"])
 
 
 def set_openai_api_key(api_key, agent):
@@ -137,7 +277,7 @@ def set_openai_api_key(api_key, agent):
         os.environ["OPENAI_API_KEY"] = api_key
         vectorstore = get_weaviate_store()
         qa_chain = get_new_chain1(vectorstore)
-        os.environ["OPENAI_API_KEY"] = ""
+        os.environ["OPENAI_API_KEY"] = "" # using user's openai api key
         return qa_chain
 
 
@@ -213,7 +353,10 @@ block.launch(debug=True)
 
 ```
 
-```python chain.py
+^dff7a6
+
+```python 
+# chain.py
 import json
 import os
 import pathlib
@@ -281,6 +424,7 @@ def get_new_chain1(vectorstore) -> Chain:
     {chat_history}
     Follow Up Input: {question}
     Standalone question: {answer}"""
+    
     _eg_prompt = PromptTemplate(
         template=_eg_template,
         input_variables=["chat_history", "question", "answer"],
@@ -295,7 +439,7 @@ def get_new_chain1(vectorstore) -> Chain:
     Standalone question:"""
     eg_store = Weaviate(
         client,
-        "Rephrase",
+        "Rephrase", # this variable is created by this app developer
         "content",
         attributes=["question", "answer", "chat_history"],
     )
@@ -344,6 +488,8 @@ def _get_chat_history(chat_history: List[Tuple[str, str]]):
     return buffer
 
 ```
+
+^112536
 
 ```python ingest.py
 """Load html from files, clean up, split, ingest into Weaviate."""
