@@ -71,30 +71,12 @@ https://simonwillison.net/tags/promptinjection/
 
 - https://github.com/dair-ai/Prompt-Engineering-Guide#papers
 
-
----
-
-
-# <mark style="background: #FFB86CA6;">What I have accomplished this year</mark> 
-
-## <mark style="background: #FFB8EBA6;">chatbot for LangChain Documentation</mark> 
-
-portal [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) to many tweets for the following content
-
-- a video walkthru on how to run the chatbot on HuggingFace and local machine
-- two walkthrus on concept and code of the chatbot
-- a map on how to explore and experiment projects like this chatbot
-
-<mark style="background: #FFB8EBA6;">Solving error caused by openai request/min limit</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622590777644949504)
-
-<mark style="background: #FFB8EBA6;">Why set temperature to 0 in this documentation chatbot </mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622615230835732481)
-
-
-
 ---
 
 ## <mark style="background: #ADCCFFA6;">Other Resources to explore</mark> 
 
+
+- [semantic scholar](https://www.semanticscholar.org/search?q=prompt%20engineering&sort=influence) , its tweeter [handle](https://twitter.com/SemanticScholar) 
  [GitHub support bot (by Dagster)](https://dagster.io/blog/chatgpt-langchain) - probably the most similar to this in terms of the problem it’s trying to solve
 - [Dr. Doc Search](https://github.com/namuan/dr-doc-search) - converse with a book (PDF)
 - [Simon Willison on “Semantic Search Answers”](https://simonwillison.net/2023/Jan/13/semantic-search-answers/) - a good explanation of the some of the topics here
@@ -110,4 +92,55 @@ portal [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) to 
 - memprompt paper, blog, video https://memprompt.com/
 - [video](https://youtu.be/kCc8FmEb1nY) build your own GPT by Andrej Karparthy #todo 
 
+
+
+
+---
+
+
+# <mark style="background: #FFB86CA6;">What I have accomplished this year</mark> 
+
+<mark style="background: #FFB8EBA6;">How to connect my github through SSH instead of HTTPS</mark> 
+
+Thanks to Suvash Thapaliya | @suvash@thapaliya.com and [others](https://forums.fast.ai/t/beginner-python-git-bash-etc/96282/49) from fastai community,  solution is right [here](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
+
+
+## <mark style="background: #FFB8EBA6;">chatbot for LangChain Documentation</mark> 
+
+portal [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) to many tweets for the following content
+
+- a video walkthru on how to run the chatbot on HuggingFace and local machine
+- two walkthrus on concept and code of the chatbot
+- a map on how to explore and experiment projects like this chatbot
+
+<mark style="background: #FFB8EBA6;">Solving error caused by openai request/min limit with Weaviate</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622590777644949504)
+
+<mark style="background: #FFB8EBA6;">How to solve openai request/min list with FAISS</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623243864210550784) <mark style="background: #FF5582A6;">Failed</mark> 
+
+
+<mark style="background: #FFB8EBA6;">Why set temperature to 0 in this documentation chatbot </mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622615230835732481)
+
+
+<mark style="background: #FFB8EBA6;">How to build chatbot for Fastai Documentation from chat_LangChain template?</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622818455140593666)
+
+
+<mark style="background: #FFB8EBA6;">How to solve the libmagic error when using UnstructuredFileLoader from LangChain</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1622977539869405185)
+
+<mark style="background: #FFB8EBA6;">tutorial and 3 demos of 1st LangChain competition on loading differen data source into LangChain with FAISS</mark> see my [tweet](https://twitter.com/shendusuipian/status/1623269728897712128) for the summary of the tutorial
+
+<mark style="background: #FFB8EBA6;">How to ask chatGPT to explain code snippet as you want</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1623511939493265409) 
+
+<mark style="background: #FFB8EBA6;">How to load different format of data source</mark>  see [llamahub](https://llamahub.ai/l/file-pdf) 
+
+#todo read Rachel's blog to Immunology https://rachel.fast.ai/
+#todo figure out the repo without running code
+#todo make chat_Fastai to load and chat about fastai jupyter notebooks 
+#todo build a gradio app to compare the effect of prompt engineering
+#todo publish my chat_Fastai on huggingface to test out openai request limit is truly solved
+#todo try the same on other documentations, gradio, quarto, polars, pandas
+#todo how to make chatbot on docs more powerful
+
+---
+
+---
 
