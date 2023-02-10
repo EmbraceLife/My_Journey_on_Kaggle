@@ -1,3 +1,87 @@
+
+
+# <mark style="background: #D2B3FFA6;">What are the most important to learn?</mark> 
+
+- prompt engineering to enable personal tutor features
+- qa-papers template + chat_LangChain template = a better chatbot for learning
+
+#todo
+
+- Does chatGPT know fastai docs better than my chat_fastai? of course not
+- create chatbot for 
+	- fastai docs, 
+	- fastcore, 
+	- fastbook, 
+	- all notebooks from fastai repo, 
+	- langchain, 
+	- gpt-index
+	- nbdev
+	- quarto
+- remove request limit from faiss-cpu 
+- fully digest qa-papers
+
+
+# <mark style="background: #FFB86CA6;">What I have accomplished in 2023 year</mark> 
+
+
+## <mark style="background: #FFB8EBA6;">chatbot for LangChain Documentation</mark> 
+
+<mark style="background: #FFB8EBA6;">corrected a bug for paper-qa repo on split long text into chunks with overlap</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623937713543192576)
+
+portal [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) to many tweets for the following content
+
+- a video walkthru on how to run the chatbot on HuggingFace and local machine
+- two walkthrus on concept and code of the chatbot
+- a map on how to explore and experiment projects like this chatbot
+
+<mark style="background: #FFB8EBA6;">Solving error caused by openai request/min limit with Weaviate</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622590777644949504)
+
+<mark style="background: #FFB8EBA6;">How to solve openai request/min list with FAISS</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623243864210550784) <mark style="background: #FF5582A6;">Failed</mark> 
+
+<mark style="background: #FFB8EBA6;">How to remove the request/min limit error using openai's notebook suggestion</mark>  see my [tweet]([Daniel L on Twitter: "More solutions can be found in the notebook provided by @openai documentations https://t.co/bPqx8vnPTt" / Twitter](https://twitter.com/shendusuipian/status/1623634872878383106))
+
+<mark style="background: #FFB8EBA6;">Why set temperature to 0 in this documentation chatbot </mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622615230835732481)
+
+
+<mark style="background: #FFB8EBA6;">How to build chatbot for Fastai Documentation from chat_LangChain template?</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622818455140593666)
+
+
+<mark style="background: #FFB8EBA6;">How to solve the libmagic error when using UnstructuredFileLoader from LangChain</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1622977539869405185)
+
+<mark style="background: #FFB8EBA6;">tutorial and 3 demos of 1st LangChain competition on loading differen data source into LangChain with FAISS</mark> see my [tweet](https://twitter.com/shendusuipian/status/1623269728897712128) for the summary of the tutorial
+
+<mark style="background: #FFB8EBA6;">How to ask chatGPT to explain code snippet as you want</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1623511939493265409) 
+
+<mark style="background: #FFB8EBA6;">How to use chatGPT to teach me word-embedding?</mark>  see [link]([Word Embedding NLP Explanation (openai.com)](https://chat.openai.com/chat/a42c0408-02a7-4a2b-8d8f-c11b12720ed1))
+
+
+
+<mark style="background: #FFB8EBA6;">How to load different format of data source</mark>  see [llamahub](https://llamahub.ai/l/file-pdf) 
+
+#todo read Rachel's blog to Immunology https://rachel.fast.ai/
+#todo chat_Fastai + weaviate (get rid of requset limit error): docs on the web, fastai book in markdown or pdf, jupyter notebook in markdown 
+#todo what are the prompts used by chatGPT to act as a personal tutor
+#todo build a gradio app to compare the effect of prompt engineering
+#todo try the same on other documentations, gradio, quarto, polars, pandas
+#todo how to make chatbot on docs more powerful
+
+---
+
+# Important findings in 2022
+
+<mark style="background: #FFB8EBA6;">How to connect my github through SSH instead of HTTPS</mark> 
+
+Thanks to Suvash Thapaliya | @suvash@thapaliya.com and [others](https://forums.fast.ai/t/beginner-python-git-bash-etc/96282/49) from fastai community,  solution is right [here](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
+
+
+
+---
+
+
+
+
+
+
 # Prompt Engineering
 - A great blog [post](https://lspace.swyx.io/p/reverse-prompt-eng) to demo reverse prompt engineering
 - Prompt Engineering Resources [repo](https://github.com/dair-ai/Prompt-Engineering-Guide)
@@ -98,49 +182,6 @@ https://simonwillison.net/tags/promptinjection/
 ---
 
 
-# <mark style="background: #FFB86CA6;">What I have accomplished this year</mark> 
-
-<mark style="background: #FFB8EBA6;">How to connect my github through SSH instead of HTTPS</mark> 
-
-Thanks to Suvash Thapaliya | @suvash@thapaliya.com and [others](https://forums.fast.ai/t/beginner-python-git-bash-etc/96282/49) from fastai community,  solution is right [here](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
-
-
-## <mark style="background: #FFB8EBA6;">chatbot for LangChain Documentation</mark> 
-
-portal [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) to many tweets for the following content
-
-- a video walkthru on how to run the chatbot on HuggingFace and local machine
-- two walkthrus on concept and code of the chatbot
-- a map on how to explore and experiment projects like this chatbot
-
-<mark style="background: #FFB8EBA6;">Solving error caused by openai request/min limit with Weaviate</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622590777644949504)
-
-<mark style="background: #FFB8EBA6;">How to solve openai request/min list with FAISS</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623243864210550784) <mark style="background: #FF5582A6;">Failed</mark> 
-
-
-<mark style="background: #FFB8EBA6;">Why set temperature to 0 in this documentation chatbot </mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622615230835732481)
-
-
-<mark style="background: #FFB8EBA6;">How to build chatbot for Fastai Documentation from chat_LangChain template?</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622818455140593666)
-
-
-<mark style="background: #FFB8EBA6;">How to solve the libmagic error when using UnstructuredFileLoader from LangChain</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1622977539869405185)
-
-<mark style="background: #FFB8EBA6;">tutorial and 3 demos of 1st LangChain competition on loading differen data source into LangChain with FAISS</mark> see my [tweet](https://twitter.com/shendusuipian/status/1623269728897712128) for the summary of the tutorial
-
-<mark style="background: #FFB8EBA6;">How to ask chatGPT to explain code snippet as you want</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1623511939493265409) 
-
-<mark style="background: #FFB8EBA6;">How to load different format of data source</mark>  see [llamahub](https://llamahub.ai/l/file-pdf) 
-
-#todo read Rachel's blog to Immunology https://rachel.fast.ai/
-#todo figure out the repo without running code
-#todo make chat_Fastai to load and chat about fastai jupyter notebooks 
-#todo build a gradio app to compare the effect of prompt engineering
-#todo publish my chat_Fastai on huggingface to test out openai request limit is truly solved
-#todo try the same on other documentations, gradio, quarto, polars, pandas
-#todo how to make chatbot on docs more powerful
-
----
 
 ---
 
