@@ -6,55 +6,118 @@
 - qa-papers template + chat_LangChain template = a better chatbot for learning
 
 #todo
-
-- Does chatGPT know fastai docs better than my chat_fastai? of course not
+- multi-models interaction project [enable ChatGPT to “see” imagesMedium](https://medium.com/@chankhavu/playing-dixit-with-chatgpt-creative-image-captioning-is-solved-599e11f2da79#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImI0OWM1MDYyZDg5MGY1Y2U0NDllODkwYzg4ZThkZDk4YzRmZWUwYWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NzYzMzQ5NDIsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwODczOTgyODgxNDAxMzk2NzM0OSIsImVtYWlsIjoicHlzdHJhdGVneWV4cGxvcmVyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoi5rex5bqm56KO54mHIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FFZEZUcDZpMTRGYWY5WV9XTUZnOHFWTXFqbllTM18ydF9fT2lkazhUOWVRSHc9czk2LWMiLCJnaXZlbl9uYW1lIjoi5rex5bqm56KO54mHIiwiaWF0IjoxNjc2MzM1MjQyLCJleHAiOjE2NzYzMzg4NDIsImp0aSI6ImY3OGUwZWQzZDg5YWMzODM4ZDQxYWEwYjk3NTdiZjg0YTIzY2VjOTEifQ.stPhnZcIk7pNLHfmROZrb5P-sdC7mLIkXU_KWHDUreu-VvMOWHe0dVKGal4Kv-JDZDFt7Sk0YpSbNC0dbkqeqYqsm8cBrdQKbvGD2JSleHAzuZ9UAjI1wh8AkOYY-bOTYteI6de17iE-nMdYiJNeMLmduMf05qZTJDmyJZkNQ07TpAMqF5BnmxxQ-IqzQPNW1qL1-pz2Oka9b38Q7SNSVwLZLJkFU1_oaUENUOXQ_pkpP2HOYW_rk-y-w4lJIgs6GHn_hiLGcwouUYIvy73reyMleoOVQnsXPly7C_hgjYHVxZACTqQCPXsRGNzkAZ1GUq9FhzmSI4eZzOcO7hOZxg)  🌈
+- Does chatGPT know fastai docs better than my chat_fastai? of course not 
 - create chatbot for 
 	- fastai docs, 
 	- fastcore, 
-	- fastbook, 
+	- fastbook,
+		- #todo how to make it to generate longer and engaging answers? 
+			- use local interface for faster interaction
+			- improving the prompts
+			- how useful is the standalone question?
+			- remove the unnecessary output: keep all the prompt and completion
 	- all notebooks from fastai repo, 
 	- langchain, 
-	- gpt-index
+	- gpt-index and paperqa 
+		- #todo read this tweet carefully [tweet](https://twitter.com/cuong_qnguyen/status/1624701911822630912)
 	- nbdev
 	- quarto
 - remove request limit from faiss-cpu 
 - fully digest qa-papers
 
+#todo 
+- create a gradio textbox which can display a large scrollable textbox Whitead's gradio app can do it [Paper Qa - a Hugging Face Space by whitead](https://huggingface.co/spaces/whitead/paper-qa), check out [Full Text Search - Hugging Face](https://huggingface.co/search/full-text?type=space)
+
+---
+#todo 
+
+meta prompt for my personalized chatbot for learning
+- friendly tone, informal style, length, child
+- newbie vs medium level or advanced
+
 
 # <mark style="background: #FFB86CA6;">What I have accomplished in 2023 year</mark> 
 
 
-## <mark style="background: #FFB8EBA6;">chatbot for LangChain Documentation</mark> 
-
-<mark style="background: #FFB8EBA6;">corrected a bug for paper-qa repo on split long text into chunks with overlap</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623937713543192576)
-
-portal [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) to many tweets for the following content
-
-- a video walkthru on how to run the chatbot on HuggingFace and local machine
-- two walkthrus on concept and code of the chatbot
-- a map on how to explore and experiment projects like this chatbot
-
-<mark style="background: #FFB8EBA6;">Solving error caused by openai request/min limit with Weaviate</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622590777644949504)
-
-<mark style="background: #FFB8EBA6;">How to solve openai request/min list with FAISS</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623243864210550784) <mark style="background: #FF5582A6;">Failed</mark> 
-
-<mark style="background: #FFB8EBA6;">How to remove the request/min limit error using openai's notebook suggestion</mark>  see my [tweet]([Daniel L on Twitter: "More solutions can be found in the notebook provided by @openai documentations https://t.co/bPqx8vnPTt" / Twitter](https://twitter.com/shendusuipian/status/1623634872878383106))
-
-<mark style="background: #FFB8EBA6;">Why set temperature to 0 in this documentation chatbot </mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622615230835732481)
 
 
-<mark style="background: #FFB8EBA6;">How to build chatbot for Fastai Documentation from chat_LangChain template?</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622818455140593666)
+## <mark style="background: #FFB8EBA6;">Prompt Engineering</mark> 
+
+<mark style="background: #FFB8EBA6;">I asked chatGPT to reveal its meta prompt and write meta prompts for my chatbot</mark> , see my chatGPT [AI Model Guidelines Brief (openai.com)](https://chat.openai.com/chat/8e116a3f-621a-453f-a280-6c77db8852fa), see my [tweet](https://twitter.com/shendusuipian/status/1624398098989740033)
+#todo
+- ask chatGPT to improve on the prompts of paper-qa
 
 
-<mark style="background: #FFB8EBA6;">How to solve the libmagic error when using UnstructuredFileLoader from LangChain</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1622977539869405185)
+<mark style="background: #FFB8EBA6;">Kevin Liu and Marvin von Hagen asked Bing AI to reveal its instructions</mark> , see [witter](https://twitter.com/kliu128/status/1623472922374574080), [Twitter](https://twitter.com/marvinvonhagen/status/1623658144349011971)
+#todo 
+- what can I learn from these?
 
-<mark style="background: #FFB8EBA6;">tutorial and 3 demos of 1st LangChain competition on loading differen data source into LangChain with FAISS</mark> see my [tweet](https://twitter.com/shendusuipian/status/1623269728897712128) for the summary of the tutorial
+
+## What has chatGPT taugh me?
+
+#todo ask chatGPT to find out why one prompt can't stop hallucination between paperqa and chat_langchain?
+
+<mark style="background: #FFB8EBA6;">explain openai api usage logs to me</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1624925808279302147) 
+
+<mark style="background: #FFB8EBA6;">chatGPT amazingly explained the following code block to me</mark>  [Reduce Function Explanation (openai.com)](https://chat.openai.com/chat/0c4a9b85-f5d2-44af-84aa-2267f49bf2ca) to be shared on tweet
+
 
 <mark style="background: #FFB8EBA6;">How to ask chatGPT to explain code snippet as you want</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1623511939493265409) 
 
 <mark style="background: #FFB8EBA6;">How to use chatGPT to teach me word-embedding?</mark>  see [link]([Word Embedding NLP Explanation (openai.com)](https://chat.openai.com/chat/a42c0408-02a7-4a2b-8d8f-c11b12720ed1))
 
 
+## Paperqa exploration
+
+#todo 
+- ask chatGPT to find out why one prompt can't stop hallucination between paperqa and chat_langchain?
+- build the chatbot so that it can generate two answers from 2 prompts?
+- improve chat_langchain and gpt-index, fastbook and transformer book to the level of paperqa so that I can really learn from them deeply
+- explore prompt enginerring of paperqa and chat_langchain in chatGPT
+- make chatGPT to be my tutor on documentations
+
+<mark style="background: #FFB8EBA6;">create and share my added features to paperqa</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1625079571304554497) 
+
+<mark style="background: #FFB8EBA6;">What do we feed to our chatbots?</mark>  <mark style="background: #FFB8EBA6;">How to keep nice references for each relevant docs</mark> see my [tweet](https://twitter.com/shendusuipian/status/1624984449711742976) #todos
+
+
+<mark style="background: #FFB8EBA6;">What is the cost running paper-qa consist of? How to keep the cost to the minimum?</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1624356858629853184) 
+#todo 
+- does openai charge on the num of token generated? test it with the number of generated words limited (tested, see cost tomorrow on [openai](https://platform.openai.com/account/usage)))
+- maybe add template code to save and load vectorestore to save cost 
+- add new docs to the existing vectorestore to save cost
+
+<mark style="background: #FFB8EBA6;">corrected a bug for paper-qa repo on split long text into chunks with overlap</mark> , and <mark style="background: #FFB8EBA6;">another bugy is found too</mark>  and <mark style="background: #FFB8EBA6;">corrected the usage on `k` and `max_sources`</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623937713543192576)
+
+
+<mark style="background: #FFB8EBA6;">Find out Whitead's students project on paperqa and wazy libraries</mark> , see [his tweet](https://twitter.com/andrewwhite01/status/1624174607262515201)
+
+
+## OpenAI API 
+
+<mark style="background: #FFB8EBA6;">Solving error caused by openai request/min limit with Weaviate</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622590777644949504)
+
+<mark style="background: #FFB8EBA6;">How to solve openai request/min list with FAISS</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1623243864210550784) <mark style="background: #FF5582A6;">Failed</mark> 
+
+<mark style="background: #FFB8EBA6;">How to remove the request/min limit error using openai's notebook suggestion</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1623634872878383106)
+
+
+## Chat_LangChain
+
+<mark style="background: #FFB8EBA6;">Why set temperature to 0 in this documentation chatbot </mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622615230835732481)
+
+<mark style="background: #FFB8EBA6;">How to build chatbot for Fastai Documentation from chat_LangChain template?</mark> , see my [tweet](https://twitter.com/shendusuipian/status/1622818455140593666)
+
+<mark style="background: #FFB8EBA6;">How to solve the libmagic error when using UnstructuredFileLoader from LangChain</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1622977539869405185)
+
+<mark style="background: #FFB8EBA6;">tutorial and 3 demos of 1st LangChain competition on loading differen data source into LangChain with FAISS</mark> see my [tweet](https://twitter.com/shendusuipian/status/1623269728897712128) for the summary of the tutorial
+
+
+<mark style="background: #FFB8EBA6;">My starting point of openai LLM models, my journey on the chatbot on LangChain library</mark> , see my  [tweet](https://twitter.com/shendusuipian/status/1622577013340147712) 
+- a video walkthru on how to run the chatbot on HuggingFace and local machine
+- two walkthrus on concept and code of the chatbot
+- a map on how to explore and experiment projects like this chatbot
 
 <mark style="background: #FFB8EBA6;">How to load different format of data source</mark>  see [llamahub](https://llamahub.ai/l/file-pdf) 
 
