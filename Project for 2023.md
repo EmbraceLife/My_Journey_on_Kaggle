@@ -1,45 +1,10 @@
 
 
-# <mark style="background: #D2B3FFA6;">What are the most important to learn?</mark> 
-
-- prompt engineering to enable personal tutor features
-- qa-papers template + chat_LangChain template = a better chatbot for learning
-
-#todo
-- multi-models interaction project [enable ChatGPT to “see” imagesMedium](https://medium.com/@chankhavu/playing-dixit-with-chatgpt-creative-image-captioning-is-solved-599e11f2da79#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImI0OWM1MDYyZDg5MGY1Y2U0NDllODkwYzg4ZThkZDk4YzRmZWUwYWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NzYzMzQ5NDIsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwODczOTgyODgxNDAxMzk2NzM0OSIsImVtYWlsIjoicHlzdHJhdGVneWV4cGxvcmVyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoi5rex5bqm56KO54mHIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FFZEZUcDZpMTRGYWY5WV9XTUZnOHFWTXFqbllTM18ydF9fT2lkazhUOWVRSHc9czk2LWMiLCJnaXZlbl9uYW1lIjoi5rex5bqm56KO54mHIiwiaWF0IjoxNjc2MzM1MjQyLCJleHAiOjE2NzYzMzg4NDIsImp0aSI6ImY3OGUwZWQzZDg5YWMzODM4ZDQxYWEwYjk3NTdiZjg0YTIzY2VjOTEifQ.stPhnZcIk7pNLHfmROZrb5P-sdC7mLIkXU_KWHDUreu-VvMOWHe0dVKGal4Kv-JDZDFt7Sk0YpSbNC0dbkqeqYqsm8cBrdQKbvGD2JSleHAzuZ9UAjI1wh8AkOYY-bOTYteI6de17iE-nMdYiJNeMLmduMf05qZTJDmyJZkNQ07TpAMqF5BnmxxQ-IqzQPNW1qL1-pz2Oka9b38Q7SNSVwLZLJkFU1_oaUENUOXQ_pkpP2HOYW_rk-y-w4lJIgs6GHn_hiLGcwouUYIvy73reyMleoOVQnsXPly7C_hgjYHVxZACTqQCPXsRGNzkAZ1GUq9FhzmSI4eZzOcO7hOZxg)  🌈
-- Does chatGPT know fastai docs better than my chat_fastai? of course not 
-- create chatbot for 
-	- fastai docs, 
-	- fastcore, 
-	- fastbook,
-		- #todo how to make it to generate longer and engaging answers? 
-			- use local interface for faster interaction
-			- improving the prompts
-			- how useful is the standalone question?
-			- remove the unnecessary output: keep all the prompt and completion
-	- all notebooks from fastai repo, 
-	- langchain, 
-	- gpt-index and paperqa 
-		- #todo read this tweet carefully [tweet](https://twitter.com/cuong_qnguyen/status/1624701911822630912)
-	- nbdev
-	- quarto
-- remove request limit from faiss-cpu 
-- fully digest qa-papers
-
-#todo 
-- create a gradio textbox which can display a large scrollable textbox Whitead's gradio app can do it [Paper Qa - a Hugging Face Space by whitead](https://huggingface.co/spaces/whitead/paper-qa), check out [Full Text Search - Hugging Face](https://huggingface.co/search/full-text?type=space)
-
----
-#todo 
-
-meta prompt for my personalized chatbot for learning
-- friendly tone, informal style, length, child
-- newbie vs medium level or advanced
-
-
 # <mark style="background: #FFB86CA6;">What I have accomplished in 2023 year</mark> 
 
+## Twitter hashtags
 
+#explore_langchain #paperqa #explore_StabilityAI #teach_me_chatGPT #prompt_engineering #explore_GPT #my_journey_reflection #digging_gold #explore_stable_diffusion #chat_LangChain #NLU #explore_DSP #papers 
 
 
 ## <mark style="background: #FFB8EBA6;">Prompt Engineering</mark> 
@@ -54,18 +19,29 @@ meta prompt for my personalized chatbot for learning
 - what can I learn from these?
 
 
-## What has chatGPT taugh me?
+## Copilot me ChatGPT
 
-#todo ask chatGPT to find out why one prompt can't stop hallucination between paperqa and chat_langchain?
+bootstrap [ShareGPT](https://sharegpt.com/c/s451KYb)
 
-<mark style="background: #FFB8EBA6;">explain openai api usage logs to me</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1624925808279302147) 
+How to use free chatGPT to copilot me studying documentations? see my [tweet](https://twitter.com/shendusuipian/status/1625495867280220161)
 
-<mark style="background: #FFB8EBA6;">chatGPT amazingly explained the following code block to me</mark>  [Reduce Function Explanation (openai.com)](https://chat.openai.com/chat/0c4a9b85-f5d2-44af-84aa-2267f49bf2ca) to be shared on tweet
+How and how well can chatGPT remember chat history to provide me answers with relevant knowledge given earlier?
+
+-   I explored the topic on [reference-memory](https://chat.openai.com/chat/978bd7c0-9cbb-4fc7-9eca-e3b98fea9b41) on chatGPT
+-   I am exploring how well chatGPT can behave as my copilot in learning LangChain
+
+[#todo](app://obsidian.md/index.html#todo) ask chatGPT to find out why one prompt can't stop hallucination between paperqa and chat_langchain?
+
+explain openai api usage logs to me see my [tweet](https://twitter.com/shendusuipian/status/1624925808279302147)
+
+chatGPT amazingly explained the following code block to me [Reduce Function Explanation (openai.com)](https://chat.openai.com/chat/0c4a9b85-f5d2-44af-84aa-2267f49bf2ca) to be shared on tweet
+
+How to ask chatGPT to explain code snippet as you want see my [tweet](https://twitter.com/shendusuipian/status/1623511939493265409)
+
+How to use chatGPT to teach me word-embedding? see [link]([Word Embedding NLP Explanation (openai.com)](https://chat.openai.com/chat/a42c0408-02a7-4a2b-8d8f-c11b12720ed1))
 
 
-<mark style="background: #FFB8EBA6;">How to ask chatGPT to explain code snippet as you want</mark>  see my [tweet](https://twitter.com/shendusuipian/status/1623511939493265409) 
 
-<mark style="background: #FFB8EBA6;">How to use chatGPT to teach me word-embedding?</mark>  see [link]([Word Embedding NLP Explanation (openai.com)](https://chat.openai.com/chat/a42c0408-02a7-4a2b-8d8f-c11b12720ed1))
 
 
 ## Paperqa exploration
@@ -130,7 +106,7 @@ meta prompt for my personalized chatbot for learning
 
 ---
 
-# Important findings in 2022
+# <mark style="background: #FFB86CA6;">Important findings in 2022</mark> 
 
 <mark style="background: #FFB8EBA6;">How to connect my github through SSH instead of HTTPS</mark> 
 
@@ -239,12 +215,4 @@ https://simonwillison.net/tags/promptinjection/
 - memprompt paper, blog, video https://memprompt.com/
 - [video](https://youtu.be/kCc8FmEb1nY) build your own GPT by Andrej Karparthy #todo 
 
-
-
-
----
-
-
-
----
 
