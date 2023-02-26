@@ -114,6 +114,15 @@ Learn from amazing Kagglers on Kaggle like Radek on [twitter](https://twitter.co
 	- paper-qa codebase exploration
 	- prompt exploration and collection
 	- I put last week's work on chat_LangChain all in this interconnected [tweet](https://twitter.com/shendusuipian/status/1622577013340147712)
+- 2023.2.25
+	- I have not done journal for a while. I think the inner fear and laziness had won over the last two weeks. I was felt defeated in reading the dsp paper because of slow going (even though I learnt quite a lot and it is a very well written and beginner friendly paper). I also felt defeated because the source code of dsp was quite hard to understand, and the progress was slow. All these defeated feelings prevented me from puting them down into words, not mention to let others know through twitter.
+	- However, this kind of defeat will be normal if I am keep learning, so I must get used to it. In fact, the only way to get over those defeated feeling is to hang in there and no matter how slow I move just think about or reflect the problems everyday. As days go by, the average human mind will connect the dots for me, and then I will see apparent progress no matter how small they may seem later on (which itself is again a defeated feeling in the future)
+	- In fact, why exist such defeated feeling, isn't it normal...
+	- now, I still have not finished reading and experimenting the [dsp source code](https://github.com/EmbraceLife/dsp), but I can see my progress which seems so hard 2 days ago. I have figured out how to experiment the source code without messing up the cached examples, and I have experimented enough to confirm the usefulness of github copilot in helping me learning and commenting on source codes
+- 2023.2.26
+	- any more best practices (like visit up to 20 files of relevant source code) to use github copolit, see [tweet](https://twitter.com/parth007_96/status/1604160949434421248)
+	- the experience of using copilot to read and comment source code is getting better and better
+	- install codeium as a free alternative to github copilot (but only use it when copilot is not available)
 
 ---
 

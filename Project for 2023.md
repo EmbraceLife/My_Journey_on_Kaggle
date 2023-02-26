@@ -5,7 +5,7 @@
 ## Twitter hashtags
 
 #explore_langchain #paperqa #explore_StabilityAI #teach_me_chatGPT #prompt_engineering #explore_GPT #my_journey_reflection #digging_gold #explore_stable_diffusion #chat_LangChain #NLU #explore_DSP #papers 
-
+#anthropic_constitutionalAI #explore_anki
 
 ## <mark style="background: #FFB8EBA6;">Prompt Engineering</mark> 
 
@@ -20,6 +20,8 @@
 
 
 ## Copilot me ChatGPT
+
+Explain code block on `Cache` for library `dsp`, see https://shareg.pt/wxRLHxB
 
 bootstrap [ShareGPT](https://sharegpt.com/c/s451KYb)
 
@@ -42,7 +44,9 @@ How to use chatGPT to teach me word-embedding? see [link]([Word Embedding NLP Ex
 
 
 
+## HuggingFace models
 
+[Full Text Search - Hugging Face](https://huggingface.co/search/full-text?q=t5-xxl&type=space)
 
 ## Paperqa exploration
 
